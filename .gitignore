@@ -1,0 +1,9 @@
+# directories
+node_modules
+dist
+
+# macos
+.DS_Store
+.AppleDouble
+.LSOverride
+._*

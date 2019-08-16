@@ -1,0 +1,41 @@
+{
+    "name": "robinloeffel",
+    "version": "0.0.1",
+    "description": "portfolio",
+    "repository": "https://github.com/rbnlffl/robinloeffel.git",
+    "author": "Robin Löffel <hi@robinloeffel.ch> (https://robinloeffel.ch)",
+    "license": "MIT",
+    "dependencies": {
+        "@babel/core": "^7.5.5",
+        "@babel/preset-env": "^7.5.5",
+        "babel-eslint": "^10.0.2",
+        "core-js": "^3.2.1",
+        "del": "^5.0.0",
+        "eslint": "^6.1.0",
+        "gulp": "^4.0.2",
+        "gulp-autoprefixer": "^6.1.0",
+        "gulp-better-rollup": "^4.0.1",
+        "gulp-clean-css": "^4.2.0",
+        "gulp-connect": "^5.7.0",
+        "gulp-imagemin": "^6.0.0",
+        "gulp-noop": "^1.0.0",
+        "gulp-plumber": "^1.2.1",
+        "gulp-sass": "^4.0.2",
+        "gulp-stylelint": "^9.0.0",
+        "open": "^6.4.0",
+        "rollup": "^1.19.4",
+        "rollup-plugin-babel": "^4.3.3",
+        "rollup-plugin-commonjs": "^10.0.2",
+        "rollup-plugin-eslint": "^7.0.0",
+        "rollup-plugin-node-resolve": "^5.2.0",
+        "rollup-plugin-terser": "^5.1.1",
+        "stylelint": "^10.1.0",
+        "stylelint-config-standard": "^18.3.0",
+        "stylelint-scss": "^3.9.3"
+    },
+    "scripts": {
+        "start": "gulp --dev",
+        "prod": "gulp",
+        "dist": "gulp build"
+    }
+}
