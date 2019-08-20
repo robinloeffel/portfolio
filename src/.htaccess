@@ -1,0 +1,7 @@
+# hsts header
+Header set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload" env=HTTPS
+
+# http to https
+RewriteEngine On
+RewriteCond %{HTTPS} =off
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [QSA,L,R=301]
