@@ -4,11 +4,13 @@ const del = require('del');
 const plumber = require('gulp-plumber');
 const connect = require('gulp-connect');
 const sass = require('gulp-sass');
-const autoprefixer = require('gulp-autoprefixer');
-const cleanCss = require('gulp-clean-css');
 const imagemin = require('gulp-imagemin');
 const noop = require('gulp-noop');
 const stylelint = require('gulp-stylelint');
+
+const postcss = require('gulp-postcss');
+const autoprefixer = require('autoprefixer');
+const cssnano = require('cssnano');
 
 const rollup = require('gulp-better-rollup');
 const babel = require('rollup-plugin-babel');
@@ -37,8 +39,10 @@ gulp.task('css:transpile', () => {
         })
         .pipe(plumber())
         .pipe(sass.sync())
-        .pipe(devEnv ? noop() : autoprefixer())
-        .pipe(devEnv ? noop() : cleanCss())
+        .pipe(!devEnv ? postcss([
+            autoprefixer(),
+            cssnano()
+        ]) : noop())
         .pipe(gulp.dest('dist/css/', {
             sourcemaps: '.'
         }))
@@ -49,7 +53,6 @@ gulp.task('css:lint', () => {
     return gulp.src('src/scss/**/*')
         .pipe(plumber())
         .pipe(devEnv ? stylelint({
-            syntax: 'scss',
             reporters: [{
                 formatter: 'string',
                 console: true
@@ -68,7 +71,7 @@ gulp.task('js', () => {
                 commonjs(),
                 eslint(),
                 babel(),
-                ...(devEnv ? [] : [terser()])
+                ...(!devEnv ? [terser()] : [])
             ]
         }, {
             format: 'iife'
