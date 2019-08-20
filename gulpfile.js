@@ -92,7 +92,11 @@ gulp.task('img', () => {
             imagemin.optipng({
                 optimizationLevel: 7
             }),
-            imagemin.svgo()
+            imagemin.svgo(),
+            imagemin.gifsicle({
+                interlaced: true,
+                optimizationLevel: 3
+            })
         ], {
             verbose: true
         }))

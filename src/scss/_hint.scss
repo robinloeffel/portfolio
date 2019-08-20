@@ -1,0 +1,29 @@
+.hint {
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    text-decoration: underline;
+    cursor: help;
+
+    &::after {
+        content: attr(data-text);
+        position: absolute;
+        top: -55px;
+        pointer-events: none;
+        font-size: 60%;
+        width: max-content;
+        opacity: 0;
+        transition: transform .25s ease-in-out, opacity .25s ease-in-out;
+        padding: 15px 25px;
+        border-radius: 10px;
+        background-color: transparentize($colorTextBase, .1);
+    }
+
+    &:hover {
+        &::after {
+            transform: translateY(-10px);
+            opacity: 1;
+            pointer-events: auto;
+        }
+    }
+}

@@ -7,6 +7,13 @@
     max-width: 960px;
     color: white;
 
+    &-title {
+        font-size: 200%;
+        position: absolute;
+        overflow: hidden;
+        transition: opacity .5s ease-in-out;
+    }
+
     &-link {
         position: absolute;
         display: flex;
@@ -36,19 +43,24 @@
             transition: opacity .5s ease-in-out;
         }
 
+        &.portfolio::after {
+            background: linear-gradient(90deg, #d53369 0%, #daae51 100%);
+        }
+
+        &.swissplant::after {
+            background: linear-gradient(90deg, #FDBB2D 0%, #3A1C71 100%);
+        }
+
+        &.agricontrol::after {
+            background: linear-gradient(90deg, #FC466B 0%, #3F5EFB 100%);
+        }
+
         &:hover {
-            transform: translateX(-100px) scale(.9);
+            transform: scale(.95);
 
-            &::after {
-                opacity: 0;
-            }
-
+            &::after,
             .project-title {
                 opacity: 0;
-            }
-
-            + .project-description {
-                transform: translateX(100px);
             }
         }
     }
@@ -60,21 +72,6 @@
         object-fit: cover;
         object-position: center;
         z-index: -1;
-    }
-
-    &-title {
-        font-size: 200%;
-        position: absolute;
-        overflow: hidden;
-        transition: opacity .5s ease-in-out;
-    }
-
-    &-description {
-        position: absolute;
-        right: 0;
-        color: $colorTextBase;
-        transition: transform .5s ease-in-out;
-        width: 200px;
     }
 
     &::after {
