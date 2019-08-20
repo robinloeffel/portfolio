@@ -16,7 +16,7 @@
         transition: transform .25s ease-in-out, opacity .25s ease-in-out;
         padding: 15px 25px;
         border-radius: 10px;
-        background-color: transparentize($colorTextBase, .1);
+        background-color: transparentize($colorMineShaft, .1);
     }
 
     &:hover {

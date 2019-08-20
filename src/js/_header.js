@@ -8,7 +8,7 @@ const gif = document.getElementsByClassName('header-image')[0];
 
 const fadeInGif = () => {
     gif.classList.add('visible');
-    gif.removeEventListener('load', this);
+    gif.removeEventListener('load', fadeInGif);
 }
 
 if (gif.complete) {
