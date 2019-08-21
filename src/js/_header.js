@@ -1,18 +1,13 @@
 /*
 
-    fade in the hero gif when it's loaded or retrieved from the cache
+    fade in the hero video when it's ready to play
 
 */
 
-const gif = document.getElementsByClassName('header-image')[0];
+const video = document.getElementsByClassName('header-video')[0];
 
-const fadeInGif = () => {
-    gif.classList.add('visible');
-    gif.removeEventListener('load', fadeInGif);
-}
+const fadeIn = () => {
+    video.classList.add('visible');
+};
 
-if (gif.complete) {
-    gif.classList.add('visible');
-} else {
-    gif.addEventListener('load', fadeInGif);
-}
+video.addEventListener('canplaythrough', fadeIn, { once: true });

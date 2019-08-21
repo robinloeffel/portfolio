@@ -4,7 +4,8 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    padding: 200px 0;
+    height: 75vh;
+    min-height: 400px;
     color: $colorWhite;
     overflow: hidden;
     background-color: $colorMineShaft;
@@ -25,10 +26,14 @@
 
     &-text {
         font-size: 200%;
-        margin-bottom: 16px;
+        margin: 0 0 16px 0;
     }
 
-    &-image {
+    &-small {
+        margin: 0;
+    }
+
+    &-video {
         position: absolute;
         top: 0;
         left: 0;
