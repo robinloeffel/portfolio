@@ -13,6 +13,23 @@
         transition: opacity .5s ease-in-out;
     }
 
+    &-image,
+    &-blur {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        z-index: -1;
+    }
+
+    &-blur {
+        filter: blur(5px);
+        transition: opacity .5s ease-in-out;
+    }
+
     &-link {
         position: absolute;
         display: flex;
@@ -37,7 +54,7 @@
             width: 100%;
             height: 100%;
             background-color: $colorMineShaft;
-            opacity: .9;
+            opacity: .75;
             z-index: -1;
             transition: opacity .5s ease-in-out;
         }
@@ -58,21 +75,11 @@
             transform: scale(.95);
 
             &::after,
-            .project-title {
+            .project-title,
+            .project-blur {
                 opacity: 0;
             }
         }
-    }
-
-    &-image {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: center;
-        z-index: -1;
     }
 
     &::after {

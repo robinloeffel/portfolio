@@ -1,0 +1,46 @@
+.cool {
+    &-text {
+        position: absolute;
+        z-index: 1;
+        top: 20px;
+        left: 20px;
+        line-height: 1;
+        margin: 0;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        color: $colorWhite;
+        pointer-events: none;
+        font-size: 80%;
+        opacity: 0;
+        transition: opacity .5s ease-in-out;
+
+        span {
+            font-weight: 700;
+        }
+    }
+
+    &-icon {
+        position: absolute;
+        width: 20px;
+        z-index: 1;
+        top: 20px;
+        right: 20px;
+        cursor: none;
+        transition: transform .5s ease-in-out;
+
+        &:hover {
+            transform: rotate(540deg);
+
+            & ~ .header {
+                &::after,
+                .header-content {
+                    opacity: 0;
+                }
+            }
+
+            & + .cool-text {
+                opacity: .5;
+            }
+        }
+    }
+}
