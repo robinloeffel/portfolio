@@ -11,6 +11,7 @@
         font-size: 200%;
         position: absolute;
         transition: opacity .5s ease-in-out;
+        text-align: center;
     }
 
     &-image,
@@ -90,5 +91,17 @@
 
     &:not(:last-child) {
         margin-bottom: 100px;
+    }
+
+    @media (max-width: 767px) {
+        width: 100%;
+
+        &-title {
+            font-size: 160%;
+        }
+
+        &:not(:last-child) {
+            margin-bottom: 50px;
+        }
     }
 }

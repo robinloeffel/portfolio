@@ -28,3 +28,9 @@ p {
         margin-bottom: 0;
     }
 }
+
+@media (max-width: 768px) {
+    html {
+        font-size: 110%;
+    }
+}
