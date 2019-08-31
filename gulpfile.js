@@ -105,7 +105,7 @@ gulp.task('img', () => {
 });
 
 gulp.task('files', () => {
-    return gulp.src([ 'src/{*,}.*', 'src/video/**/*' ] , {
+    return gulp.src([ 'src/{*,}.*', 'src/video/**/*', 'src/img/*.webp' ] , {
             base: 'src'
         })
         .pipe(plumber())
