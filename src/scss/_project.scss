@@ -104,4 +104,10 @@
             margin-bottom: 50px;
         }
     }
+
+    @media (max-aspect-ratio: 1/1) {
+        &::after {
+            padding-bottom: 90%;
+        }
+    }
 }
