@@ -39,10 +39,10 @@ gulp.task('css:transpile', () => {
         })
         .pipe(plumber())
         .pipe(sass.sync())
-        .pipe(!devEnv ? postcss([
+        .pipe(postcss([
             autoprefixer(),
-            cssnano()
-        ]) : noop())
+            ...(!devEnv ? [cssnano()] : [])
+        ]))
         .pipe(gulp.dest('dist/css/', {
             sourcemaps: '.'
         }))
