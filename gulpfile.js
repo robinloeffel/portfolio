@@ -6,42 +6,40 @@ const connect = require('gulp-connect');
 const sass = require('gulp-sass');
 const imagemin = require('gulp-imagemin');
 const noop = require('gulp-noop');
-const stylelint = require('gulp-stylelint');
-
+const stylelint = require('stylelint');
 const postcss = require('gulp-postcss');
 const autoprefixer = require('autoprefixer');
 const cssnano = require('cssnano');
-
-const rollup = require('gulp-better-rollup');
-const babel = require('rollup-plugin-babel');
-const resolve = require('rollup-plugin-node-resolve');
-const commonjs = require('rollup-plugin-commonjs');
-const { terser } = require('rollup-plugin-terser');
-const { eslint } = require('rollup-plugin-eslint');
+const reporter = require('postcss-reporter');
 
 const devEnv = process.argv.includes('--dev');
+
 
 gulp.task('clean', () => del('dist/'));
 gulp.task('open', () => open('http://localhost:8080'));
 
 gulp.task('serve', done => {
     connect.server({
-        port: 8080,
         livereload: true,
-        root: 'dist/'
+        root: 'dist'
     });
     done();
 });
 
-gulp.task('css:transpile', () => {
+gulp.task('css', () => {
     return gulp.src('src/scss/app.scss', {
             sourcemaps: devEnv
         })
         .pipe(plumber())
         .pipe(sass.sync())
         .pipe(postcss([
-            autoprefixer(),
-            ...(!devEnv ? [cssnano()] : [])
+            ...(!devEnv ? [
+                autoprefixer(),
+                cssnano()
+            ] : []),
+            reporter({
+                clearReportedMessages: true
+            })
         ]))
         .pipe(gulp.dest('dist/css/', {
             sourcemaps: '.'
@@ -51,35 +49,38 @@ gulp.task('css:transpile', () => {
 
 gulp.task('css:lint', () => {
     return gulp.src('src/scss/**/*')
-        .pipe(plumber())
-        .pipe(devEnv ? stylelint({
-            reporters: [{
-                formatter: 'string',
-                console: true
-            }]
-        }) : noop());
+        .pipe(postcss([
+            stylelint(),
+            reporter({
+                clearReportedMessages: true
+            })
+        ]));
 });
 
-gulp.task('js', () => {
-    return gulp.src('src/js/app.js', {
-            sourcemaps: devEnv
-        })
-        .pipe(plumber())
-        .pipe(rollup({
-            plugins: [
-                resolve(),
-                commonjs(),
-                eslint(),
-                babel(),
-                ...(!devEnv ? [terser()] : [])
-            ]
-        }, {
-            format: 'iife'
-        }))
-        .pipe(gulp.dest('dist/js/', {
-            sourcemaps: '.'
-        }))
-        .pipe(connect.reload());
+gulp.task('js', async () => {
+  const { rollup } = require('rollup');
+  const babel = require('rollup-plugin-babel');
+  const resolve = require('rollup-plugin-node-resolve');
+  const commonjs = require('rollup-plugin-commonjs');
+  const { terser } = require('rollup-plugin-terser');
+  const { eslint } = require('rollup-plugin-eslint');
+
+  const bundle = await rollup({
+    input: 'src/js/app.js',
+    plugins: [
+      eslint(),
+      resolve(),
+      commonjs(),
+      !devEnv && babel(),
+      !devEnv && terser()
+    ]
+  });
+
+  await bundle.write({
+    sourcemap: devEnv,
+    file: 'dist/js/app.js',
+    format: 'iife'
+  });
 });
 
 gulp.task('img', () => {
@@ -105,7 +106,11 @@ gulp.task('img', () => {
 });
 
 gulp.task('files', () => {
-    return gulp.src([ 'src/{*,}.*', 'src/video/**/*', 'src/img/*.webp' ] , {
+    return gulp.src([
+            'src/{*,}.*',
+            'src/video/**/*',
+            'src/img/*.webp'
+        ], {
             base: 'src'
         })
         .pipe(plumber())
@@ -115,7 +120,7 @@ gulp.task('files', () => {
 
 
 gulp.task('watch:css', done => {
-    gulp.watch('src/scss/**/*', gulp.parallel('css:lint', 'css:transpile'));
+    gulp.watch('src/scss/**/*', gulp.parallel('css', 'css:lint'));
     done();
 });
 
@@ -135,5 +140,5 @@ gulp.task('watch:files', done => {
 });
 
 gulp.task('watch', gulp.parallel('watch:css', 'watch:js', 'watch:img', 'watch:files'));
-gulp.task('build', gulp.series('clean', gulp.parallel('js', 'css:lint', 'css:transpile', 'img', 'files')));
+gulp.task('build', gulp.series('clean', gulp.parallel('js', 'css', 'css:lint', 'img', 'files')));
 gulp.task('default', gulp.series('build', 'serve', 'open', 'watch'));
