@@ -14,8 +14,7 @@
         text-align: center;
     }
 
-    &-image,
-    &-blur {
+    &-image {
         position: absolute;
         top: 0;
         left: 0;
@@ -24,11 +23,6 @@
         object-fit: cover;
         object-position: center;
         z-index: -1;
-    }
-
-    &-blur {
-        filter: blur(5px);
-        transition: opacity .5s ease-in-out;
     }
 
     &-link {
@@ -55,25 +49,25 @@
             width: 100%;
             height: 100%;
             background-color: $colorMineShaft;
-            opacity: .5;
             z-index: -1;
             transition: opacity .5s ease-in-out;
+            backdrop-filter: blur(10px);
+            border-radius: inherit;
         }
 
         &.swissplant::after {
-            background: linear-gradient(90deg, $colorMySin 0%, $colorMeteorite 100%);
+            background: linear-gradient(90deg, rgba($colorMySin, .5) 0%, rgba($colorMeteorite, .5) 100%);
         }
 
         &.agricontrol::after {
-            background: linear-gradient(90deg, $colorDarkBlue 0%, $colorSpringGreen 100%);
+            background: linear-gradient(90deg, rgba($colorDarkBlue, .5) 0%, rgba($colorSpringGreen, .5) 100%);
         }
 
         &:hover {
             transform: scale(.95);
 
             &::after,
-            .project-title,
-            .project-blur {
+            .project-title {
                 opacity: 0;
             }
         }
