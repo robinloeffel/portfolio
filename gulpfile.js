@@ -27,7 +27,7 @@ gulp.task('serve', done => {
 });
 
 gulp.task('css', () => {
-    return gulp.src('src/scss/app.scss', {
+    return gulp.src('src/scss/page.scss', {
             sourcemaps: devEnv
         })
         .pipe(plumber())
@@ -58,29 +58,29 @@ gulp.task('css:lint', () => {
 });
 
 gulp.task('js', async () => {
-  const { rollup } = require('rollup');
-  const babel = require('rollup-plugin-babel');
-  const resolve = require('rollup-plugin-node-resolve');
-  const commonjs = require('rollup-plugin-commonjs');
-  const { terser } = require('rollup-plugin-terser');
-  const { eslint } = require('rollup-plugin-eslint');
+    const { rollup } = require('rollup');
+    const babel = require('rollup-plugin-babel');
+    const resolve = require('rollup-plugin-node-resolve');
+    const commonjs = require('rollup-plugin-commonjs');
+    const { terser } = require('rollup-plugin-terser');
+    const { eslint } = require('rollup-plugin-eslint');
 
-  const bundle = await rollup({
-    input: 'src/js/app.js',
-    plugins: [
-      eslint(),
-      resolve(),
-      commonjs(),
-      !devEnv && babel(),
-      !devEnv && terser()
-    ]
-  });
+    const bundle = await rollup({
+        input: 'src/js/page.js',
+        plugins: [
+            eslint(),
+            resolve(),
+            commonjs(),
+            !devEnv && babel(),
+            !devEnv && terser()
+        ]
+    });
 
-  await bundle.write({
-    sourcemap: devEnv,
-    file: 'dist/js/app.js',
-    format: 'iife'
-  });
+    await bundle.write({
+        sourcemap: devEnv,
+        file: 'dist/js/page.js',
+        format: 'iife'
+    });
 });
 
 gulp.task('img', () => {
