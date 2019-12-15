@@ -11,6 +11,7 @@ const postcss = require('gulp-postcss');
 const autoprefixer = require('autoprefixer');
 const cssnano = require('cssnano');
 const reporter = require('postcss-reporter');
+const presetEnv = require('postcss-preset-env');
 
 const devEnv = process.argv.includes('--dev');
 
@@ -31,30 +32,22 @@ gulp.task('css', () => {
             sourcemaps: devEnv
         })
         .pipe(plumber())
+        .pipe(postcss([
+            stylelint()
+        ]))
         .pipe(sass.sync())
         .pipe(postcss([
-            ...(!devEnv ? [
-                autoprefixer(),
-                cssnano()
-            ] : []),
+            presetEnv(),
+            !devEnv && autoprefixer(),
+            !devEnv && cssnano(),
             reporter({
                 clearReportedMessages: true
             })
-        ]))
+        ].filter(plugin => plugin)))
         .pipe(gulp.dest('dist/css/', {
             sourcemaps: '.'
         }))
         .pipe(connect.reload());
-});
-
-gulp.task('css:lint', () => {
-    return gulp.src('src/scss/**/*')
-        .pipe(postcss([
-            stylelint(),
-            reporter({
-                clearReportedMessages: true
-            })
-        ]));
 });
 
 gulp.task('js', async () => {
@@ -120,7 +113,7 @@ gulp.task('files', () => {
 
 
 gulp.task('watch:css', done => {
-    gulp.watch('src/scss/**/*', gulp.parallel('css', 'css:lint'));
+    gulp.watch('src/scss/**/*', gulp.parallel('css'));
     done();
 });
 
@@ -140,5 +133,5 @@ gulp.task('watch:files', done => {
 });
 
 gulp.task('watch', gulp.parallel('watch:css', 'watch:js', 'watch:img', 'watch:files'));
-gulp.task('build', gulp.series('clean', gulp.parallel('js', 'css', 'css:lint', 'img', 'files')));
+gulp.task('build', gulp.series('clean', gulp.parallel('js', 'css', 'img', 'files')));
 gulp.task('default', gulp.series('build', 'serve', 'open', 'watch'));
