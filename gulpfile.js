@@ -53,14 +53,21 @@ gulp.task('css', () => {
 gulp.task('js', async () => {
     const { rollup } = require('rollup');
     const babel = require('rollup-plugin-babel');
-    const resolve = require('rollup-plugin-node-resolve');
-    const commonjs = require('rollup-plugin-commonjs');
+    const resolve = require('@rollup/plugin-node-resolve');
+    const commonjs = require('@rollup/plugin-commonjs');
+    const alias = require('@rollup/plugin-alias');
     const { terser } = require('rollup-plugin-terser');
     const { eslint } = require('rollup-plugin-eslint');
 
     const bundle = await rollup({
         input: 'src/js/page.js',
         plugins: [
+            alias({
+                entries: [{
+                    find: '@',
+                    replacement: __dirname + '/src/js/modules'
+                }]
+            }),
             eslint(),
             resolve(),
             commonjs(),
@@ -80,9 +87,7 @@ gulp.task('img', () => {
     return gulp.src('src/img/**/*')
         .pipe(plumber())
         .pipe(devEnv ? noop() : imagemin([
-            imagemin.jpegtran({
-                progressive: true
-            }),
+            imagemin.mozjpeg(),
             imagemin.optipng({
                 optimizationLevel: 7
             }),
