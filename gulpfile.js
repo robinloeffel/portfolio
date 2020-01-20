@@ -1,3 +1,5 @@
+/* eslint-env node */
+
 const gulp = require('gulp');
 const open = require('open');
 const del = require('del');
@@ -5,7 +7,6 @@ const plumber = require('gulp-plumber');
 const connect = require('gulp-connect');
 const sass = require('gulp-sass');
 const imagemin = require('gulp-imagemin');
-const noop = require('gulp-noop');
 const stylelint = require('stylelint');
 const postcss = require('gulp-postcss');
 const autoprefixer = require('autoprefixer');
@@ -16,7 +17,7 @@ const presetEnv = require('postcss-preset-env');
 const devEnv = process.argv.includes('--dev');
 
 
-gulp.task('clean', () => del('dist/'));
+gulp.task('clean', () => del('dist'));
 gulp.task('open', () => open('http://localhost:8080'));
 
 gulp.task('serve', done => {
@@ -44,7 +45,7 @@ gulp.task('css', () => {
                 clearReportedMessages: true
             })
         ].filter(plugin => plugin)))
-        .pipe(gulp.dest('dist/css/', {
+        .pipe(gulp.dest('dist/css', {
             sourcemaps: '.'
         }))
         .pipe(connect.reload());
@@ -73,7 +74,7 @@ gulp.task('js', async () => {
             commonjs(),
             !devEnv && babel(),
             !devEnv && terser()
-        ]
+        ].filter(plugin => plugin)
     });
 
     await bundle.write({
@@ -86,7 +87,7 @@ gulp.task('js', async () => {
 gulp.task('img', () => {
     return gulp.src('src/img/**/*')
         .pipe(plumber())
-        .pipe(devEnv ? noop() : imagemin([
+        .pipe(imagemin([
             imagemin.mozjpeg(),
             imagemin.optipng({
                 optimizationLevel: 7
@@ -97,9 +98,9 @@ gulp.task('img', () => {
                 optimizationLevel: 3
             })
         ], {
-            verbose: true
+            verbose: devEnv
         }))
-        .pipe(gulp.dest('dist/img/'))
+        .pipe(gulp.dest('dist/img'))
         .pipe(connect.reload());
 });
 
@@ -112,7 +113,7 @@ gulp.task('files', () => {
             base: 'src'
         })
         .pipe(plumber())
-        .pipe(gulp.dest('dist/'))
+        .pipe(gulp.dest('dist'))
         .pipe(connect.reload());
 });
 
