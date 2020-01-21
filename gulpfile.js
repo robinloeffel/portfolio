@@ -108,6 +108,7 @@ gulp.task('files', () => {
     return gulp.src([
             'src/{*,}.*',
             'src/video/**/*',
+            'src/font/**/*',
             'src/img/*.webp'
         ], {
             base: 'src'
