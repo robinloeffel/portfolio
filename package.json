@@ -5,12 +5,11 @@
     "repository": "rbnlffl/robinloeffel",
     "author": "Robin Löffel <hi@robinloeffel.ch> (https://robinloeffel.ch)",
     "license": "MIT",
-    "devDependencies": {
-        "@babel/core": "^7.8.3",
-        "@babel/preset-env": "^7.8.3",
-        "@rollup/plugin-alias": "^3.0.0",
-        "@rollup/plugin-commonjs": "^11.0.1",
-        "@rollup/plugin-node-resolve": "^7.0.0",
+    "dependencies": {
+        "@rollup/plugin-alias": "^3.0.1",
+        "@rollup/plugin-buble": "^0.21.1",
+        "@rollup/plugin-commonjs": "^11.0.2",
+        "@rollup/plugin-node-resolve": "^7.1.1",
         "autoprefixer": "^9.7.4",
         "babel-eslint": "^10.0.3",
         "core-js": "^3.6.4",
@@ -19,24 +18,26 @@
         "eslint": "^6.8.0",
         "gulp": "^4.0.2",
         "gulp-connect": "^5.7.0",
-        "gulp-imagemin": "^7.0.0",
+        "gulp-imagemin": "^7.1.0",
         "gulp-noop": "^1.0.0",
         "gulp-plumber": "^1.2.1",
         "gulp-postcss": "^8.0.0",
         "gulp-sass": "^4.0.2",
-        "open": "^7.0.0",
+        "open": "^7.0.2",
         "postcss-preset-env": "^6.7.0",
-        "postcss-reporter": "^6.0.1",
-        "rollup": "^1.29.0",
-        "rollup-plugin-babel": "^4.3.3",
+        "rollup": "^1.31.1",
         "rollup-plugin-eslint": "^7.0.0",
         "rollup-plugin-terser": "^5.2.0",
-        "stylelint": "^13.0.0",
-        "stylelint-config-standard": "^19.0.0"
+        "stylelint": "^13.2.0",
+        "stylelint-config-standard": "^20.0.0"
     },
     "scripts": {
         "start": "gulp --dev",
         "prod": "gulp",
         "dist": "gulp build"
-    }
+    },
+    "browserslist": [
+        ">1% in ch",
+        "not dead"
+    ]
 }

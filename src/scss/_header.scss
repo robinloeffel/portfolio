@@ -19,17 +19,21 @@
     }
 
     &-title {
-        font-size: 300%;
+        font-size: 200%;
+        font-weight: 300;
         margin-bottom: 32px;
     }
 
     &-text {
-        font-size: 200%;
+        font-size: 300%;
+        font-weight: 700;
         margin-top: 0;
-        margin-bottom: 25px;
+        margin-bottom: 32px;
     }
 
     &-small {
+        font-size: 100%;
+        color: rgba($colorWhite, .8);
         margin: 0;
     }
 

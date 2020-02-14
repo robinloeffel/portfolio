@@ -1,10 +1,9 @@
-/* eslint-env node */
-
 module.exports = {
     extends: 'eslint:recommended',
     parser: 'babel-eslint',
     env: {
-        browser: true
+        browser: true,
+        node: true
     },
     rules: {
         'no-console': 1,

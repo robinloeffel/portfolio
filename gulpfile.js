@@ -1,5 +1,3 @@
-/* eslint-env node */
-
 const gulp = require('gulp');
 const open = require('open');
 const del = require('del');
@@ -11,10 +9,10 @@ const stylelint = require('stylelint');
 const postcss = require('gulp-postcss');
 const autoprefixer = require('autoprefixer');
 const cssnano = require('cssnano');
-const reporter = require('postcss-reporter');
-const presetEnv = require('postcss-preset-env');
+const cssEnv = require('postcss-preset-env');
 
-const devEnv = process.argv.includes('--dev');
+
+const dev = process.argv.includes('--dev');
 
 
 gulp.task('clean', () => del('dist'));
@@ -30,7 +28,7 @@ gulp.task('serve', done => {
 
 gulp.task('css', () => {
     return gulp.src('src/scss/page.scss', {
-            sourcemaps: devEnv
+            sourcemaps: dev
         })
         .pipe(plumber())
         .pipe(postcss([
@@ -38,13 +36,10 @@ gulp.task('css', () => {
         ]))
         .pipe(sass.sync())
         .pipe(postcss([
-            presetEnv(),
-            !devEnv && autoprefixer(),
-            !devEnv && cssnano(),
-            reporter({
-                clearReportedMessages: true
-            })
-        ].filter(plugin => plugin)))
+            cssEnv(),
+            !dev && autoprefixer(),
+            !dev && cssnano()
+        ].filter(p => p)))
         .pipe(gulp.dest('dist/css', {
             sourcemaps: '.'
         }))
@@ -53,32 +48,25 @@ gulp.task('css', () => {
 
 gulp.task('js', async () => {
     const { rollup } = require('rollup');
-    const babel = require('rollup-plugin-babel');
+    const buble = require('@rollup/plugin-buble');
     const resolve = require('@rollup/plugin-node-resolve');
     const commonjs = require('@rollup/plugin-commonjs');
-    const alias = require('@rollup/plugin-alias');
     const { terser } = require('rollup-plugin-terser');
     const { eslint } = require('rollup-plugin-eslint');
 
     const bundle = await rollup({
         input: 'src/js/page.js',
         plugins: [
-            alias({
-                entries: [{
-                    find: '@',
-                    replacement: __dirname + '/src/js/modules'
-                }]
-            }),
             eslint(),
             resolve(),
             commonjs(),
-            !devEnv && babel(),
-            !devEnv && terser()
-        ].filter(plugin => plugin)
+            !dev && buble(),
+            !dev && terser()
+        ].filter(p => p)
     });
 
     await bundle.write({
-        sourcemap: devEnv,
+        sourcemap: dev,
         file: 'dist/js/page.js',
         format: 'iife'
     });
@@ -98,7 +86,7 @@ gulp.task('img', () => {
                 optimizationLevel: 3
             })
         ], {
-            verbose: devEnv
+            verbose: dev
         }))
         .pipe(gulp.dest('dist/img'))
         .pipe(connect.reload());
