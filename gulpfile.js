@@ -4,7 +4,9 @@ const del = require('del');
 const plumber = require('gulp-plumber');
 const connect = require('gulp-connect');
 const sass = require('gulp-sass');
+const webp = require('gulp-webp');
 const imagemin = require('gulp-imagemin');
+const filter = require('gulp-filter');
 const stylelint = require('stylelint');
 const postcss = require('gulp-postcss');
 const autoprefixer = require('autoprefixer');
@@ -79,15 +81,16 @@ gulp.task('img', () => {
             imagemin.mozjpeg(),
             imagemin.optipng({
                 optimizationLevel: 7
-            }),
-            imagemin.svgo(),
-            imagemin.gifsicle({
-                interlaced: true,
-                optimizationLevel: 3
             })
         ], {
             verbose: dev
         }))
+        .pipe(gulp.dest('dist/img'))
+        .pipe(filter([
+            '**',
+            '!**/*{apple,favicon}*'
+        ]))
+        .pipe(webp())
         .pipe(gulp.dest('dist/img'))
         .pipe(connect.reload());
 });
