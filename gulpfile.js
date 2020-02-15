@@ -7,7 +7,7 @@ const sass = require('gulp-sass');
 const webp = require('gulp-webp');
 const imagemin = require('gulp-imagemin');
 const filter = require('gulp-filter');
-const rezzy = require('./gulp/gulp-rezzy');
+const rezzy = require('gulp-rezzy');
 const stylelint = require('stylelint');
 const postcss = require('gulp-postcss');
 const autoprefixer = require('autoprefixer');
@@ -76,8 +76,11 @@ gulp.task('js', async () => {
 });
 
 gulp.task('img', () => {
+    const f = filter([ '**', '!**/{apple,emoji,favicon,og}*' ], { restore: true });
+
     return gulp.src('src/img/**/*')
         .pipe(plumber())
+        .pipe(f)
         .pipe(rezzy([{
             width: 400,
             suffix: '-sm'
@@ -88,6 +91,7 @@ gulp.task('img', () => {
             width: 1200,
             suffix: '-lg'
         }]))
+        .pipe(f.restore)
         .pipe(imagemin([
             imagemin.mozjpeg(),
             imagemin.optipng({
@@ -96,8 +100,10 @@ gulp.task('img', () => {
         ], {
             verbose: !dev
         }))
+        .pipe(f)
         .pipe(gulp.dest('dist/img'))
         .pipe(webp())
+        .pipe(f.restore)
         .pipe(gulp.dest('dist/img'))
         .pipe(connect.reload());
 });
