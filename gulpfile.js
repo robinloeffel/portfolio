@@ -7,6 +7,7 @@ const sass = require('gulp-sass');
 const webp = require('gulp-webp');
 const imagemin = require('gulp-imagemin');
 const filter = require('gulp-filter');
+const rezzy = require('./gulp/gulp-rezzy');
 const stylelint = require('stylelint');
 const postcss = require('gulp-postcss');
 const autoprefixer = require('autoprefixer');
@@ -77,19 +78,25 @@ gulp.task('js', async () => {
 gulp.task('img', () => {
     return gulp.src('src/img/**/*')
         .pipe(plumber())
+        .pipe(rezzy([{
+            width: 400,
+            suffix: '-sm'
+        }, {
+            width: 800,
+            suffix: '-md'
+        }, {
+            width: 1200,
+            suffix: '-lg'
+        }]))
         .pipe(imagemin([
             imagemin.mozjpeg(),
             imagemin.optipng({
                 optimizationLevel: 7
             })
         ], {
-            verbose: dev
+            verbose: !dev
         }))
         .pipe(gulp.dest('dist/img'))
-        .pipe(filter([
-            '**',
-            '!**/*{apple,favicon}*'
-        ]))
         .pipe(webp())
         .pipe(gulp.dest('dist/img'))
         .pipe(connect.reload());
