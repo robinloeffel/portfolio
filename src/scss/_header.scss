@@ -4,10 +4,9 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    height: 75vh;
+    height: 100vh;
     min-height: 400px;
     color: $colorWhite;
-    background-color: $colorMineShaft;
 
     &-content {
         display: flex;
@@ -16,6 +15,14 @@
         flex-direction: column;
         z-index: 1;
         padding: 25px;
+    }
+
+    &-title,
+    &-text,
+    &-small {
+        text-align: center;
+        line-height: 1.2;
+        animation: fade-in .5s ease-in-out 1 both;
     }
 
     &-title {
@@ -29,22 +36,17 @@
         font-weight: 700;
         margin-top: 0;
         margin-bottom: 32px;
+        animation-delay: .25s;
     }
 
     &-small {
         font-size: 100%;
-        color: rgba($colorWhite, .8);
         margin: 0;
+        color: rgba($colorWhite, .8);
+        animation-delay: .5s;
     }
 
-    &-title,
-    &-text,
-    &-small {
-        text-align: center;
-        line-height: 1.2;
-    }
-
-    &-video {
+    &-image {
         position: absolute;
         top: 0;
         left: 0;
@@ -52,38 +54,15 @@
         height: 100%;
         object-fit: cover;
         object-position: center;
-        opacity: 0;
-        transition: opacity .5s ease-in-out;
-
-        &.visible {
-            opacity: 1;
-        }
-    }
-
-    &::after {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(90deg, $colorJava 0%, $colorStratos 100%);
-        animation: hue 20s infinite alternate linear;
-        opacity: .9;
-    }
-
-    &-content,
-    &::after {
-        transition: opacity .5s ease-in-out;
     }
 
     @media (max-width: 767px) {
         &-title {
-            font-size: 225%;
+            font-size: 150%;
         }
 
         &-text {
-            font-size: 160%;
+            font-size: 200%;
         }
     }
 }

@@ -76,11 +76,13 @@ gulp.task('js', async () => {
 });
 
 gulp.task('img', () => {
-    const f = filter([ '**', '!**/{apple,emoji,favicon,og}*' ], { restore: true });
+    const f1 = filter([ '**', '!**/{favicon,og}*' ], { restore: true });
+    const f2 = filter([ '**', '!**/{agricontrol,swissplant}.jpg' ]);
+    const f3 = filter([ '**', '!**/{favicon,og}*' ]);
 
     return gulp.src('src/img/**/*')
         .pipe(plumber())
-        .pipe(f)
+        .pipe(f1)
         .pipe(rezzy([{
             width: 400,
             suffix: '-sm'
@@ -91,19 +93,19 @@ gulp.task('img', () => {
             width: 1200,
             suffix: '-lg'
         }]))
-        .pipe(f.restore)
+        .pipe(f1.restore)
+        .pipe(f2)
         .pipe(imagemin([
             imagemin.mozjpeg(),
             imagemin.optipng({
                 optimizationLevel: 7
             })
         ], {
-            verbose: !dev
+            verbose: dev
         }))
-        .pipe(f)
         .pipe(gulp.dest('dist/img'))
+        .pipe(f3)
         .pipe(webp())
-        .pipe(f.restore)
         .pipe(gulp.dest('dist/img'))
         .pipe(connect.reload());
 });

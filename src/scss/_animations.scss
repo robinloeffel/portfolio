@@ -1,9 +1,11 @@
-@keyframes hue {
+@keyframes fade-in {
     from {
-        filter: hue-rotate(0deg);
+        opacity: 0;
+        transform: translateY(10px);
     }
 
     to {
-        filter: hue-rotate(360deg);
+        opacity: 1;
+        transform: translateY(0);
     }
 }
