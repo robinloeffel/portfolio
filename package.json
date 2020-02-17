@@ -2,8 +2,12 @@
     "name": "robinloeffel",
     "version": "0.0.1",
     "description": "portfolio",
-    "repository": "rbnlffl/robinloeffel",
-    "author": "Robin Löffel <hi@robinloeffel.ch> (https://robinloeffel.ch)",
+    "repository": "robinloeffel/robinloeffel",
+    "author": {
+        "name": "Robin Löffel",
+        "email": "hi@robinloeffel.ch",
+        "url": "robinloeffel.ch"
+    },
     "license": "MIT",
     "dependencies": {
         "@rollup/plugin-alias": "^3.0.1",
@@ -11,8 +15,6 @@
         "@rollup/plugin-commonjs": "^11.0.2",
         "@rollup/plugin-node-resolve": "^7.1.1",
         "autoprefixer": "^9.7.4",
-        "babel-eslint": "^10.0.3",
-        "core-js": "^3.6.4",
         "cssnano": "^4.1.10",
         "del": "^5.1.0",
         "eslint": "^6.8.0",
@@ -20,7 +22,6 @@
         "gulp-connect": "^5.7.0",
         "gulp-filter": "^6.0.0",
         "gulp-imagemin": "^7.1.0",
-        "gulp-noop": "^1.0.0",
         "gulp-plumber": "^1.2.1",
         "gulp-postcss": "^8.0.0",
         "gulp-rezzy": "^0.2.2",
@@ -33,9 +34,7 @@
         "rollup-plugin-terser": "^5.2.0",
         "sharp": "^0.24.1",
         "stylelint": "^13.2.0",
-        "stylelint-config-standard": "^20.0.0",
-        "through2": "^3.0.1",
-        "vinyl": "^2.2.0"
+        "stylelint-config-standard": "^20.0.0"
     },
     "scripts": {
         "start": "gulp --dev",
@@ -45,5 +44,89 @@
     "browserslist": [
         ">1% in ch",
         "not dead"
-    ]
+    ],
+    "eslintConfig": {
+        "extends": "eslint:recommended",
+        "env": {
+            "es2017": true,
+            "node": true,
+            "browser": true
+        },
+        "rules": {
+            "curly": [
+                "error",
+                "all"
+            ],
+            "eqeqeq": [
+                "error",
+                "always"
+            ],
+            "comma-dangle": [
+                "error",
+                "never"
+            ],
+            "quotes": [
+                "error",
+                "single"
+            ],
+            "semi": [
+                "error",
+                "always"
+            ],
+            "wrap-iife": [
+                "error",
+                "inside"
+            ],
+            "brace-style": [
+                "error",
+                "1tbs"
+            ],
+            "func-style": [
+                "error",
+                "expression"
+            ],
+            "space-before-function-paren": [
+                "error",
+                "never"
+            ],
+            "array-bracket-spacing": [
+                "error",
+                "always",
+                {
+                    "objectsInArrays": false,
+                    "arraysInArrays": false
+                }
+            ],
+            "no-multi-spaces": "error",
+            "no-multi-assign": "error",
+            "no-use-before-define": "error",
+            "require-await": "error",
+            "vars-on-top": "error",
+            "no-var": "error",
+            "prefer-const": "error",
+            "no-unneeded-ternary": "error",
+            "arrow-spacing": "error",
+            "no-duplicate-imports": "error",
+            "global-require": "error"
+        }
+    },
+    "stylelint": {
+        "extends": "stylelint-config-standard",
+        "rules": {
+            "declaration-colon-newline-after": null,
+            "declaration-block-no-duplicate-properties": true,
+            "block-no-empty": true,
+            "no-extra-semicolons": true,
+            "number-leading-zero": "never",
+            "color-named": "never",
+            "shorthand-property-no-redundant-values": true,
+            "declaration-no-important": true,
+            "color-hex-case": "lower",
+            "font-family-name-quotes": "always-unless-keyword",
+            "string-quotes": "single",
+            "value-no-vendor-prefix": true,
+            "indentation": 4
+        },
+        "defaultSeverity": "warning"
+    }
 }

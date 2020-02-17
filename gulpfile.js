@@ -8,12 +8,17 @@ const webp = require('gulp-webp');
 const imagemin = require('gulp-imagemin');
 const filter = require('gulp-filter');
 const rezzy = require('gulp-rezzy');
-const stylelint = require('stylelint');
 const postcss = require('gulp-postcss');
+const stylelint = require('stylelint');
 const autoprefixer = require('autoprefixer');
 const cssnano = require('cssnano');
 const cssEnv = require('postcss-preset-env');
-
+const { rollup } = require('rollup');
+const buble = require('@rollup/plugin-buble');
+const resolve = require('@rollup/plugin-node-resolve');
+const commonjs = require('@rollup/plugin-commonjs');
+const { terser } = require('rollup-plugin-terser');
+const { eslint } = require('rollup-plugin-eslint');
 
 const dev = process.argv.includes('--dev');
 
@@ -49,14 +54,7 @@ gulp.task('css', () => {
         .pipe(connect.reload());
 });
 
-gulp.task('js', async () => {
-    const { rollup } = require('rollup');
-    const buble = require('@rollup/plugin-buble');
-    const resolve = require('@rollup/plugin-node-resolve');
-    const commonjs = require('@rollup/plugin-commonjs');
-    const { terser } = require('rollup-plugin-terser');
-    const { eslint } = require('rollup-plugin-eslint');
-
+gulp.task('js', async() => {
     const bundle = await rollup({
         input: 'src/js/page.js',
         plugins: [
@@ -64,7 +62,11 @@ gulp.task('js', async () => {
             resolve(),
             commonjs(),
             !dev && buble(),
-            !dev && terser()
+            !dev && terser({
+                output: {
+                    comments: false
+                }
+            })
         ].filter(p => p)
     });
 
@@ -123,7 +125,6 @@ gulp.task('files', () => {
         .pipe(gulp.dest('dist'))
         .pipe(connect.reload());
 });
-
 
 gulp.task('watch:css', done => {
     gulp.watch('src/scss/**/*', gulp.parallel('css'));
