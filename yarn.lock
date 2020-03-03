@@ -2091,10 +2091,10 @@ escape-string-regexp@^1.0.2, escape-string-regexp@^1.0.5:
   resolved "https://registry.yarnpkg.com/escape-string-regexp/-/escape-string-regexp-1.0.5.tgz#1b61c0562190a8dff6ae3bb2cf0200ca130b86d4"
   integrity sha1-G2HAViGQqN/2rjuyzwIAyhMLhtQ=
 
-eslint-config-sweet@^0.1.0:
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/eslint-config-sweet/-/eslint-config-sweet-0.1.0.tgz#5052faba22b2e368ea929e74deb80621ab2e0241"
-  integrity sha512-Xehs8QU4HOnDtXONUAgGXiJx5bV7CQx81tUHCqiUZOYjYux14+tZSP1y3F7yVan4lst0qCNsFmo3aXZzIAZ8bQ==
+eslint-config-sweet@^0.2.2:
+  version "0.2.2"
+  resolved "https://registry.yarnpkg.com/eslint-config-sweet/-/eslint-config-sweet-0.2.2.tgz#66b4ef7c17e038a5f28224052494c0696d23fc40"
+  integrity sha512-0SIkYM7vyQy2W/asfLtG6GKH5wP9b7MsMkRW+vy34FckHDVgia3mJTWyv/SL2Z7SzYJtWEAAWESFTeVbI6sxgA==
 
 eslint-scope@^5.0.0:
   version "5.0.0"
@@ -3110,16 +3110,15 @@ gulp-postcss@^8.0.0:
     postcss-load-config "^2.0.0"
     vinyl-sourcemaps-apply "^0.2.1"
 
-gulp-rezzy@^0.2.2:
-  version "0.2.2"
-  resolved "https://registry.yarnpkg.com/gulp-rezzy/-/gulp-rezzy-0.2.2.tgz#455eb2b635a78031ed2b5d49fdadd7000c101748"
-  integrity sha512-9+4WtNRDHAVzqDZMXaCt3aupnS/XzLFJ/kMgwb1YCNLtnxpA2YrBiXzPogKH/5516LS04u2+5/kJ80maC6vKNg==
+gulp-rezzy@^0.3.0:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/gulp-rezzy/-/gulp-rezzy-0.3.0.tgz#b11cfb3110516deb20228681a475274ccb02579c"
+  integrity sha512-8WuxztQmR/2gorIk5O2Mfkx+PU7/n08IWBQ5KzPU38IinJAuOEKShjD6pSFFGJ2iFOHq7YwEfmaKio5PJvisRg==
   dependencies:
     chalk "^3.0.0"
     fancy-log "^1.3.3"
     plugin-error "^1.0.1"
     sharp "^0.24.1"
-    through2 "^3.0.1"
     vinyl "^2.2.0"
 
 gulp-sass@^4.0.2:
@@ -5925,6 +5924,14 @@ postcss-selector-parser@^6.0.2:
     indexes-of "^1.0.1"
     uniq "^1.0.1"
 
+postcss-sorting@^5.0.1:
+  version "5.0.1"
+  resolved "https://registry.yarnpkg.com/postcss-sorting/-/postcss-sorting-5.0.1.tgz#10d5d0059eea8334dacc820c0121864035bc3f11"
+  integrity sha512-Y9fUFkIhfrm6i0Ta3n+89j56EFqaNRdUKqXyRp6kvTcSXnmgEjaVowCXH+JBe9+YKWqd4nc28r2sgwnzJalccA==
+  dependencies:
+    lodash "^4.17.14"
+    postcss "^7.0.17"
+
 postcss-svgo@^4.0.2:
   version "4.0.2"
   resolved "https://registry.yarnpkg.com/postcss-svgo/-/postcss-svgo-4.0.2.tgz#17b997bc711b333bab143aaed3b8d3d6e3d38258"
@@ -6537,10 +6544,10 @@ rollup-pluginutils@^2.7.1, rollup-pluginutils@^2.8.2:
   dependencies:
     estree-walker "^0.6.1"
 
-rollup@^1.31.1:
-  version "1.31.1"
-  resolved "https://registry.yarnpkg.com/rollup/-/rollup-1.31.1.tgz#4170d6f87148d46e5fbe29b493f8f3ea3453c96f"
-  integrity sha512-2JREN1YdrS/kpPzEd33ZjtuNbOuBC3ePfuZBdKEybvqcEcszW1ckyVqzcEiEe0nE8sqHK+pbJg+PsAgRJ8+1dg==
+rollup@^1.32.0:
+  version "1.32.0"
+  resolved "https://registry.yarnpkg.com/rollup/-/rollup-1.32.0.tgz#c65ce134850aca1ce595fcac07d1dc5d53bf227c"
+  integrity sha512-ab2tF5pdDqm2zuI8j02ceyrJSScl9V2C24FgWQ1v1kTFTu1UrG5H0hpP++mDZlEFyZX4k0chtGEHU2i+pAzBgA==
   dependencies:
     "@types/estree" "*"
     "@types/node" "*"
@@ -7227,17 +7234,33 @@ stylehacks@^4.0.0:
     postcss "^7.0.0"
     postcss-selector-parser "^3.0.0"
 
-stylelint-config-recommended@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/stylelint-config-recommended/-/stylelint-config-recommended-3.0.0.tgz#e0e547434016c5539fe2650afd58049a2fd1d657"
-  integrity sha512-F6yTRuc06xr1h5Qw/ykb2LuFynJ2IxkKfCMf+1xqPffkxh0S09Zc902XCffcsw/XMFq/OzQ1w54fLIDtmRNHnQ==
-
-stylelint-config-standard@^20.0.0:
-  version "20.0.0"
-  resolved "https://registry.yarnpkg.com/stylelint-config-standard/-/stylelint-config-standard-20.0.0.tgz#06135090c9e064befee3d594289f50e295b5e20d"
-  integrity sha512-IB2iFdzOTA/zS4jSVav6z+wGtin08qfj+YyExHB3LF9lnouQht//YyB0KZq9gGz5HNPkddHOzcY8HsUey6ZUlA==
+stylelint-config-sass-guidelines@^7.0.0:
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/stylelint-config-sass-guidelines/-/stylelint-config-sass-guidelines-7.0.0.tgz#ad94d9ed78731aba3b67c3cf31d5fc644523a4be"
+  integrity sha512-nWO8gtxv8T+UbAw7iM0RQp6VC3iJgOvqEIeqFBgHW+KgpZu65lYoe9Bf0fqvqxKJ/ngBD+/65BT3ql2u+7Qasg==
   dependencies:
-    stylelint-config-recommended "^3.0.0"
+    stylelint-order "^4.0.0"
+    stylelint-scss "^3.4.0"
+
+stylelint-order@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/stylelint-order/-/stylelint-order-4.0.0.tgz#2a945c2198caac3ff44687d7c8582c81d044b556"
+  integrity sha512-bXV0v+jfB0+JKsqIn3mLglg1Dj2QCYkFHNfL1c+rVMEmruZmW5LUqT/ARBERfBm8SFtCuXpEdatidw/3IkcoiA==
+  dependencies:
+    lodash "^4.17.15"
+    postcss "^7.0.26"
+    postcss-sorting "^5.0.1"
+
+stylelint-scss@^3.4.0:
+  version "3.14.2"
+  resolved "https://registry.yarnpkg.com/stylelint-scss/-/stylelint-scss-3.14.2.tgz#e449a47e0ac410e6909f1a71b49550202c978bf9"
+  integrity sha512-59/BkIEWyFoORiejDIQB2P2kmg0KcqMn7wtj1y5sRvS4N+Qh+Ng3hbKelOzgS+OM2Ezbai0uEev8xckXxkh9TQ==
+  dependencies:
+    lodash "^4.17.15"
+    postcss-media-query-parser "^0.2.3"
+    postcss-resolve-nested-selector "^0.1.1"
+    postcss-selector-parser "^6.0.2"
+    postcss-value-parser "^4.0.2"
 
 stylelint@^13.2.0:
   version "13.2.0"
@@ -7473,7 +7496,7 @@ through2@^2.0.0, through2@^2.0.3, through2@~2.0.0:
     readable-stream "~2.3.6"
     xtend "~4.0.1"
 
-through2@^3.0.0, through2@^3.0.1:
+through2@^3.0.0:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/through2/-/through2-3.0.1.tgz#39276e713c3302edf9e388dd9c812dd3b825bd5a"
   integrity sha512-M96dvTalPT3YbYLaKaCuwu+j06D/8Jfib0o/PxbVt6Amhv3dUAtW6rTV1jPgJSBG83I/e04Y6xkVdVhSRhi0ww==

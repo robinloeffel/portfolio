@@ -35,7 +35,7 @@ gulp.task('serve', done => {
 });
 
 gulp.task('css', () => {
-    return gulp.src('src/scss/page.scss', {
+    return gulp.src('src/scss/**/*.scss', {
             sourcemaps: dev
         })
         .pipe(plumber())
@@ -54,7 +54,7 @@ gulp.task('css', () => {
         .pipe(connect.reload());
 });
 
-gulp.task('js', async() => {
+gulp.task('js', async () => {
     const bundle = await rollup({
         input: 'src/js/page.js',
         plugins: [
@@ -86,13 +86,13 @@ gulp.task('img', () => {
         .pipe(plumber())
         .pipe(f1)
         .pipe(rezzy([{
-            width: 400,
+            width: 480,
             suffix: '-sm'
         }, {
-            width: 800,
+            width: 640,
             suffix: '-md'
         }, {
-            width: 1200,
+            width: 960,
             suffix: '-lg'
         }]))
         .pipe(f1.restore)

@@ -5,12 +5,12 @@
     justify-content: center;
     width: 75%;
     max-width: 960px;
-    color: $colorWhite;
+    color: $color-white;
 
     &-title {
         font-size: 200%;
         position: absolute;
-        transition: opacity .5s ease-in-out;
+        transition: opacity 0.5s ease-in-out;
         text-align: center;
     }
 
@@ -38,7 +38,7 @@
         text-decoration: none;
         border-radius: 15px;
         overflow: hidden;
-        transition: transform .5s ease-in-out;
+        transition: transform 0.5s ease-in-out;
         z-index: 1;
 
         &::after {
@@ -48,23 +48,23 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: $colorMineShaft;
+            background-color: $color-mine-shaft;
             z-index: -1;
-            transition: opacity .5s ease-in-out;
+            transition: opacity 0.5s ease-in-out;
             backdrop-filter: blur(10px);
             border-radius: inherit;
         }
 
         &.swissplant::after {
-            background: linear-gradient(90deg, rgba($colorMySin, .5) 0%, rgba($colorMeteorite, .5) 100%);
+            background: linear-gradient(90deg, rgba($color-my-sin, 0.5) 0%, rgba($color-meteorite, 0.5) 100%);
         }
 
         &.agricontrol::after {
-            background: linear-gradient(90deg, rgba($colorDarkBlue, .5) 0%, rgba($colorSpringGreen, .5) 100%);
+            background: linear-gradient(90deg, rgba($color-dark-blue, 0.5) 0%, rgba($color-spring-green, 0.5) 100%);
         }
 
         &:hover {
-            transform: scale(.95);
+            transform: scale(0.95);
 
             &::after,
             .project-title {
