@@ -1,11 +1,5 @@
 .main {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    padding: 150px 25px;
-
-    @media (max-width: 767px) {
-        padding: 100px 25px;
-    }
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }

@@ -1,7 +1,7 @@
-.footer {
+.content {
   padding: $space-desktop;
-  font-size: 80%;
-  text-align: center;
+  flex: 1 1 100%;
+  max-width: $max-width;
 
   @media (max-width: 960px) {
     padding: $space-mobile;

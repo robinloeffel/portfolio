@@ -1,84 +1,36 @@
 .header {
-    position: relative;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  height: 100vh;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: $color-black-quarter-opaque;
+  }
+
+  &-title {
     display: flex;
     align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    height: 100vh;
-    min-height: 400px;
-    color: $color-white;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: $space-desktop;
+    z-index: 1;
+    font-size: 350%;
+    max-width: $max-width;
+  }
 
-    &::after {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba($color-mine-shaft, 0.9);
-    }
-
-    &-content {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-        z-index: 1;
-        padding: 25px;
-    }
-
-    &-title,
-    &-text,
-    &-small {
-        text-align: center;
-        line-height: 1.2;
-        animation: fade-in 0.5s ease-in-out 1 both;
-    }
-
+  @media (max-width: 960px) {
     &-title {
-        font-size: 200%;
-        font-weight: 400;
-        margin-bottom: 32px;
+      font-size: 300%;
+      padding: $space-mobile;
     }
-
-    &-text {
-        font-size: 300%;
-        font-weight: 700;
-        margin-top: 0;
-        margin-bottom: 32px;
-        animation-delay: 0.25s;
-    }
-
-    &-small {
-        font-size: 100%;
-        margin: 0;
-        color: rgba($color-white, 0.8);
-        animation-delay: 0.5s;
-    }
-
-    &-video {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: center;
-        opacity: 0;
-        transition: opacity 0.5s ease-in-out;
-
-        &-loaded {
-            opacity: 1;
-        }
-    }
-
-    @media (max-width: 767px) {
-        &-title {
-            font-size: 150%;
-        }
-
-        &-text {
-            font-size: 200%;
-        }
-    }
+  }
 }

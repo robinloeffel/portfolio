@@ -1,103 +1,56 @@
 .project {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 75%;
-    max-width: 960px;
-    color: $color-white;
+  position: relative;
+  flex: 0 0 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
 
-    &-title {
-        font-size: 200%;
-        position: absolute;
-        transition: opacity 0.5s ease-in-out;
-        text-align: center;
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: $color-black-quarter-opaque;
+    transition: opacity $transition-length $transition-easing;
+  }
+
+  &::after {
+    content: '';
+    padding: 40%;
+  }
+
+  &-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    transition: transform $transition-length $transition-easing;
+  }
+
+  &-text {
+    position: absolute;
+    transition: opacity $transition-length $transition-easing;
+  }
+
+  &:hover {
+    &::before,
+    .project-text {
+      opacity: 0;
     }
 
-    &-image {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: center;
-        z-index: -1;
+    .project-image {
+      transform: scale(1.05);
     }
+  }
 
-    &-link {
-        position: absolute;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        color: inherit;
-        text-decoration: none;
-        border-radius: 15px;
-        overflow: hidden;
-        transition: transform 0.5s ease-in-out;
-        z-index: 1;
-
-        &::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: $color-mine-shaft;
-            z-index: -1;
-            transition: opacity 0.5s ease-in-out;
-            backdrop-filter: blur(10px);
-            border-radius: inherit;
-        }
-
-        &.swissplant::after {
-            background: linear-gradient(90deg, rgba($color-my-sin, 0.5) 0%, rgba($color-meteorite, 0.5) 100%);
-        }
-
-        &.agricontrol::after {
-            background: linear-gradient(90deg, rgba($color-dark-blue, 0.5) 0%, rgba($color-spring-green, 0.5) 100%);
-        }
-
-        &:hover {
-            transform: scale(0.95);
-
-            &::after,
-            .project-title {
-                opacity: 0;
-            }
-        }
-    }
-
-    &::after {
-        content: '';
-        display: block;
-        padding-bottom: 65%;
-    }
-
-    &:not(:last-child) {
-        margin-bottom: 100px;
-    }
-
-    @media (max-width: 767px) {
-        width: 100%;
-
-        &-title {
-            font-size: 160%;
-        }
-
-        &:not(:last-child) {
-            margin-bottom: 50px;
-        }
-    }
-
-    @media (max-aspect-ratio: 1/1) {
-        &::after {
-            padding-bottom: 90%;
-        }
-    }
+  @media (max-width: 960px) {
+    flex: 0 0 100%;
+  }
 }
