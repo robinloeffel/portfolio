@@ -59,12 +59,15 @@ gulp.task('img', () => {
     .pipe(f1)
     .pipe(rezzy([{
       width: 800,
+      height: 600,
       suffix: '-sm'
     }, {
       width: 1200,
+      height: 900,
       suffix: '-md'
     }, {
       width: 1600,
+      height: 1200,
       suffix: '-lg'
     }]))
     .pipe(f1.restore)
