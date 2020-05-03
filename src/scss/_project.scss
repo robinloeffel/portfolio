@@ -14,13 +14,13 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: $color-black-quarter-opaque;
+    background-color: $color-black-fifth-opaque;
     transition: opacity $transition-length $transition-easing;
   }
 
   &::after {
     content: '';
-    padding: 40%;
+    padding: calc((3/4) * 50%);
   }
 
   &-image {
