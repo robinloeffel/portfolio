@@ -14,7 +14,7 @@
     "cssnano": "^4.1.10",
     "del": "^5.1.0",
     "eslint": "^6.8.0",
-    "eslint-config-sweet": "^0.4.3",
+    "eslint-config-sweet": "^0.5.0",
     "gulp": "^4.0.2",
     "gulp-connect": "^5.7.0",
     "gulp-filter": "^6.0.0",
