@@ -31,7 +31,16 @@
     height: 100%;
     object-fit: cover;
     z-index: -1;
-    transition: transform $transition-length $transition-easing;
+    transition:
+      transform $transition-length $transition-easing,
+      opacity $transition-length $transition-easing $transition-length / 2;
+    opacity: 0;
+    pointer-events: none;
+
+    &-loaded {
+      opacity: 1;
+      pointer-events: auto;
+    }
   }
 
   &-text {

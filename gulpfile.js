@@ -1,3 +1,5 @@
+/* eslint-env node */
+
 const gulp = require('gulp');
 const open = require('open');
 const del = require('del');
@@ -14,6 +16,11 @@ const stylelint = require('stylelint');
 const autoprefixer = require('autoprefixer');
 const cssnano = require('cssnano');
 const cssEnv = require('postcss-preset-env');
+const { rollup } = require('rollup');
+const { nodeResolve } = require('@rollup/plugin-node-resolve');
+const commonjs = require('@rollup/plugin-commonjs');
+const eslint = require('@rbnlffl/rollup-plugin-eslint');
+const { terser } = require('rollup-plugin-terser');
 
 const development = process.argv.includes('--dev');
 
@@ -28,6 +35,28 @@ gulp.task('serve', done => {
 
   open('http://localhost:8080');
   done();
+});
+
+gulp.task('js', async () => {
+  const bundle = await rollup({
+    input: 'src/js/page.js',
+    plugins: [
+      eslint(),
+      nodeResolve(),
+      commonjs(),
+      !development && terser({
+        output: {
+          comments: false
+        }
+      })
+    ].filter(p => p)
+  });
+
+  await bundle.write({
+    sourcemap: development,
+    file: 'dist/js/page.js',
+    format: 'iife'
+  });
 });
 
 gulp.task('css', () => gulp.src('src/scss/**/*.scss', {
@@ -102,6 +131,11 @@ gulp.task('files', () => gulp.src([
     .pipe(gulp.dest('dist'))
     .pipe(connect.reload()));
 
+gulp.task('watch:js', done => {
+  gulp.watch('src/js/**/*', gulp.parallel('js'));
+  done();
+});
+
 gulp.task('watch:css', done => {
   gulp.watch('src/scss/**/*', gulp.parallel('css'));
   done();
@@ -117,6 +151,6 @@ gulp.task('watch:files', done => {
   done();
 });
 
-gulp.task('watch', gulp.parallel('watch:css', 'watch:img', 'watch:files'));
-gulp.task('build', gulp.series('clean', gulp.parallel('css', 'img', 'files')));
+gulp.task('watch', gulp.parallel('watch:js', 'watch:css', 'watch:img', 'watch:files'));
+gulp.task('build', gulp.series('clean', gulp.parallel('js', 'css', 'img', 'files')));
 gulp.task('default', gulp.series('build', 'serve', 'watch'));

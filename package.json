@@ -10,6 +10,9 @@
   },
   "license": "MIT",
   "devDependencies": {
+    "@rbnlffl/rollup-plugin-eslint": "^0.1.4",
+    "@rollup/plugin-commonjs": "^13.0.0",
+    "@rollup/plugin-node-resolve": "^8.0.1",
     "autoprefixer": "^9.8.0",
     "cssnano": "^4.1.10",
     "del": "^5.1.0",
@@ -27,6 +30,8 @@
     "open": "^7.0.4",
     "postcss-preset-env": "^6.7.0",
     "postcss-scss": "^2.1.1",
+    "rollup": "^2.15.0",
+    "rollup-plugin-terser": "^6.1.0",
     "stylelint": "^13.6.0",
     "stylelint-config-sass-guidelines": "^7.0.0"
   },
@@ -40,7 +45,7 @@
     "not dead"
   ],
   "eslintConfig": {
-    "extends": "sweet/node"
+    "extends": "sweet/web"
   },
   "stylelint": {
     "extends": "stylelint-config-sass-guidelines",
