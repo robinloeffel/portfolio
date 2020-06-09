@@ -25,6 +25,10 @@ a {
 }
 
 p {
+  display: block;
+  width: 100%;
+  max-width: $max-width;
+
   &:first-child {
     margin-top: 0;
   }

@@ -9,6 +9,7 @@ const imagemin = require('gulp-imagemin');
 const filter = require('gulp-filter');
 const rezzy = require('gulp-rezzy');
 const postcss = require('gulp-postcss');
+const postcssScss = require('postcss-scss');
 const stylelint = require('stylelint');
 const autoprefixer = require('autoprefixer');
 const cssnano = require('cssnano');
@@ -35,13 +36,17 @@ gulp.task('css', () => gulp.src('src/scss/**/*.scss', {
     .pipe(plumber())
     .pipe(postcss([
       stylelint()
-    ]))
+    ], {
+      parser: postcssScss
+    }))
     .pipe(sass.sync())
     .pipe(postcss([
       cssEnv(),
       !development && autoprefixer(),
       !development && cssnano()
-    ].filter(p => p)))
+    ].filter(p => p), {
+      parser: postcssScss
+    }))
     .pipe(gulp.dest('dist/css', {
       sourcemaps: '.'
     }))

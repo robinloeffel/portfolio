@@ -1,7 +1,9 @@
 .content {
   padding: $space-desktop;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   flex: 1 1 100%;
-  max-width: $max-width;
 
   @media (max-width: 960px) {
     padding: $space-mobile;
