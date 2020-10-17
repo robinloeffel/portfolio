@@ -13,7 +13,7 @@
 #
 
 # hsts header
-Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
+Header set Strict-Transport-Security "max-age=63072000; includeSubDomains; preload" env=HTTPS
 
 # enable rewrites
 RewriteEngine On
