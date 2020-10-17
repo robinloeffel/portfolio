@@ -1,11 +1,9 @@
-/* eslint-env node */
-
 const gulp = require('gulp');
 const open = require('open');
 const del = require('del');
 const plumber = require('gulp-plumber');
 const connect = require('gulp-connect');
-const sass = require('gulp-sass');
+const sass = require('@rbnlffl/gulp-sass');
 const webp = require('gulp-webp');
 const imagemin = require('gulp-imagemin');
 const filter = require('gulp-filter');
@@ -68,7 +66,7 @@ gulp.task('css', () => gulp.src('src/scss/**/*.scss', {
     ], {
       parser: postcssScss
     }))
-    .pipe(sass.sync())
+    .pipe(sass())
     .pipe(postcss([
       cssEnv(),
       !development && autoprefixer(),
