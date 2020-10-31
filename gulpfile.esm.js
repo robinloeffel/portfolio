@@ -10,6 +10,7 @@ import imagemin from 'gulp-imagemin';
 import rename from 'gulp-rename';
 import rezzy from 'gulp-rezzy';
 import webp from 'gulp-webp';
+import handlebars from 'gulp-hb';
 
 import stylelint from 'stylelint';
 import scss from 'postcss-scss';
@@ -43,17 +44,17 @@ const serve = done => {
   done();
 };
 
-const copy = () => src([
-  'source/{*,}.*',
-  'source/video/**'
-], {
-  base: 'source'
-})
+const copyFiles = () => src('source/root/**/{*.,.*,*}')
 .pipe(plumber())
 .pipe(dest('public'))
 .pipe(reload());
 
-const js = () => src('source/js/index.js', {
+const copyVideos = () => src('source/media/videos/**/*')
+.pipe(plumber())
+.pipe(dest('public/vid'))
+.pipe(reload());
+
+const js = () => src('source/javascript/index.js', {
   sourcemaps: !production
 })
 .pipe(plumber())
@@ -97,9 +98,21 @@ const css = () => src('source/scss/index.scss', {
 }))
 .pipe(reload());
 
+const html = () => src('source/views/index.hbs')
+.pipe(plumber())
+.pipe(handlebars({
+  data: './source/views/*.data.js',
+  partials: './source/views/components/**/*.hbs'
+}))
+.pipe(rename({
+  extname: '.html'
+}))
+.pipe(dest('public'))
+.pipe(reload());
+
 const imgMinimize = () => src([
-  'source/img/favicon.png',
-  'source/img/open-graph.png'
+  'source/media/images/favicon.png',
+  'source/media/images/open-graph.png'
 ])
 .pipe(plumber())
 .pipe(imagemin())
@@ -107,10 +120,10 @@ const imgMinimize = () => src([
 .pipe(reload());
 
 const imgConvertResizeAndOptimize = () => src([
-  'source/img/agricontrol.jpg',
-  'source/img/post.jpg',
-  'source/img/swisspass-smile.jpg',
-  'source/img/swissplant.jpg'
+  'source/media/images/agricontrol.jpg',
+  'source/media/images/post.jpg',
+  'source/media/images/swisspass-smile.jpg',
+  'source/media/images/swissplant.jpg'
 ])
 .pipe(plumber())
 .pipe(rezzy([{
@@ -129,15 +142,18 @@ const imgConvertResizeAndOptimize = () => src([
 .pipe(dest('public/img'))
 .pipe(reload());
 
+const copy = parallel(copyFiles, copyVideos);
 const img = parallel(imgMinimize, imgConvertResizeAndOptimize);
 
 const watching = done => {
-  watch('source/{*,}.*', copy);
-  watch('source/js/**/*.js', js);
-  watch('source/scss/**/*.scss', css);
-  watch('source/img/**/*', img);
+  watch('source/root/**/{*.,.*,*}', copyFiles);
+  watch('source/media/videos/**/*', copyVideos);
+  watch('source/**/*.js', js);
+  watch('source/**/*.scss', css);
+  watch('source/media/images/**/*', img);
+  watch('source/**/*.{hbs,data.js}', html);
   done();
 };
 
-export default series(clean, copy, parallel(js, css, img), serve, open, watching);
-export const build = series(clean, copy, parallel(js, css, img));
+export default series(clean, copy, parallel(js, css, img, html), serve, open, watching);
+export const build = series(clean, copy, parallel(js, css, img, html));

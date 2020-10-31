@@ -1,9 +1,10 @@
-@import './reset';
 @import './variables';
 @import './base';
-@import './header';
-@import './video';
-@import './main';
-@import './content';
-@import './project';
-@import './footer';
+
+@import './components/video';
+@import './components/footer';
+@import './components/project';
+@import './components/image';
+@import './components/hero';
+@import './components/paragraph';
+

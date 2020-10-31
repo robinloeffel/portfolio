@@ -1,8 +1,10 @@
-.header {
+.hero {
   display: flex;
   justify-content: center;
+  align-items: center;
   position: relative;
   height: 100vh;
+  border: 2.5vw solid transparent;
 
   &::after {
     content: '';
@@ -15,13 +17,8 @@
   }
 
   &-title {
-    display: flex;
-    align-items: center;
     position: absolute;
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    padding: $space-desktop;
+    width: 80%;
     z-index: 1;
     font-size: 350%;
     max-width: $max-width;
@@ -30,7 +27,6 @@
   @media (max-width: 960px) {
     &-title {
       font-size: 250%;
-      padding: $space-mobile;
     }
   }
 }

@@ -1,0 +1,41 @@
+<!doctype html>
+
+<html lang="de-ch">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="Hey, mein Name ist Robin Löffel! Ich arbeite als Frontend Engineer und bin freiberuflicher UX/UI-Designer. Das ist mein Portfolio.">
+  <meta name="keywords" content="robin, löffel, design, webdesign, internet, web, programmierer, entwickler, designer, webdesigner, webseiten, bern, schweiz, homepage, frontend, frontend engineer, developer, frontend developer, web developer, web designer, ui, ui designer, portfolio, unic, ux">
+  <meta name="author" content="Robin Löffel">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="index, follow">
+  <title>Robin Löffel – Frontend Engineer aus Bern</title>
+  <script src="js/robin.js" defer></script>
+  <link rel="stylesheet" href="css/robin.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" >
+  <link rel="shortcut icon" href="img/favicon.png">
+  <link rel="canonical" href="https://robinloeffel.ch">
+  <meta property="og:url" content="https://robinloeffel.ch">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Robin Löffel – Frontend Engineer aus Bern">
+  <meta property="og:description" content="Hey, mein Name ist Robin Löffel! Ich arbeite als Frontend Engineer und bin freiberuflicher UX/UI-Designer. Das ist mein Portfolio.">
+  <meta property="og:image" content="https://robinloeffel.ch/img/open-graph.png">
+</head>
+
+<body>
+  {{> "hero" indexData.hero }}
+
+  <main class="main">
+    {{#each indexData.paragraphs as | paragraph | }}
+      {{> "paragraph" paragraph }}
+    {{/each}}
+
+    {{#each indexData.projects as | project | }}
+      {{> "project" project }}
+    {{/each}}
+  </main>
+
+  {{> "footer" indexData.footer }}
+</body>
+
+</html>
