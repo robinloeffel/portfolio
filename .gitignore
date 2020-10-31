@@ -1,8 +1,6 @@
-# directories
 node_modules
-dist
+public
 
-# macos
 .DS_Store
 .AppleDouble
 .LSOverride

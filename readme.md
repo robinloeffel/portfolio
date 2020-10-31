@@ -1,1 +1,1 @@
-[![robinloeffel.ch](https://robinloeffel.ch/img/og.jpg)](https://robinloeffel.ch)
+[![robinloeffel.ch](source/img/open-graph.png)](https://robinloeffel.ch)
