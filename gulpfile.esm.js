@@ -101,8 +101,8 @@ const css = () => src('source/scss/index.scss', {
 const html = () => src('source/views/index.hbs')
 .pipe(plumber())
 .pipe(handlebars({
-  data: './source/views/*.data.js',
-  partials: './source/views/components/**/*.hbs'
+  data: 'source/views/*.data.js',
+  partials: 'source/views/components/**/*.hbs'
 }))
 .pipe(rename({
   extname: '.html'
@@ -145,7 +145,7 @@ const imgConvertResizeAndOptimize = () => src([
 const copy = parallel(copyFiles, copyVideos);
 const img = parallel(imgMinimize, imgConvertResizeAndOptimize);
 
-const watching = done => {
+const watchSources = done => {
   watch('source/root/**/{*.,.*,*}', copyFiles);
   watch('source/media/videos/**/*', copyVideos);
   watch('source/**/*.js', js);
@@ -155,5 +155,5 @@ const watching = done => {
   done();
 };
 
-export default series(clean, copy, parallel(js, css, img, html), serve, open, watching);
+export default series(clean, copy, parallel(js, css, img, html), serve, open, watchSources);
 export const build = series(clean, copy, parallel(js, css, img, html));
