@@ -3,7 +3,7 @@ $color-white: #eee;
 $color-black-fifth-opaque: transparentize($color-black, 0.2);
 
 $font-size: 125%;
-$font-family: 'Inter', sans-serif;
+$font-family: system-ui;
 
 $transition-length: 0.45s;
 $transition-easing: ease-in-out;
