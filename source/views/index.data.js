@@ -6,7 +6,7 @@ export const hero = {
 };
 
 export const paragraphs = [
-  'Mein Name ist Robin Löffel. Hauptberuflich bin ich Frontend Engineer bei der <a href="https://unic.com">Unic</a> in Bern und Zürich. Dort arbeite ich momentan als Lead-Entwickler für <a href="https://post.ch">Die Post</a>, schreibe ab und zu einen <a href="https://www.unic.com/de/kompetenzen/experten-blog/2019/web-components-und-co">Fachartikel</a> und quassle viel und gerne mit jedem, den ich grad so im Office antreffe. Daneben doziere ich an der <a href="https://teko.ch">TEKO</a> in Bern die Module «Betriebssysteme» und «Web-Technologien».',
+  'Ich bin Robin Löffel. Arbeitsmässig tobe ich mich momentan als Senior Frontend Engineer bei der <a href="https://unic.com">Unic</a> in Bern und Zürich aus. Dort bin ich als Lead-Entwickler für <a href="https://post.ch">Die Post</a> tätig, schreibe ab und zu einen <a href="https://www.unic.com/de/kompetenzen/experten-blog/2019/web-components-und-co">Fachartikel</a> und quassle viel und gerne mit jedem, den ich grad so im Office antreffe. Daneben doziere ich an der <a href="https://teko.ch">TEKO</a> in Bern die Module «Betriebssysteme» und «Web-Technologien».',
   'Im Sommer 2018 haben zwei Freunde und ich <a href="https://agricontrol.app">Agricontrol</a> ins Leben gerufen – ein Herzensprojekt von uns, welches Gemüsegärtnern in der ganzen Schweiz ihr Leben erleichtern soll. Und da mich in meiner Freizeit ab und zu der kreative Tatendrang überkommt, entwerfe und entwickle ich gerne Webseiten für Einzelpersonen und Kleinstunternehmen. Im Folgenden ein kurzer Auszug von Projekten, an denen ich teilhaben durfte.'
 ];
 
