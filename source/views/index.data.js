@@ -51,3 +51,5 @@ export const projects = [{
     alt: 'Webseite von SwissPlant'
   }
 }];
+
+export const footer = 'Hast Du eine Frage? Schreib mir eine <a href="#" data-email-link>Nachricht</a>! Du findest mich auch auf <a href="https://github.com/robinloeffel">GitHub</a> und <a href="https://linkedin.com/in/robinloeffel">LinkedIn</a>!';
