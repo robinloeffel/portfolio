@@ -1,3 +1,7 @@
 module.exports = {
-  extends: 'sweet/web'
+  extends: 'sweet',
+  overrides: [{
+    files: '*.data.js',
+    extends: 'sweet/node'
+  }]
 };

@@ -1,10 +1,2 @@
-@import './variables';
-@import './base';
-
-@import './components/video';
-@import './components/footer';
-@import './components/project';
-@import './components/image';
-@import './components/hero';
-@import './components/paragraph';
-
+@use './base';
+@use './components';

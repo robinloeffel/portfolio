@@ -1,0 +1,11 @@
+@use '../variables';
+
+.footer {
+  width: 80%;
+  max-width: variables.$max-width;
+  margin: variables.$space-desktop auto;
+
+  @media (max-width: 960px) {
+    margin: variables.$space-mobile;
+  }
+}

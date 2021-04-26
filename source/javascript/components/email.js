@@ -1,8 +1,8 @@
-const links = document.querySelectorAll('[data-email-link]');
+const links = document.querySelectorAll('[data-email]');
 
 links.forEach(link => {
   link.addEventListener('click', event => {
     event.preventDefault();
-    location.href = 'mailto:hi@robinloeffel.ch';
+    location.href = `mailto:${ link.dataset.email }`;
   });
 });

@@ -1,3 +1,5 @@
+@use '../variables';
+
 .hero {
   display: flex;
   justify-content: center;
@@ -13,7 +15,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: $color-black-fifth-opaque;
+    background-color: variables.$color-black-fifth-opaque;
   }
 
   &-title {
@@ -21,7 +23,7 @@
     width: 80%;
     z-index: 1;
     font-size: 350%;
-    max-width: $max-width;
+    max-width: variables.$max-width;
   }
 
   @media (max-width: 960px) {

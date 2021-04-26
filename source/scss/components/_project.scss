@@ -1,3 +1,5 @@
+@use '../variables';
+
 .project {
   position: relative;
   flex: 0 0 50%;
@@ -14,8 +16,8 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: $color-black-fifth-opaque;
-    transition: opacity $transition-length $transition-easing;
+    background-color: variables.$color-black-fifth-opaque;
+    transition: opacity variables.$transition-length variables.$transition-easing;
   }
 
   &::after {
@@ -25,7 +27,7 @@
 
   &-text {
     position: absolute;
-    transition: opacity $transition-length $transition-easing;
+    transition: opacity variables.$transition-length variables.$transition-easing;
   }
 
   &:hover {

@@ -1,39 +1,33 @@
-import { execSync } from 'child_process';
-import { series, parallel, watch, src, dest } from 'gulp';
+const { exec } = require('child_process');
+const { series, parallel, watch, src, dest } = require('gulp');
 
-import plumber from 'gulp-plumber';
-import { server, reload } from 'gulp-connect';
-import sass from '@rbnlffl/gulp-sass';
-import rollup from '@rbnlffl/gulp-rollup';
-import postcss from 'gulp-postcss';
-import imagemin from 'gulp-imagemin';
-import rename from 'gulp-rename';
-import rezzy from 'gulp-rezzy';
-import webp from 'gulp-webp';
-import handlebars from 'gulp-hb';
+const plumber = require('gulp-plumber');
+const { server, reload } = require('gulp-connect');
+const sass = require('@rbnlffl/gulp-sass');
+const rollup = require('@rbnlffl/gulp-rollup');
+const postcss = require('gulp-postcss');
+const imagemin = require('gulp-imagemin');
+const rename = require('gulp-rename');
+const rezzy = require('gulp-rezzy');
+const webp = require('gulp-webp');
+const handlebars = require('gulp-hb');
 
-import stylelint from 'stylelint';
-import scss from 'postcss-scss';
-import env from 'postcss-preset-env';
-import cssnano from 'cssnano';
-import reporter from 'postcss-reporter';
+const stylelint = require('stylelint');
+const scss = require('postcss-scss');
+const cssnano = require('cssnano');
+const reporter = require('postcss-reporter');
 
-import eslint from '@rbnlffl/rollup-plugin-eslint';
-import resolve from '@rollup/plugin-node-resolve';
-import commonjs from '@rollup/plugin-commonjs';
-import buble from '@rollup/plugin-buble';
-import { terser } from 'rollup-plugin-terser';
+const eslint = require('@rbnlffl/rollup-plugin-eslint');
+const { default: resolve } = require('@rollup/plugin-node-resolve');
+const commonjs = require('@rollup/plugin-commonjs');
+const { terser } = require('rollup-plugin-terser');
 
 const production = process.argv.includes('--prod');
 
 const clean = done => {
-  execSync('rm -rf public');
-  done();
-};
-
-const open = done => {
-  execSync('open http://localhost:8080');
-  done();
+  exec('rm -rf public', () => {
+    done();
+  });
 };
 
 const serve = done => {
@@ -41,7 +35,10 @@ const serve = done => {
     livereload: true,
     root: 'public'
   });
-  done();
+
+  exec('open http://localhost:8080', () => {
+    done();
+  });
 };
 
 const copyFiles = () => src('source/root/**/{*.,.*,*}')
@@ -63,11 +60,10 @@ const js = () => src('source/javascript/index.js', {
     eslint(),
     resolve(),
     commonjs(),
-    production && terser(),
-    production && buble()
+    production && terser()
   ].filter(plugin => plugin)
 }, {
-  format: 'iife'
+  format: 'es'
 }))
 .pipe(rename('robin.js'))
 .pipe(dest('public/js', {
@@ -89,7 +85,6 @@ const css = () => src('source/scss/index.scss', {
 }))
 .pipe(sass())
 .pipe(postcss([
-  env(),
   production && cssnano()
 ].filter(plugin => plugin)))
 .pipe(rename('robin.css'))
@@ -101,7 +96,7 @@ const css = () => src('source/scss/index.scss', {
 const html = () => src('source/views/index.hbs')
 .pipe(plumber())
 .pipe(handlebars({
-  data: 'source/views/*.data.js',
+  data: 'source/views/**/*.data.js',
   partials: 'source/views/components/**/*.hbs'
 }))
 .pipe(rename({
@@ -111,8 +106,7 @@ const html = () => src('source/views/index.hbs')
 .pipe(reload());
 
 const imgMinimize = () => src([
-  'source/media/images/favicon.png',
-  'source/media/images/open-graph.png'
+  'source/media/images/favicon.png'
 ])
 .pipe(plumber())
 .pipe(imagemin())
@@ -155,5 +149,5 @@ const watchSources = done => {
   done();
 };
 
-export default series(clean, copy, parallel(js, css, img, html), serve, open, watchSources);
-export const build = series(clean, copy, parallel(js, css, img, html));
+module.exports.default = series(clean, copy, parallel(js, css, img, html), serve, watchSources);
+module.exports.build = series(clean, copy, parallel(js, css, img, html));

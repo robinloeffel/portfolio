@@ -1,0 +1,18 @@
+@use '../variables';
+
+.video {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(0.95);
+  opacity: 0;
+  transition:
+    transform variables.$transition-length variables.$transition-easing,
+    opacity variables.$transition-length variables.$transition-easing;
+
+  &-loaded {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
