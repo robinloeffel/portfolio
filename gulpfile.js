@@ -1,16 +1,12 @@
-const { exec } = require('child_process');
+const { rmdir } = require('fs/promises');
 const { series, parallel, watch, src, dest } = require('gulp');
+const open = require('open');
 
 const plumber = require('gulp-plumber');
 const { server, reload } = require('gulp-connect');
 const sass = require('@rbnlffl/gulp-sass');
 const rollup = require('@rbnlffl/gulp-rollup');
 const postcss = require('gulp-postcss');
-const imagemin = require('gulp-imagemin');
-const rename = require('gulp-rename');
-const rezzy = require('gulp-rezzy');
-const webp = require('gulp-webp');
-const handlebars = require('gulp-hb');
 
 const stylelint = require('stylelint');
 const scss = require('postcss-scss');
@@ -24,34 +20,32 @@ const { terser } = require('rollup-plugin-terser');
 
 const production = process.argv.includes('--prod');
 
-const clean = done => {
-  exec('rm -rf public', () => {
-    done();
-  });
-};
+const clean = async () => await rmdir('public', {
+  recursive: true
+});
 
-const serve = done => {
-  server({
-    livereload: true,
-    root: 'public'
-  });
+const serve = async () => await server({
+  livereload: true,
+  root: 'public'
+});
 
-  exec('open http://localhost:8080', () => {
-    done();
-  });
-};
+const openBrowser = async () => await open('http://localhost:8080');
 
-const copyFiles = () => src('source/root/**/{*.,.*,*}')
+const copy = () => src([
+  'source/index.html',
+  'source/robots.txt',
+  'source/sitemap.txt',
+  'source/.htaccess',
+  'source/img/**'
+], {
+  base: 'source',
+  allowEmpty: true
+})
 .pipe(plumber())
 .pipe(dest('public'))
 .pipe(reload());
 
-const copyVideos = () => src('source/media/videos/**/*')
-.pipe(plumber())
-.pipe(dest('public/vid'))
-.pipe(reload());
-
-const js = () => src('source/javascript/index.js', {
+const js = () => src('source/js/robin.js', {
   sourcemaps: !production
 })
 .pipe(plumber())
@@ -62,16 +56,13 @@ const js = () => src('source/javascript/index.js', {
     commonjs(),
     production && terser()
   ].filter(plugin => plugin)
-}, {
-  format: 'es'
 }))
-.pipe(rename('robin.js'))
 .pipe(dest('public/js', {
   sourcemaps: '.'
 }))
 .pipe(reload());
 
-const css = () => src('source/scss/index.scss', {
+const css = () => src('source/css/robin.scss', {
   sourcemaps: !production
 })
 .pipe(plumber())
@@ -87,67 +78,24 @@ const css = () => src('source/scss/index.scss', {
 .pipe(postcss([
   production && cssnano()
 ].filter(plugin => plugin)))
-.pipe(rename('robin.css'))
 .pipe(dest('public/css', {
   sourcemaps: '.'
 }))
 .pipe(reload());
 
-const html = () => src('source/views/index.hbs')
-.pipe(plumber())
-.pipe(handlebars({
-  data: 'source/views/**/*.data.js',
-  partials: 'source/views/components/**/*.hbs'
-}))
-.pipe(rename({
-  extname: '.html'
-}))
-.pipe(dest('public'))
-.pipe(reload());
+const watchFiles = done => {
+  watch([
+    'source/index.html',
+    'source/robots.txt',
+    'source/sitemap.txt',
+    'source/.htaccess',
+    'source/img/**'
+  ], copy);
+  watch('source/css/**/*', css);
+  watch('source/js/**/*', js);
 
-const imgMinimize = () => src([
-  'source/media/images/favicon.png'
-])
-.pipe(plumber())
-.pipe(imagemin())
-.pipe(dest('public/img'))
-.pipe(reload());
-
-const imgConvertResizeAndOptimize = () => src([
-  'source/media/images/agricontrol.jpg',
-  'source/media/images/post.jpg',
-  'source/media/images/swisspass-smile.jpg',
-  'source/media/images/swissplant.jpg'
-])
-.pipe(plumber())
-.pipe(rezzy([{
-  width: 800,
-  suffix: '-sm'
-}, {
-  width: 1200,
-  suffix: '-md'
-}, {
-  width: 1600,
-  suffix: '-lg'
-}]))
-.pipe(imagemin())
-.pipe(dest('public/img'))
-.pipe(webp())
-.pipe(dest('public/img'))
-.pipe(reload());
-
-const copy = parallel(copyFiles, copyVideos);
-const img = parallel(imgMinimize, imgConvertResizeAndOptimize);
-
-const watchSources = done => {
-  watch('source/root/**/{*.,.*,*}', copyFiles);
-  watch('source/media/videos/**/*', copyVideos);
-  watch('source/**/*.js', js);
-  watch('source/**/*.scss', css);
-  watch('source/media/images/**/*', img);
-  watch('source/**/*.{hbs,data.js}', html);
   done();
 };
 
-module.exports.default = series(clean, copy, parallel(js, css, img, html), serve, watchSources);
-module.exports.build = series(clean, copy, parallel(js, css, img, html));
+module.exports.default = series(clean, parallel(copy, js, css), serve, openBrowser, watchFiles);
+module.exports.build = series(clean, parallel(copy, js, css));
