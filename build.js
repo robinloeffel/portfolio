@@ -7,7 +7,7 @@ const development = process.argv.includes('--dev');
 const setup = async () => {
   const server = browserSync.create();
 
-  await del('dist/robin.{js,css}');
+  await del('dist/*.{js,css,map}');
   await build({
     entryPoints: [ './src' ],
     entryNames: 'robin',
@@ -16,7 +16,6 @@ const setup = async () => {
     incremental: true,
     sourcemap: development,
     minify: !development,
-    logLevel: 'error',
     watch: {
       onRebuild() {
         server.reload();

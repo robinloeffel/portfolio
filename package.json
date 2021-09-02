@@ -8,7 +8,10 @@
     "esbuild": "^0.12.23",
     "eslint": "^7.32.0",
     "eslint-config-sweet": "^5.0.0",
-    "stylelint": "^13.13.1"
+    "stylelint": "^13.13.1",
+    "stylelint-config-rational-order": "^0.1.2",
+    "stylelint-config-standard": "^22.0.0",
+    "stylelint-order": "^4.1.0"
   },
   "scripts": {
     "start": "node build.js --dev",

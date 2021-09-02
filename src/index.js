@@ -9,3 +9,4 @@ import './css/articles.css';
 import './css/separator.css';
 
 import './js/balls';
+import './js/project-image';

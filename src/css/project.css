@@ -4,11 +4,14 @@
 
 .project-image {
   max-width: 150%;
+  margin-bottom: 20px;
   margin-left: -25%;
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
 }
 
-.project-image {
-  margin-bottom: 20px;
+.project-image-hidden {
+  transform: translateY(5%) scale(0.98);
+  opacity: 0;
 }
 
 .project-title {

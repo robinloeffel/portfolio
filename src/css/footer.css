@@ -3,13 +3,13 @@
   display: grid;
   align-items: center;
   justify-items: center;
+  margin-top: 75px;
+  padding: 5vh;
   background-color: var(--white);
   border: 5vh solid white;
-  padding: 5vh;
-  margin-top: 75px;
 }
 
 .footer-text {
-  font-size: 80%;
   max-width: 600px;
+  font-size: 80%;
 }
