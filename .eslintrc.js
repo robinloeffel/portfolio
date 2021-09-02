@@ -1,3 +1,7 @@
 module.exports = {
-  extends: 'sweet'
+  extends: 'sweet',
+  overrides: [{
+    files: 'build.js',
+    extends: 'sweet/node'
+  }]
 };

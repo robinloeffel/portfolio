@@ -1,44 +1,17 @@
 {
-  "name": "portfolio",
-  "version": "0.2.0",
-  "description": "The portfolio of yours truly.",
-  "homepage": "https://robinloeffel.ch",
-  "repository": "https://github.com/robinloeffel/portfolio.git",
-  "bugs": "https://github.com/robinloeffel/portfolio/issues",
-  "author": "Robin Löffel (https://robinloeffel.ch) <hi@robinloeffel.ch>",
+  "name": "robin",
+  "version": "0.1.0",
   "license": "MIT",
-  "keywords": [
-    "html",
-    "css",
-    "js",
-    "portfolio-website",
-    "personal-website"
-  ],
-  "scripts": {
-    "start": "gulp",
-    "prod": "gulp --prod",
-    "dist": "gulp build --prod"
-  },
   "devDependencies": {
-    "@rbnlffl/gulp-rollup": "^0.1.1",
-    "@rbnlffl/gulp-sass": "^0.1.2",
-    "@rbnlffl/rollup-plugin-eslint": "^2.0.0",
-    "@rollup/plugin-commonjs": "^19.0.0",
-    "@rollup/plugin-node-resolve": "^13.0.0",
-    "cssnano": "^5.0.6",
-    "eslint": "^7.28.0",
+    "browser-sync": "^2.27.5",
+    "del": "^6.0.0",
+    "esbuild": "^0.12.23",
+    "eslint": "^7.32.0",
     "eslint-config-sweet": "^5.0.0",
-    "gulp": "^4.0.2",
-    "gulp-connect": "^5.7.0",
-    "gulp-plumber": "^1.2.1",
-    "gulp-postcss": "^9.0.0",
-    "open": "^8.2.0",
-    "postcss": "^8.3.5",
-    "postcss-reporter": "^7.0.2",
-    "postcss-scss": "^4.0.0",
-    "rollup": "^2.52.1",
-    "rollup-plugin-terser": "^7.0.2",
-    "stylelint": "^13.13.1",
-    "stylelint-config-sass-guidelines": "^8.0.0"
+    "stylelint": "^13.13.1"
+  },
+  "scripts": {
+    "start": "node build.js --dev",
+    "prod": "node build.js"
   }
 }
