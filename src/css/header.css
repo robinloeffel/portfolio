@@ -3,54 +3,62 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  height: calc(100vh - 25px);
+  height: 95vh;
   width: 100%;
   background-color: var(--white);
   position: relative;
   overflow: hidden;
 }
 
-.header::before {
+.header::after {
   content: "";
   position: absolute;
   inset: 0;
   border: 5vh solid white;
-  z-index: 2;
   pointer-events: none;
+}
+
+.header-content,
+.header-title,
+.header-lead,
+.header-links {
+  position: relative;
+}
+
+.header-title,
+.header-lead,
+.header-links,
+.header-image {
+  border: 3px solid var(--black);
+}
+
+.header-title,
+.header-lead,
+.header-links {
+  background-color: white;
+  padding: 8px 16px;
+  max-width: 500px;
+  left: 35%;
+  top: 10%;
 }
 
 .header-title,
 .header-lead {
-  position: relative;
-  width: 80%;
-  max-width: 600px;
-  background-color: white;
-  border: 3px solid var(--black);
-  padding: 8px 16px;
-  left: 200px;
-  top: 100px;
-  z-index: 2;
-}
-
-.header-title {
   margin-bottom: .5em;
 }
 
 .header-image {
+  position: absolute;
+  top: -40%;
+  left: -25%;
+  max-width: 400px;
   width: 25vw;
-  left: 25%;
   border: 3px solid var(--black);
-  z-index: 1;
 }
 
 .ball {
-  border-radius: 100%;
-  z-index: 0;
-}
-
-.ball,
-.header-image {
   position: absolute;
+  border-radius: 100%;
 }
 
 .ball::before,

@@ -1,0 +1,25 @@
+.project + .project {
+  margin-top: 75px;
+}
+
+.project-image {
+  max-width: 150%;
+  margin-left: -25%;
+}
+
+.project-image {
+  margin-bottom: 20px;
+}
+
+.project-title {
+  margin-bottom: 5px;
+}
+
+.project-details {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.project-description {
+  margin-bottom: 10px;
+}

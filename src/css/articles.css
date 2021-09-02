@@ -1,0 +1,12 @@
+.articles-list {
+  margin-top: 10px;
+}
+
+.article {
+  display: inline-block;
+  margin-left: 10px;
+}
+
+.article::before {
+  content: '»';
+}
