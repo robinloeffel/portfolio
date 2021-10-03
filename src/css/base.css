@@ -1,8 +1,8 @@
 body {
-  color: var(--black);
+  color: var(--off-black);
   font-weight: 500;
-  font-size: 20px;
-  font-family: system-ui, sans-serif;
+  font-size: 21px;
+  font-family: Inter, system-ui;
   line-height: 1.6;
 }
 

@@ -7,6 +7,7 @@ import './css/project.css';
 import './css/footer.css';
 import './css/articles.css';
 import './css/separator.css';
+import './css/circles.css';
 
-import './js/balls';
+import './js/circles';
 import './js/project-image';

@@ -3,10 +3,8 @@
   display: grid;
   align-items: center;
   justify-items: center;
-  margin-top: 75px;
-  padding: 5vh;
-  background-color: var(--white);
-  border: 5vh solid white;
+  padding: 7.5vh;
+  background-color: var(--off-white);
 }
 
 .footer-text {

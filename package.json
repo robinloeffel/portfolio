@@ -5,9 +5,9 @@
   "devDependencies": {
     "browser-sync": "^2.27.5",
     "del": "^6.0.0",
-    "esbuild": "^0.12.23",
+    "esbuild": "^0.13.3",
     "eslint": "^7.32.0",
-    "eslint-config-sweet": "^5.0.0",
+    "eslint-config-sweet": "^6.0.0",
     "stylelint": "^13.13.1",
     "stylelint-config-rational-order": "^0.1.2",
     "stylelint-config-standard": "^22.0.0",

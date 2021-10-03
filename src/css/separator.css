@@ -1,7 +1,7 @@
 .separator {
-  width: 75%;
-  height: 2px;
-  margin: 75px auto;
-  background-color: var(--white);
+  width: 70%;
+  height: 3px;
+  margin: 7.5vh auto;
+  background-color: var(--off-white);
   border: 0;
 }
