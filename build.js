@@ -7,11 +7,14 @@ const development = process.argv.includes('--dev');
 const setup = async () => {
   const server = browserSync.create();
 
-  await del('dist/*.{js,css,map}');
+  await del('public/*.{js,css,map}');
+
   await build({
-    entryPoints: [ './src' ],
-    entryNames: 'robin',
-    outdir: 'dist',
+    entryPoints: [
+      'src/robin.css',
+      'src/robin.js'
+    ],
+    outdir: 'public',
     bundle: true,
     incremental: true,
     sourcemap: development,
@@ -24,14 +27,12 @@ const setup = async () => {
   });
 
   server.init({
-    server: 'dist',
+    server: 'public',
     notify: false,
     ui: false,
     port: 8080,
-    host: '0.0.0.0',
-    logLevel: 'silent'
+    host: '0.0.0.0'
   });
 };
 
 setup();
-
