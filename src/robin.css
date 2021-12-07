@@ -79,6 +79,7 @@ footer {
 }
 
 .project-list {
+  position: relative;
   display: flex;
   overflow: hidden;
   border-radius: 10px;

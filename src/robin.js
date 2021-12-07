@@ -1,19 +1,15 @@
 const scrollContainer = document.querySelector('[data-project-container]');
-const { clientWidth: scrollContainerWidth } = scrollContainer;
 const scrollTriggers = document.querySelectorAll('[data-project-scroller]');
 
 const scrollHorizontally = ({
-  target: {
-    dataset: {
-      projectScroller: start
-    }
-  }
+  target: clickedButton
 }) => {
-  if (start === 'start') {
-    scrollContainer.scrollLeft = 0;
-  } else {
-    scrollContainer.scrollLeft += scrollContainerWidth;
-  }
+  const currentProject = clickedButton.closest('.project');
+
+  scrollContainer.scrollLeft =
+    currentProject.nextElementSibling
+      ? currentProject.nextElementSibling.offsetLeft
+      : 0;
 };
 
 scrollTriggers.forEach(trigger => {
