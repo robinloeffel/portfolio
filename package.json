@@ -5,12 +5,12 @@
   "devDependencies": {
     "browser-sync": "^2.27.5",
     "del": "^6.0.0",
-    "esbuild": "^0.13.3",
-    "eslint": "^8.2.0",
-    "eslint-config-sweet": "^6.0.0",
-    "stylelint": "^14.0.1",
+    "esbuild": "^0.14.2",
+    "eslint": "^8.4.1",
+    "eslint-config-sweet": "^7.0.0",
+    "stylelint": "^14.1.0",
     "stylelint-config-rational-order": "^0.1.2",
-    "stylelint-config-standard": "^23.0.0",
+    "stylelint-config-standard": "^24.0.0",
     "stylelint-order": "^5.0.0"
   },
   "scripts": {
