@@ -3,8 +3,11 @@
 :root {
   --font-family: inter, system-ui;
   --font-size-base: 24px;
+  --body-color: #fff;
   --text-color: #444;
   --link-color: #667;
+  --project-text-color: var(--body-color);
+  --project-gradient-color: var(--text-color);
   --space-big: 100px;
   --space-medium: 50px;
   --space-medium-and-a-tiny-bit-more-for-the-visual-rhythm: calc(var(--space-medium) + 10px);
@@ -22,6 +25,18 @@
   padding: 0;
 }
 
+/* theme */
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text-color: #fff;
+    --link-color: #aab;
+    --body-color: #223;
+    --project-text-color: var(--text-color);
+    --project-gradient-color: var(--body-color);
+  }
+}
+
 /* base */
 
 body {
@@ -33,6 +48,7 @@ body {
   font-family: var(--font-family);
   line-height: 1.6;
   text-transform: lowercase;
+  background-color: var(--body-color);
 }
 
 h1,
@@ -92,9 +108,9 @@ footer {
   align-items: baseline;
   width: 100%;
   padding: var(--space-big) var(--space-medium-and-a-tiny-bit-more-for-the-visual-rhythm) var(--space-medium);
-  color: #fff;
+  color: var(--project-text-color);
   line-height: 1;
-  background: linear-gradient(to top, var(--text-color), transparent);
+  background: linear-gradient(to top, var(--project-gradient-color), transparent);
 }
 
 .project-title {
@@ -127,4 +143,5 @@ footer {
 
 footer {
   margin: var(--space-big) auto;
+}
 }
