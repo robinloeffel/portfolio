@@ -6,10 +6,9 @@ const scrollHorizontally = ({
 }) => {
   const currentProject = clickedButton.closest('.project');
 
-  diashowContainer.scrollLeft =
-    currentProject.nextElementSibling
-      ? currentProject.nextElementSibling.offsetLeft
-      : 0;
+  window.requestAnimationFrame(() => {
+    diashowContainer.scroll(currentProject.nextElementSibling?.offsetLeft || 0, 0);
+  });
 };
 
 diashowScrollTriggers.forEach(scrollTrigger => {

@@ -1,13 +1,11 @@
-const { build } = require('esbuild');
-const browserSync = require('browser-sync');
-const del = require('del');
+import { exec } from 'child_process';
+import { build } from 'esbuild';
+import browserSync from 'browser-sync';
 
 const development = process.argv.includes('--dev');
 
-const setup = async () => {
+exec('rm -rf ./public/robin.*', async () => {
   const server = browserSync.create();
-
-  await del('./public/*.{js,css,map}');
 
   await build({
     entryPoints: [
@@ -33,6 +31,4 @@ const setup = async () => {
     server: './public',
     ui: false
   });
-};
-
-setup();
+});

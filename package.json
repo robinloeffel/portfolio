@@ -4,9 +4,8 @@
   "license": "MIT",
   "devDependencies": {
     "browser-sync": "^2.27.5",
-    "del": "^6.0.0",
-    "esbuild": "^0.14.8",
-    "eslint": "^8.5.0",
+    "esbuild": "^0.14.10",
+    "eslint": "^8.6.0",
     "eslint-config-sweet": "^7.0.0",
     "stylelint": "^14.2.0",
     "stylelint-config-rational-order": "^0.1.2",
@@ -14,7 +13,7 @@
     "stylelint-order": "^5.0.0"
   },
   "scripts": {
-    "start": "node build.js --dev",
-    "prod": "node build.js"
+    "start": "node build.mjs --dev",
+    "prod": "node build.mjs"
   }
 }
