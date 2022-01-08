@@ -2,6 +2,10 @@
   "name": "robin",
   "version": "0.2.0",
   "license": "MIT",
+  "browserslist": ">1% in ch",
+  "engines": {
+    "node": ">=16"
+  },
   "devDependencies": {
     "browser-sync": "^2.27.5",
     "esbuild": "^0.14.10",

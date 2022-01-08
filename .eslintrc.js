@@ -1,8 +1,5 @@
 module.exports = {
   extends: 'sweet',
-  rules: {
-    'compat/compat': 'off'
-  },
   overrides: [{
     files: 'build.mjs',
     extends: 'sweet/node',
