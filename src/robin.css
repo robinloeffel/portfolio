@@ -54,7 +54,6 @@ body {
 
 h1,
 h2 {
-  font-weight: 800;
   line-height: 1.1;
 }
 
@@ -65,22 +64,16 @@ a {
 /* style */
 
 header {
-  margin: var(--space-big) 0;
+  margin-block: var(--space-big);
 }
 
 header,
 footer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  text-align: center;
 }
 
 .header-title {
   margin-bottom: var(--space-medium);
-}
-
-.header-text {
-  text-align: center;
 }
 
 .project-diashow {
@@ -114,29 +107,14 @@ footer {
 
 .project-description {
   position: absolute;
-  bottom: 0;
-  left: 0;
+  inset: auto 0 0 0;
   display: flex;
   align-items: baseline;
-  width: 100%;
+  justify-content: space-between;
   padding: var(--space-big) var(--space-almost-medium) var(--space-medium);
   color: var(--project-text-color);
   line-height: 1;
   background: linear-gradient(to top, var(--project-gradient-color), transparent);
-}
-
-.project-title {
-  display: inline;
-}
-
-.project-title,
-.project-role {
-  margin-right: var(--space-big);
-}
-
-.project-page {
-  margin-right: var(--space-small);
-  margin-left: auto;
 }
 
 .project-link {
@@ -154,11 +132,10 @@ footer {
 }
 
 footer {
-  margin: var(--space-big) auto;
-  text-align: center;
+  margin-block: var(--space-big);
 }
 
-@media (max-width: 1024px) {
+@media (orientation: portrait) {
   .project-image {
     aspect-ratio: 3 / 4;
   }
@@ -172,8 +149,7 @@ footer {
     margin: 0;
   }
 
-  .project-title,
-  .project-page {
+  .project-title {
     margin-bottom: var(--space-small);
   }
 

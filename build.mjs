@@ -1,5 +1,6 @@
 import { exec } from 'child_process';
 import { build } from 'esbuild';
+import postcss from 'esbuild-postcss';
 import browserSync from 'browser-sync';
 
 const development = process.argv.includes('--dev');
@@ -21,7 +22,10 @@ exec('rm -rf ./public/robin.*', async () => {
       onRebuild() {
         server.reload();
       }
-    }
+    },
+    plugins: [
+      postcss()
+    ]
   });
 
   server.init({

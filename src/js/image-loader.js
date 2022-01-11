@@ -9,8 +9,8 @@ const observer = new IntersectionObserver(entries => {
     if (isIntersecting) {
       observer.unobserve(imageToShow);
 
-      imageToShow.setAttribute('srcset', imageToShow.getAttribute('data-srcset'));
-      imageToShow.removeAttribute('data-srcset');
+      imageToShow.setAttribute('srcset', imageToShow.dataset.srcset);
+      delete imageToShow.dataset.srcset;
     }
   });
 }, {
