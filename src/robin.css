@@ -1,7 +1,7 @@
 /* vars */
 
 :root {
-  --font-family: inter, system-ui;
+  --font-family: inter var, system-ui;
   --font-size-base: 24px;
   --body-color: #fff;
   --text-color: #444;
