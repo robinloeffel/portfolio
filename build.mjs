@@ -5,13 +5,13 @@ import browserSync from 'browser-sync';
 
 const development = process.argv.includes('--dev');
 
-exec('rm -rf ./public/robin.*', async () => {
+exec('rm -rf ./public/robin*', async () => {
   const server = browserSync.create();
 
   await build({
     entryPoints: [
-      'src/robin.css',
-      'src/robin.js'
+      './src/robin.css',
+      './src/robin.js'
     ],
     outdir: './public',
     bundle: true,

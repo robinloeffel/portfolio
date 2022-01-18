@@ -1,7 +1,5 @@
 node_modules
-public/*.css
-public/*.js
-public/*.map
+public/robin*
 
 .DS_Store
 .AppleDouble
