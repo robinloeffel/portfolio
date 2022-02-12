@@ -1,6 +1,7 @@
 import { exec } from 'child_process';
 import { build } from 'esbuild';
 import postcss from 'esbuild-postcss';
+import eslint from 'esbuild-plugin-eslint';
 import browserSync from 'browser-sync';
 
 const development = process.argv.includes('--dev');
@@ -24,6 +25,7 @@ exec('rm -rf ./public/robin*', async () => {
       }
     },
     plugins: [
+      eslint(),
       postcss()
     ]
   });

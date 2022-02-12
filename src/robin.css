@@ -1,7 +1,7 @@
 /* vars */
 
 :root {
-  --font-family: inter var, system-ui;
+  --font-family: intervariable, system-ui, sans-serif;
   --font-size-base: 24px;
   --body-color: #fff;
   --text-color: #444;
@@ -64,7 +64,7 @@ a {
 /* style */
 
 header {
-  margin-block: var(--space-big);
+  margin: var(--space-big) 0;
 }
 
 header,
@@ -78,17 +78,27 @@ footer {
 
 .project-diashow {
   position: relative;
-  display: flex;
-  overflow: hidden;
+  display: grid;
+  grid-auto-columns: 100%;
+  grid-auto-flow: column;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
   border-radius: var(--space-tiny);
-  will-change: scroll-position;
+  overscroll-behavior-x: contain;
   scroll-behavior: smooth;
+}
+
+@supports not (scrollbar-width: none) {
+  .project-diashow::-webkit-scrollbar {
+    width: 0;
+  }
 }
 
 .project {
   position: relative;
   display: block;
-  flex: 0 0 100%;
+  scroll-snap-align: start;
 }
 
 .project-image {
@@ -102,7 +112,7 @@ footer {
 }
 
 .project-image-visible {
-  opacity: unset;
+  opacity: initial;
 }
 
 .project-description {
@@ -126,13 +136,13 @@ footer {
   font: inherit;
   text-transform: inherit;
   text-decoration: underline;
-  background: unset;
+  background: none;
   border: 0;
   cursor: pointer;
 }
 
 footer {
-  margin-block: var(--space-big);
+  margin: var(--space-big) 0;
 }
 
 @media (orientation: portrait) {

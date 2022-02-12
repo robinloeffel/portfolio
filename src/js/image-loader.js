@@ -15,7 +15,7 @@ const observer = new IntersectionObserver(entries => {
   });
 }, {
   root: projectDiashow,
-  threshold: 0.99
+  threshold: 0.1
 });
 
 images.forEach(image => {
