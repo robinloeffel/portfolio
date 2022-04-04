@@ -2,10 +2,10 @@
 <html lang="en">
 
 <head>
-  <title>Robin Löffel &mdash; Frontend Engineer & Web Designer</title>
+  <title>Robin Löffel &mdash; Frontend Engineer & Freelance Web Designer</title>
   <meta charset="utf-8">
-  <link rel="preload" type="font/woff2" href="https://unpkg.com/@fontsource/inter@4.5.4/files/inter-latin-variable-wghtOnly-normal.woff2" as="font" crossorigin>
-  <link rel="preload" type="text/css" href="https://unpkg.com/@fontsource/inter@4.5.4/variable.css" as="style" crossorigin>
+  <link rel="preload" type="font/woff2" href="https://unpkg.com/@fontsource/inter@4.5.7/files/inter-latin-variable-wghtOnly-normal.woff2" as="font" crossorigin>
+  <link rel="preload" type="text/css" href="https://unpkg.com/@fontsource/inter@4.5.7/variable.css" as="style" crossorigin>
   <link rel="preload" type="text/css" href="robin.css" as="style">
   <link rel="preload" type="text/javascript" href="robin.js" as="script">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -14,7 +14,7 @@
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://robinloeffel.ch">
   <link rel="shortcut icon" type="image/png" href="favicon.png">
-  <link rel="stylesheet" type="text/css" href="https://unpkg.com/@fontsource/inter@4.5.4/variable.css" crossorigin>
+  <link rel="stylesheet" type="text/css" href="https://unpkg.com/@fontsource/inter@4.5.7/variable.css" crossorigin>
   <link rel="stylesheet" type="text/css" href="robin.css">
   <script type="text/javascript" src="robin.js" defer></script>
   <script type="text/javascript">
@@ -26,77 +26,91 @@
 
 <body>
   <header>
-    <h1 class="header-title">Robin Löffel</h1>
-    <p class="header-text">Frontend Engineer at <a href="https://unic.com">Unic</a> and freelance Web Designer</p>
+    <nav class="navigation">
+      <ol class="navigation-list">
+        <li class="navigation-item">
+          <a href="." class="navigation-link navigation-link-start">robin</a>
+        </li>
+        <li class="navigation-item">
+          <a href="#portfolio" class="navigation-link">portfolio</a>
+        </li>
+        <li class="navigation-item">
+          <a href="#about" class="navigation-link">about</a>
+        </li>
+        <li class="navigation-item">
+          <a href="#" class="navigation-link navigation-link-cta" data-email-link>message me</a>
+        </li>
+      </ol>
+    </nav>
   </header>
   <main>
-    <ul class="project-diashow" data-project-diashow>
-      <li class="project">
-        <img
-          class="project-image"
-          data-srcset="post-lg.webp 2880w, post-md.webp 1440w, post-sm.webp 720w"
-          alt="An image of the headquarters of the Swiss Post in Bern, Wankdorf."
-        >
-        <div class="project-description">
-          <h2 class="project-title">
-            <a class="project-link" href="https://post.ch">Die Post</a>
-          </h2>
-          <span class="project-role">Frontend Lead / Unic</span>
-          <span class="project-timeframe">Since 2019</span>
-          <button
-            class="project-scroller"
-            data-project-diashow-scroll-trigger
-          >
-            Next &rarr;
-          </button>
-        </div>
-      </li>
-      <li class="project">
-        <img
-          class="project-image"
-          data-srcset="smile-lg.webp 2880w, smile-md.webp 1440w, smile-sm.webp 720w"
-          alt="A young mother and her son standing in a train station."
-        >
-        <div class="project-description">
-          <h2 class="project-title">
-            <a class="project-link" href="https://smile.swisspass.ch">SwissPass Smile</a>
-          </h2>
-          <span class="project-role">Frontend Co-Architect / Unic</span>
-          <span class="project-timeframe">2018&ndash;2019</span>
-          <button
-            class="project-scroller"
-            data-project-diashow-scroll-trigger
-          >
-            Next &rarr;
-          </button>
-        </div>
-      </li>
-      <li class="project">
-        <img
-          class="project-image"
-          data-srcset="swissplant-lg.webp 2880w, swissplant-md.webp 1440w, swissplant-sm.webp 720w"
-          alt="Lots of different salad seedlings neatly arranged in boxes."
-        >
-        <div class="project-description">
-          <h2 class="project-title">
-            <a class="project-link" href="https://swissplant.ch">SwissPlant</a>
-          </h2>
-          <span class="project-role">Design & Development / Freelance</span>
-          <span class="project-timeframe">Since 2018</span>
-          <button
-            class="project-scroller"
-            data-project-diashow-scroll-trigger
-          >
-            &larr; Start
-          </button>
-        </div>
-      </li>
-    </ul>
+    <section class="hero">
+      <h1 class="hero-title">hey, i'm robin!</h1>
+      <p class="hero-text">i'll help you reach your goals by creating stunning web sites that leave long-lasting impressions</p>
+      <a href="#" class="hero-cta" data-email-link>get in touch</a>
+    </section>
+    <section class="projects" id="portfolio">
+      <ol class="project-list">
+        <li class="project-item">
+          <a href="https://post.ch" class="project-title">swiss post</a>
+          <div class="project-image-container">
+            <img src="post-lg.webp" alt="" class="project-image" loading="lazy">
+          </div>
+          <div class="project-description">
+            <p class="project-bullets">
+              frontend lead / at unic / since 2019 / gulp, webpack, babel, scss, postcss, vue.js, esnext, sitecore cms
+            </p>
+            <p class="project-links">
+              <a href="https://post.ch">post.ch</a>, <a href="https://microsites.post.ch">microsites.post.ch</a>
+            </p>
+          </div>
+          <p class="project-text">this is where i spend most of my time these days. as a core part of the dev team, i work on bringing the digital home of the swiss post to the next level!</p>
+        </li>
+        <li class="project-item">
+          <a href="https://smile.swisspass.ch" class="project-title">swisspass smile</a>
+          <div class="project-image-container">
+            <img src="smile-lg.webp" alt="" class="project-image" loading="lazy">
+          </div>
+          <div class="project-description">
+            <p class="project-bullets">
+              frontend architect / at unic / 2018—2019 / gulp, webpack, babel, scss, postcss, angular, esnext, contentful cms
+            </p>
+            <p class="project-links">
+              <a href="https://smile.swisspass.ch">smile.swisspass.ch</a>
+            </p>
+          </div>
+          <p class="project-text">after i'd worked for the national bank of liechtenstein, it was time for something new! for sbb, i helped design the frontend architecture of swisspass smile.</p>
+        </li>
+        <li class="project-item">
+          <a href="https://swissplant.ch" class="project-title">swissplant</a>
+          <div class="project-image-container">
+            <img src="swissplant-lg.webp" alt="" class="project-image" loading="lazy">
+          </div>
+          <div class="project-description">
+            <p class="project-bullets">
+              full stack & design / freelance / since 2019 / gulp, rollup, esnext, scss, postcss, static site no cms
+            </p>
+            <p class="project-links">
+              <a href="https://swissplant.ch">swissplant.ch</a>
+            </p>
+          </div>
+          <p class="project-text">aaah, my first ever freelance project! for swissplant, i've created a completely new site from scratch, including a clean new design and only minimal tooling.</p>
+        </li>
+      </ol>
+    </section>
+    <section class="about" id="about">
+      <p>thank you for checking out my portfolio!</p>
+      <p>since you've scrolled all the way down here, i'll treat you to some hot info about me! as you've probably guessed, my name is robin löffel. it's actually kind of a funny name, as löffel literally means spoon in german!</p>
+      <p>i'm working as a senior frontend engineer at unic in beautiful bern, switzerland, where i lead a small dev team and collaborate with huge corporations.</p>
+      <p>this is amazing and all, but sometimes you just want to leave your distinct footprints in the sand, which i just can't do in my day-to-day as much as i want.</p>
+      <p>to scratch this itch, i freelance. i've got an innate passion for everything aesthetic, and i want to create lightweight pages that make the people visiting them go "daaamn, that's some good stuff! imma leave a ton of money at this place!"</p>
+      <p>if that sounds like the emotion you want to evoke, hit me up! i'm sure we'll make a great team!</p>
+      <p>
+        <a href="#" data-email-link>e-mail</a>, <a href="https://www.linkedin.com/in/robinloeffel">linkedin</a>, <a href="https://github.com/robinloeffel">github</a>
+      </p>
+    </section>
   </main>
   <footer>
-    <small>
-      You can catch me on <a href="https://linkedin.com/in/robinloeffel">LinkedIn</a>, <a href="https://github.com/robinloeffel">GitHub</a>, or shoot me a <a href="#" data-email-link>message</a>
-    </small>
   </footer>
 </body>
 
