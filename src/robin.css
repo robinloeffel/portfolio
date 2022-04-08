@@ -1,3 +1,31 @@
+:root {
+  /* font sizes */
+  --font-size-smol: 20px;
+  --font-size-default: 24px;
+  --font-size-big: 40px;
+  --font-size-bigger: 48px;
+  --font-size-huge: 64px;
+  --font-size-medium: 36px;
+
+  /* spaces */
+  --space-small: 20px;
+  --space-default: 40px;
+  --space-big: 80px;
+  --space-bigger: 160px;
+
+  /* content widths */
+  --content-max-width: 1412px;
+  --content-narrow-max-width: 800px;
+
+  /* colors */
+  --color-typo: rgb(51 51 68);
+  --color-lighter: rgb(51 51 68 / 80%);
+
+  /* misc */
+  --font-family: inter, system-ui;
+  --line-height-default: 1.4;
+}
+
 *,
 *::before,
 *::after {
@@ -11,14 +39,13 @@ html {
 }
 
 body {
-  width: calc(100% - 200px);
-  max-width: 1412px;
+  width: calc(100% - var(--space-bigger));
+  max-width: var(--content-max-width);
   margin: auto;
-  overflow-x: hidden;
-  color: #223;
-  font-size: 20px;
-  font-family: inter, system-ui;
-  line-height: 1.4;
+  color: var(--color-typo);
+  font-size: var(--font-size-smol);
+  font-family: var(--font-family);
+  line-height: var(--line-height-default);
 }
 
 a {
@@ -29,25 +56,33 @@ img {
   max-width: 100%;
 }
 
+section {
+  margin-block: var(--space-bigger);
+}
+
+ol {
+  list-style: none;
+}
+
 .navigation {
-  margin-block: 80px;
+  margin-block: var(--space-big);
 }
 
 .navigation-list {
   display: flex;
   align-items: center;
   margin: auto;
-  list-style: none;
 }
 
 .navigation-item {
-  display: inline-block;
-  margin-inline: 24px;
+  display: inline;
+  margin-inline: var(--space-small);
 }
 
 .navigation-item:first-of-type {
   margin-right: auto;
   margin-left: 0;
+  font-size: var(--font-size-default);
 }
 
 .navigation-item:last-of-type {
@@ -55,61 +90,51 @@ img {
   margin-left: auto;
 }
 
-.navigation-link-start {
-  font-size: 24px;
-}
-
-.navigation-link-start,
-.navigation-link-cta {
+.navigation-item:first-of-type,
+.navigation-item:last-of-type {
   font-weight: bold;
 }
 
 .hero {
   display: grid;
-  margin-block: 200px;
+  gap: var(--space-default);
 }
 
 .hero-title {
   font-weight: normal;
-  font-size: 40px;
+  font-size: var(--font-size-big);
 }
 
 .hero-text {
   font-weight: bold;
-  font-size: 64px;
-  margin-block: 40px;
+  font-size: var(--font-size-huge);
 }
 
 .hero-cta {
   width: fit-content;
-  font-size: 36px;
+  font-size: var(--font-size-medium);
 }
 
-.project-list {
-  list-style: none;
-}
-
-.project-item {
+.project {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 50px;
-  margin-block: 150px;
+  gap: var(--space-default);
 }
 
-.project-item:last-of-type {
-  margin-bottom: 200px;
+.project:not(:last-of-type) {
+  margin-bottom: var(--space-bigger);
 }
 
-.project-description {
-  font-size: 36px;
-  opacity: 0.75;
+.project-summary {
+  color: var(--color-lighter);
+  font-size: var(--font-size-medium);
 }
 
 .project-title {
   grid-column: span 2;
   width: fit-content;
   font-weight: normal;
-  font-size: 40px;
+  font-size: var(--font-size-big);
 }
 
 .project-image-container {
@@ -130,41 +155,36 @@ img {
   transition: transform 1s ease-in-out;
 }
 
-.project-item:hover .project-image {
+.project:hover .project-image {
   transform: scale(1.02);
 }
 
 .project-bullets {
-  margin-bottom: 20px;
+  margin-bottom: var(--space-small);
 }
 
-.project-text {
-  font-size: 48px;
+.project-role {
+  font-size: var(--font-size-bigger);
 }
 
-.project-item:nth-child(odd) .project-title {
+.project:nth-child(odd) .project-title {
   margin-left: auto;
 }
 
-.project-item:nth-child(even) .project-description {
+.project:nth-child(even) .project-summary {
   order: 1;
 }
 
-.project-item:nth-child(odd) .project-image-container {
+.project:nth-child(odd) .project-image-container {
   left: calc((100vw - 100%) * -0.5);
 }
 
 .about {
-  max-width: 800px;
+  max-width: var(--content-narrow-max-width);
   margin-inline: auto;
-  margin-bottom: 100px;
-  font-size: 40px;
+  font-size: var(--font-size-big);
 }
 
-.about > p:not(:last-of-type) {
-  margin-bottom: 20px;
-}
-
-.about > p:last-of-type {
-  font-size: 36px;
+.about p:not(:last-of-type) {
+  margin-bottom: var(--space-small);
 }
