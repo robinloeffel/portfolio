@@ -6,7 +6,7 @@ import browserSync from 'browser-sync';
 
 const development = process.argv.includes('--dev');
 
-exec('rm -rf ./public/robin*', async () => {
+exec('rm -rf ./public/robin.*', async () => {
   const server = browserSync.create();
 
   await build({
