@@ -64,6 +64,10 @@ ol {
   list-style: none;
 }
 
+p:not(:last-of-type) {
+  margin-bottom: var(--space-small);
+}
+
 .navigation {
   margin-block: var(--space-big);
 }
@@ -159,10 +163,6 @@ ol {
   transform: scale(1.02);
 }
 
-.project-bullets {
-  margin-bottom: var(--space-small);
-}
-
 .project-role {
   font-size: var(--font-size-bigger);
 }
@@ -183,8 +183,4 @@ ol {
   max-width: var(--content-narrow-max-width);
   margin-inline: auto;
   font-size: var(--font-size-big);
-}
-
-.about p:not(:last-of-type) {
-  margin-bottom: var(--space-small);
 }
