@@ -4,37 +4,42 @@ import postcss from 'esbuild-postcss';
 import eslint from 'esbuild-plugin-eslint';
 import browserSync from 'browser-sync';
 
-const development = process.argv.includes('--dev');
+const watch = process.argv.includes('--watch');
+const minify = process.argv.includes('--minify');
 
-exec('rm -rf ./public/robin.*', async () => {
+exec('rm -rf public/robin.*', async () => {
   const server = browserSync.create();
 
   await build({
     entryPoints: [
-      './src/robin.css',
-      './src/robin.js'
+      'src/robin.css',
+      'src/robin.js'
     ],
-    outdir: './public',
+    outdir: 'public',
     bundle: true,
     incremental: true,
-    sourcemap: development,
-    minify: !development,
-    watch: {
+    sourcemap: watch,
+    minify,
+    watch: watch ? {
       onRebuild() {
         server.reload();
       }
-    },
+    } : false,
     plugins: [
       eslint(),
       postcss()
     ]
   });
 
-  server.init({
-    host: '0.0.0.0',
-    notify: false,
-    open: true,
-    server: './public',
-    ui: false
-  });
+  if (watch) {
+    server.init({
+      host: '0.0.0.0',
+      notify: false,
+      open: true,
+      server: 'public',
+      ui: false
+    });
+  } else {
+    exec('open public');
+  }
 });
