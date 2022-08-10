@@ -4,7 +4,7 @@
   --font-size-sm: 32px;
   --font-size-md: 40px;
   --font-size-lg: 48px;
-  --font-size-xl: 56px;
+  --font-size-xl: 64px;
 
   /* spaces */
   --space-sm: 20px;
@@ -48,7 +48,7 @@ section {
   margin-block: var(--space-xl);
 }
 
-ol {
+ul {
   list-style: none;
 }
 
@@ -59,18 +59,27 @@ p + p {
 .hero {
   display: grid;
   gap: var(--space-md);
+  height: max(70vh, 400px);
+  margin: 0;
+  background-image: radial-gradient(rgb(0 0 0 / 20%) 1px, transparent 0);
+  background-repeat: round;
+  background-position: 0 0;
+  background-size: 25px 25px;
+  place-items: center;
+  place-content: center;
+}
+
+.hero > * {
   width: min(80%, var(--content-max-width));
-  margin-inline: auto;
 }
 
 .hero-title {
-  font-weight: normal;
   font-size: var(--font-size-md);
 }
 
 .hero-text {
   color: transparent;
-  font-weight: bold;
+  font-weight: 700;
   font-size: var(--font-size-xl);
   background: linear-gradient(to bottom right, goldenrod, salmon);
   background-clip: text;
@@ -78,8 +87,8 @@ p + p {
 }
 
 .hero-cta {
-  width: fit-content;
-  font-size: var(--font-size-sm);
+  margin-top: 0;
+  font-size: var(--font-size-xs);
 }
 
 .project {
@@ -101,7 +110,7 @@ p + p {
 .project-title {
   grid-column: 2 / span 1;
   justify-self: start;
-  font-weight: normal;
+  font-weight: 700;
   font-size: var(--font-size-md);
 }
 
@@ -118,7 +127,7 @@ p + p {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transform: translateY(1%) scale(0.99);
+  transform: translateY(5%) scale(0.95);
   transform-origin: bottom;
   opacity: 0;
   transition: opacity 1s ease-in-out, transform 1s ease-in-out;

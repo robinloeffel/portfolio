@@ -9,7 +9,7 @@ const fadeIn = ({ target }) => {
 const io = new IntersectionObserver(entries => {
   entries.forEach(({ target, isIntersecting }) => {
     if (isIntersecting) {
-      target.addEventListener('load', fadeIn, { once: true });
+      target.addEventListener('load', fadeIn);
       target.src = target.dataset.src;
       io.unobserve(target);
     }
