@@ -59,7 +59,7 @@ p + p {
 .hero {
   display: grid;
   gap: var(--space-md);
-  height: max(70vh, 400px);
+  height: 100vh;
   margin: 0;
   background-image: radial-gradient(rgb(0 0 0 / 20%) 1px, transparent 0);
   background-repeat: round;

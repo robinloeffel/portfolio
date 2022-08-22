@@ -8,16 +8,16 @@
   },
   "devDependencies": {
     "browser-sync": "^2.27.10",
-    "esbuild": "^0.15.0",
+    "esbuild": "^0.15.5",
     "esbuild-plugin-eslint": "^0.0.1",
     "esbuild-postcss": "^0.0.4",
-    "eslint": "^8.21.0",
+    "eslint": "^8.22.0",
     "eslint-config-sweet": "^8.0.1",
     "postcss": "^8.4.16",
-    "postcss-preset-env": "^7.7.2",
-    "stylelint": "^14.9.1",
+    "postcss-preset-env": "^7.8.0",
+    "stylelint": "^14.11.0",
     "stylelint-config-rational-order": "^0.1.2",
-    "stylelint-config-standard": "^26.0.0",
+    "stylelint-config-standard": "^28.0.0",
     "stylelint-order": "^5.0.0"
   },
   "scripts": {
