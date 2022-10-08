@@ -81,7 +81,7 @@ p + p {
   color: transparent;
   font-weight: 700;
   font-size: var(--font-size-xl);
-  background: linear-gradient(to bottom right, goldenrod, salmon);
+  background: linear-gradient(45deg, goldenrod, salmon, skyblue);
   background-clip: text;
   animation: hue-rotate 10s linear infinite alternate;
   will-change: filter;

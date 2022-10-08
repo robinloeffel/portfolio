@@ -1,6 +1,11 @@
-const emailLink = document.querySelector('[data-email-link]');
+const spanToReplace = document.querySelector('[data-replace-with-link]');
+const anchor = document.createElement('a');
 
-emailLink.addEventListener('click', event => {
+anchor.text = 'E-Mail';
+anchor.href = '';
+anchor.addEventListener('click', event => {
   event.preventDefault();
   window.location = [ ...'hc.leffeolnibor@ih:otliam' ].reverse().join('');
 });
+
+spanToReplace.replaceWith(anchor);
