@@ -8,22 +8,21 @@
   },
   "devDependencies": {
     "browser-sync": "^2.27.10",
-    "esbuild": "^0.15.10",
+    "esbuild": "^0.15.11",
     "esbuild-plugin-eslint": "^0.1.1",
     "esbuild-postcss": "^0.0.4",
-    "eslint": "^8.24.0",
+    "eslint": "^8.25.0",
     "eslint-config-sweet": "^9.0.1",
-    "postcss": "^8.4.17",
+    "postcss": "^8.4.18",
     "postcss-preset-env": "^7.8.2",
-    "stylelint": "^14.13.0",
+    "stylelint": "^14.14.0",
     "stylelint-config-rational-order": "^0.1.2",
-    "stylelint-config-standard": "^28.0.0",
+    "stylelint-config-standard": "^29.0.0",
     "stylelint-order": "^5.0.0"
   },
   "scripts": {
     "start": "node build.mjs --watch",
     "prod": "node build.mjs --minify --watch",
     "build": "node build.mjs --minify"
-  },
-  "dependencies": {}
+  }
 }

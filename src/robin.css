@@ -44,10 +44,6 @@ a {
   color: inherit;
 }
 
-section {
-  margin-block: var(--space-xl);
-}
-
 ul {
   list-style: none;
 }
@@ -56,15 +52,19 @@ p + p {
   margin-top: var(--space-sm);
 }
 
+footer {
+  width: min(75%, var(--content-max-width-narrow));
+  margin: var(--space-xl) auto;
+  color: var(--color-stone);
+  font-size: var(--font-size-xs);
+  font-style: italic;
+}
+
 .hero {
   display: grid;
   gap: var(--space-md);
   height: 100vh;
   margin: 0;
-  background-image: radial-gradient(rgb(0 0 0 / 20%) 1px, transparent 0);
-  background-repeat: round;
-  background-position: 0 0;
-  background-size: 25px 25px;
   place-items: center;
   place-content: center;
 }
@@ -81,10 +81,9 @@ p + p {
   color: transparent;
   font-weight: 700;
   font-size: var(--font-size-xl);
-  background: linear-gradient(45deg, goldenrod, salmon, skyblue);
+  background-image: linear-gradient(45deg, goldenrod, salmon, skyblue);
   background-clip: text;
   animation: hue-rotate 10s linear infinite alternate;
-  will-change: filter;
 }
 
 .hero-cta {
@@ -94,7 +93,7 @@ p + p {
 
 .project {
   display: grid;
-  grid-template-columns: auto min(80%, var(--content-max-width)) auto;
+  grid-template-columns: 1fr min(80%, var(--content-max-width)) 1fr;
   gap: var(--space-md);
 }
 
@@ -120,14 +119,15 @@ p + p {
   width: 100%;
   height: 75vh;
   object-fit: cover;
-  transform: translateY(5%) scale(0.95);
-  transform-origin: bottom;
   opacity: 0;
-  transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+  transition:
+    opacity 1s ease-in-out,
+    scale 1s ease-in-out;
+  scale: 0.95;
 }
 
 .project-image-visible {
-  transform: translateY(0) scale(1);
+  scale: 1;
   opacity: 1;
 }
 
@@ -144,25 +144,12 @@ p + p {
   grid-column: 1 / 3;
 }
 
-.about {
-  max-width: var(--content-max-width-narrow);
-  margin-inline: auto;
-}
-
 .human-question {
   position: fixed;
   top: 50%;
   left: 50%;
   padding: var(--space-md);
-  transform: translate(-50%);
-  opacity: 0;
-  transition: opacity 0.5s ease-in-out;
-  pointer-events: none;
-}
-
-.human-question[open] {
-  opacity: 1;
-  pointer-events: initial;
+  translate: -50%;
 }
 
 .human-question select {

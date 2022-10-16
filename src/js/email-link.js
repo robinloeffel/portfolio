@@ -1,5 +1,5 @@
 const spanToReplace = document.querySelector('[data-replace-with-link]');
-const dialog = document.querySelector('.human-question');
+const dialog = document.querySelector('dialog');
 const select = dialog.querySelector('select');
 const anchor = document.createElement('a');
 
@@ -14,7 +14,7 @@ anchor.addEventListener('click', event => {
 });
 
 select.addEventListener('change', ({ target }) => {
-  if (target.value === 'potatos') {
+  if (target.value === 'potatoes') {
     window.location = [ ...'hc.leffeolnibor@ih:otliam' ].reverse().join('');
     select.value = '';
   }
