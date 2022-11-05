@@ -1,0 +1,27 @@
+@use "variables";
+
+body {
+  color: variables.$color-anthracite;
+  font-size: variables.$font-size-xs;
+  font-family: variables.$font-family;
+  line-height: variables.$line-height;
+}
+
+a {
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+p + p {
+  margin-top: variables.$space-sm;
+}
+
+footer {
+  width: min(75%, variables.$content-max-width-narrow);
+  margin: variables.$space-xl auto;
+  color: variables.$color-stone;
+  font-size: variables.$font-size-xs;
+}

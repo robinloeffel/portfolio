@@ -1,0 +1,28 @@
+/* font sizes */
+$font-size-xs: clamp(18px, 0.94rem + 0.7vw, 24px);
+$font-size-sm: clamp(24px, 1.26rem + 0.93vw, 32px);
+$font-size-md: clamp(30px, 1.57rem + 1.16vw, 40px);
+$font-size-lg: clamp(36px, 1.88rem + 1.4vw, 48px);
+$font-size-xl: clamp(48px, 2.51rem + 1.86vw, 64px);
+
+/* spaces */
+$space-sm: clamp(10px, 0.32rem + 1.16vw, 20px);
+$space-md: clamp(20px, 0.64rem + 2.33vw, 40px);
+$space-lg: clamp(40px, 1.28rem + 4.65vw, 80px);
+$space-xl: clamp(80px, 2.56rem + 9.3vw, 160px);
+
+/* content widths */
+$content-max-width: 1280px;
+$content-max-width-narrow: calc($content-max-width / 2);
+
+/* colors */
+$color-anthracite: rgb(50 50 50);
+$color-stone: rgb(100 100 100);
+$color-goldenrod: rgb(218 165 32);
+$color-salmon: rgb(250 128 114);
+$color-skyblue: rgb(135 206 235);
+
+/* misc */
+$font-family: "InterVariable", system-ui;
+$line-height: 1.5;
+$line-height-heading: 1.2;

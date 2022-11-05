@@ -2,27 +2,36 @@
   "name": "robin",
   "version": "0.2.0",
   "license": "MIT",
+  "type": "module",
   "browserslist": ">1% in ch",
   "engines": {
-    "node": ">=16"
+    "node": "18.x"
   },
   "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.42.0",
+    "@typescript-eslint/parser": "^5.42.0",
     "browser-sync": "^2.27.10",
-    "esbuild": "^0.15.11",
+    "del": "^7.0.0",
+    "esbuild": "^0.15.12",
     "esbuild-plugin-eslint": "^0.1.1",
-    "esbuild-postcss": "^0.0.4",
-    "eslint": "^8.25.0",
+    "esbuild-sass-plugin": "^2.4.0",
+    "eslint": "^8.26.0",
     "eslint-config-sweet": "^9.0.1",
+    "open": "^8.4.0",
     "postcss": "^8.4.18",
     "postcss-preset-env": "^7.8.2",
+    "postcss-scss": "^4.0.5",
     "stylelint": "^14.14.0",
     "stylelint-config-rational-order": "^0.1.2",
-    "stylelint-config-standard": "^29.0.0",
+    "stylelint-config-standard-scss": "^6.1.0",
     "stylelint-order": "^5.0.0"
   },
   "scripts": {
-    "start": "node build.mjs --watch",
-    "prod": "node build.mjs --minify --watch",
-    "build": "node build.mjs --minify"
+    "start": "node build --watch",
+    "prod": "node build --minify --watch",
+    "build": "node build --minify"
+  },
+  "dependencies": {
+    "fastdom": "^1.0.11"
   }
 }
