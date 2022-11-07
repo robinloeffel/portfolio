@@ -54,6 +54,7 @@
 
   &-title {
     grid-column: 2 / 3;
+    width: fit-content;
     font-weight: 700;
     font-size: variables.$font-size-md;
     line-height: variables.$line-height-heading;
