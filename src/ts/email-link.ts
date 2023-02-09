@@ -4,7 +4,7 @@ const select = dialog.querySelector("select") as HTMLSelectElement;
 
 const anchor = document.createElement("a");
 anchor.text = "E-Mail";
-anchor.href = "";
+anchor.href = "#";
 
 spanToReplace.replaceWith(anchor);
 
