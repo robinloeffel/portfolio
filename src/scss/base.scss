@@ -2,7 +2,8 @@
 @use "mixins";
 
 body {
-  color: variables.$color-anthracite;
+  background-color: variables.$color-cloud;
+  color: variables.$color-slate;
   font-family: variables.$font-family;
   font-size: variables.$font-size-body;
   line-height: variables.$line-height-loose;
@@ -23,7 +24,7 @@ ul {
 
 @include mixins.dark-mode {
   body {
-    background-color: variables.$color-anthracite;
-    color: variables.$color-heather;
+    background-color: variables.$color-slate;
+    color: variables.$color-cloud;
   }
 }
