@@ -1,1 +1,3 @@
-the portfolio of yours truly
+<a href="https://robinloeffel.ch">
+  <img src="screener.png">
+</a>
