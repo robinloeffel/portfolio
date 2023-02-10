@@ -1,0 +1,43 @@
+@use "variables";
+
+// >= 375px
+@mixin bp-xs-up {
+  @media (width >= variables.$bp-xs) {
+    @content;
+  }
+}
+
+// >= 576px
+@mixin bp-sm-up {
+  @media (width >= variables.$bp-sm) {
+    @content;
+  }
+}
+
+// >= 768px
+@mixin bp-md-up {
+  @media (width >= variables.$bp-md) {
+    @content;
+  }
+}
+
+// >= 992px
+@mixin bp-lg-up {
+  @media (width >= variables.$bp-lg) {
+    @content;
+  }
+}
+
+// >= 1200px
+@mixin bp-xl-up {
+  @media (width >= variables.$bp-xl) {
+    @content;
+  }
+}
+
+// >= 1440px
+@mixin bp-xxl-up {
+  @media (width >= variables.$bp-xxl) {
+    @content;
+  }
+}

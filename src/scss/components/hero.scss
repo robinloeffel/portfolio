@@ -1,0 +1,56 @@
+@use "../variables";
+@use "../mixins";
+
+.hero {
+  display: grid;
+  height: 100vh;
+  gap: variables.$space-32;
+  line-height: variables.$line-height-tight;
+  place-content: center;
+  place-items: center;
+
+  & > * {
+    width: min(80%, variables.$content-max-width);
+  }
+
+  &-title {
+    font-size: variables.$font-size-h2;
+  }
+
+  &-text {
+    animation: hue-rotate 10s linear infinite alternate;
+    background-clip: text;
+    background-image:
+      linear-gradient(
+        to right,
+        variables.$color-goldenrod,
+        variables.$color-salmon,
+        variables.$color-skyblue
+      );
+    color: transparent;
+    font-size: variables.$font-size-h1;
+    font-weight: bold;
+  }
+
+  &-links {
+    font-size: variables.$font-size-body;
+  }
+
+  @include mixins.bp-sm-up {
+    gap: variables.$space-40;
+  }
+
+  @include mixins.bp-md-up {
+    gap: variables.$space-48;
+  }
+
+  @include mixins.bp-lg-up {
+    gap: variables.$space-56;
+  }
+}
+
+@keyframes hue-rotate {
+  to {
+    filter: hue-rotate(1turn);
+  }
+}

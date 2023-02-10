@@ -3,25 +3,19 @@
 body {
   color: variables.$color-anthracite;
   font-family: variables.$font-family;
-  font-size: variables.$font-size-xs;
-  line-height: variables.$line-height;
+  font-size: variables.$font-size-body;
+  line-height: variables.$line-height-loose;
 }
 
 a {
   color: inherit;
 }
 
+img {
+  display: block;
+  max-width: 100%;
+}
+
 ul {
   list-style: none;
-}
-
-p + p {
-  margin-top: variables.$space-sm;
-}
-
-footer {
-  width: min(75%, variables.$content-max-width-narrow);
-  margin: variables.$space-xl auto;
-  color: variables.$color-stone;
-  font-size: variables.$font-size-xs;
 }

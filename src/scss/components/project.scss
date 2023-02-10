@@ -1,0 +1,90 @@
+@use "../variables";
+@use "../mixins";
+
+.project {
+  display: grid;
+  gap: variables.$space-24 0;
+  grid-template-columns: 1fr min(80%, variables.$content-max-width) 1fr;
+
+  & + & {
+    margin-top: variables.$space-64;
+  }
+
+  @include mixins.bp-md-up {
+    gap: variables.$space-32 0;
+
+    & + & {
+      margin-top: variables.$space-80;
+    }
+  }
+
+  @include mixins.bp-lg-up {
+    gap: variables.$space-40 0;
+
+    & + & {
+      margin-top: variables.$space-120;
+    }
+  }
+
+  &-title,
+  &-summary,
+  &-role {
+    grid-column: 2 / 3;
+  }
+
+  &-summary {
+    color: variables.$color-stone;
+
+    > * + * {
+      margin-top: variables.$space-8;
+
+      @include mixins.bp-md-up {
+        margin-top: variables.$space-16;
+      }
+    }
+  }
+
+  &-title {
+    width: fit-content;
+    font-size: variables.$font-size-h2;
+    font-weight: bold;
+    line-height: variables.$line-height-tight;
+
+    @include mixins.bp-md-up {
+      .project:nth-child(odd) & {
+        justify-self: end;
+      }
+    }
+  }
+
+  &-image {
+    width: 100%;
+    height: 70vh;
+    grid-column: 1 / -1;
+    object-fit: cover;
+    opacity: 0;
+    scale: 0.95;
+    transition:
+      opacity 1s ease-in-out,
+      scale 1s ease-in-out;
+
+    &-visible {
+      opacity: 1;
+      scale: 1;
+    }
+
+    @include mixins.bp-md-up {
+      grid-column: 1 / 3;
+      transform-origin: left;
+
+      .project:nth-child(even) & {
+        grid-column: 2 / 4;
+        transform-origin: right;
+      }
+    }
+  }
+
+  &-role {
+    font-size: variables.$font-size-h3;
+  }
+}
