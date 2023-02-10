@@ -13,4 +13,8 @@ footer {
   @include mixins.bp-lg-up {
     margin: variables.$space-80 auto;
   }
+
+  @include mixins.dark-mode {
+    color: variables.$color-heather-75;
+  }
 }

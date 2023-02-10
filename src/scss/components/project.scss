@@ -35,6 +35,10 @@
   &-summary {
     color: variables.$color-stone;
 
+    @include mixins.dark-mode {
+      color: variables.$color-heather-75;
+    }
+
     > * + * {
       margin-top: variables.$space-8;
 

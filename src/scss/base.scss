@@ -1,4 +1,5 @@
 @use "variables";
+@use "mixins";
 
 body {
   color: variables.$color-anthracite;
@@ -18,4 +19,11 @@ img {
 
 ul {
   list-style: none;
+}
+
+@include mixins.dark-mode {
+  body {
+    background-color: variables.$color-anthracite;
+    color: variables.$color-heather;
+  }
 }
