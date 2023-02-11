@@ -11,18 +11,13 @@
     "@typescript-eslint/eslint-plugin": "^5.51.0",
     "@typescript-eslint/parser": "^5.51.0",
     "browser-sync": "^2.27.11",
-    "chokidar": "^3.5.3",
-    "del": "^7.0.0",
     "esbuild": "^0.17.7",
     "esbuild-plugin-eslint": "^0.1.1",
     "esbuild-sass-plugin": "^2.4.5",
     "eslint": "^8.34.0",
     "eslint-config-sweet": "^9.0.1",
-    "lighthouse": "^10.0.0",
-    "open": "^8.4.1",
     "postcss": "^8.4.21",
     "postcss-preset-env": "^8.0.1",
-    "postcss-scss": "^4.0.6",
     "stylelint": "^15.0.0",
     "stylelint-config-idiomatic-order": "^9.0.0",
     "stylelint-config-standard-scss": "^6.1.0"
@@ -30,8 +25,6 @@
   "scripts": {
     "start": "node build --watch",
     "prod": "node build --minify --watch",
-    "build": "node build --minify",
-    "lighthouse:local": "yarn lighthouse http://localhost:3000 --view --quiet",
-    "lighthouse:live": "yarn lighthouse https://robinloeffel.ch --view --quiet"
+    "build": "node build --minify"
   }
 }
