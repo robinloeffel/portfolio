@@ -10,12 +10,21 @@
   "devDependencies": {
     "@commitlint/cli": "^17.4.4",
     "@commitlint/config-conventional": "^17.4.4",
+    "@typescript-eslint/eslint-plugin": "^5.55.0",
+    "@typescript-eslint/parser": "^5.55.0",
+    "browser-sync": "^2.29.0",
+    "esbuild": "^0.17.12",
+    "esbuild-plugin-eslint": "^0.3.3",
+    "esbuild-sass-plugin": "^2.6.0",
+    "eslint": "^8.36.0",
     "eslint-config-sweet": "^9.0.1",
+    "husky": "^8.0.3",
     "postcss": "^8.4.21",
     "postcss-preset-env": "^8.0.1",
-    "stylelint": "^15.0.0",
+    "sass": "^1.59.3",
+    "stylelint": "^15.3.0",
     "stylelint-config-idiomatic-order": "^9.0.0",
-    "stylelint-config-standard-scss": "^6.1.0"
+    "stylelint-config-standard-scss": "^7.0.1"
   },
   "scripts": {
     "start": "node build --watch",
