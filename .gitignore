@@ -1,6 +1,5 @@
 node_modules
 public/robin*
-*.report.html
 
 .DS_Store
 .AppleDouble

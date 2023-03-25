@@ -6,7 +6,7 @@ const fadeIn = (event: Event) => {
 };
 
 const imageIo = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
+  for (const entry of entries) {
     const image = entry.target as HTMLImageElement;
 
     if (entry.isIntersecting) {
@@ -14,9 +14,9 @@ const imageIo = new IntersectionObserver(entries => {
       image.addEventListener("load", fadeIn);
       image.src = image.dataset.src || "";
     }
-  });
+  }
 }, { threshold: 0.1 });
 
-images.forEach(image => {
+for (const image of images) {
   imageIo.observe(image);
-});
+}

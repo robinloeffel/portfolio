@@ -1,22 +1,11 @@
+/** @type {import("eslint").Linter.BaseConfig} */
 module.exports = {
-  parser: "@typescript-eslint/parser",
-  plugins: [ "@typescript-eslint" ],
-  extends: [
-    "sweet",
-    "plugin:import/typescript",
-    "plugin:@typescript-eslint/recommended"
-  ],
-  rules: {
-    indent: [ "error", 2 ],
-    quotes: [ "error", "double" ],
-    "no-extra-parens": "off",
-    "import/extensions": [ "error", {
-      js: "never",
-      ts: "never"
-    }]
-  },
+  extends: "sweet",
   overrides: [{
-    files: [ "build.js", "**/*.cjs" ],
-    env: { node: true }
+    files: "esbuild.js",
+    env: {
+      browser: false,
+      node: true
+    }
   }]
 };
