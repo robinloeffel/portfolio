@@ -9,7 +9,7 @@
   place-content: center;
   place-items: center;
 
-  & > * {
+  > * {
     width: min(80%, variables.$content-max-width);
   }
 
