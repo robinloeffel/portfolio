@@ -11,6 +11,7 @@
 
   > * {
     width: min(80%, variables.$content-max-width);
+    min-width: 0;
   }
 
   &-title {

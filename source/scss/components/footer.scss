@@ -4,7 +4,7 @@
 footer {
   width: min(80%, variables.$content-max-width);
   margin: variables.$space-64 auto;
-  color: variables.$color-stone;
+  color: variables.$color-heather;
 
   @include mixins.bp-md-up {
     margin: variables.$space-72 auto;
@@ -12,9 +12,5 @@ footer {
 
   @include mixins.bp-lg-up {
     margin: variables.$space-80 auto;
-  }
-
-  @include mixins.dark-mode {
-    color: variables.$color-heather;
   }
 }

@@ -2,8 +2,8 @@
 @use "mixins";
 
 body {
-  background-color: variables.$color-cloud;
-  color: variables.$color-slate;
+  background-color: variables.$color-slate;
+  color: variables.$color-cloud;
   font-family: variables.$font-family;
   font-size: variables.$font-size-body;
   line-height: variables.$line-height-loose;
@@ -20,11 +20,4 @@ img {
 
 ul {
   list-style: none;
-}
-
-@include mixins.dark-mode {
-  body {
-    background-color: variables.$color-slate;
-    color: variables.$color-cloud;
-  }
 }
