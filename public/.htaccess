@@ -14,10 +14,11 @@
 
 # set security headers
 Header set Strict-Transport-Security "max-age=63072000; includeSubDomains; preload"
-Header set Content-Security-Policy "default-src https: 'self' 'unsafe-inline' https://unpkg.com"
+Header set Content-Security-Policy "default-src https: 'self' 'unsafe-inline'"
 Header set X-Frame-Options "SAMEORIGIN"
 Header set X-Content-Type-Options "nosniff"
 Header set Referrer-Policy "no-referrer"
+Header set Cache-Control "max-age=31536000"
 
 # enable rewrites
 RewriteEngine On

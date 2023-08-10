@@ -17,6 +17,10 @@ const config = {
   ],
   outdir: "public",
   bundle: true,
+  assetNames: "inter",
+  loader: {
+    ".woff2": "copy"
+  },
   plugins: [
     eslint(),
     sassPlugin({
@@ -42,7 +46,10 @@ const config = {
   minify: !watch
 };
 
-await del("public/robin*");
+await del([
+  "public/robin*",
+  "public/*.woff2"
+]);
 
 if (watch) {
   const context = await esbuild.context(config);
