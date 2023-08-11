@@ -18,8 +18,8 @@
 <body>
   <main>
     <header class="hero">
-      <h1 class="hero-title">Hey, I'm Robin! 🤙🏼</h1>
-      <p class="hero-text">I create beautiful websites that leave long-lasting impressions.</p>
+      <p class="hero-text">Hey, I'm Robin! 🤙🏼</p>
+      <h1 class="hero-title">I create beautiful websites that leave long-lasting impressions.</h1>
       <p class="hero-links">
         <span data-replace-with-link></span>
         <a href="https://github.com/robinloeffel">GitHub</a>
@@ -28,7 +28,9 @@
     </header>
     <ul>
       <li class="project">
-        <a href="https://flatfox.ch" class="project-title">Flatfox</a>
+        <h2 class="project-title">
+          <a href="https://flatfox.ch">Flatfox</a>
+        </h2>
         <img data-src="flatfox.jpg" alt="" class="project-image">
         <div class="project-summary">
           <p>
@@ -41,7 +43,9 @@
         <p class="project-role">Flatfox was the first project at my new gig at DEPT in Zurich. And what a project it was! Stack-wise, I've been given a carte blanche. To my ears, that of course meant: All sweet state-of-the-art technologies aboooard!</p>
       </li>
       <li class="project">
-        <a href="https://post.ch" class="project-title">Swiss Post</a>
+        <h2 class="project-title">
+          <a href="https://post.ch">Swiss Post</a>
+        </h2>
         <img data-src="post-lg.webp" alt="" class="project-image">
         <div class="project-summary">
           <p>
@@ -54,7 +58,9 @@
         <p class="project-role">This is where I've spent most of my time the past few years. As a core part of the dev team, I worked on bringing the digital home of the Swiss Post to the next level!</p>
       </li>
       <li class="project">
-        <a href="https://smile.swisspass.ch" class="project-title">SwissPass Smile</a>
+        <h2 class="project-title">
+          <a href="https://smile.swisspass.ch">SwissPass Smile</a>
+        </h2>
         <img data-src="smile-lg.webp" alt="" class="project-image">
         <div class="project-summary">
           <p>
@@ -67,7 +73,9 @@
         <p class="project-role">After I'd worked for the <a href="https://llb.li">National Bank of Liechtenstein</a> (try the Konami Code there), it was time for something new. For SBB, I helped design the frontend architecture of SwissPass Smile.</p>
       </li>
       <li class="project">
-        <a href="https://swissplant.ch" class="project-title">SwissPlant</a>
+        <h2 class="project-title">
+          <a href="https://swissplant.ch">SwissPlant</a>
+        </h2>
         <img data-src="swissplant-lg.webp" alt="" class="project-image">
         <div class="project-summary">
           <p>
@@ -85,8 +93,8 @@
     Thanks for checking out my portfolio, you're a real one! ♥️
   </footer>
   <dialog class="human-question">
-    <span>Potato chips are made from </span>
-    <select>
+    <label for="chips">Potato chips are made from </label>
+    <select id="chips">
       <option value="" selected hidden disabled></option>
       <option value="bedsheets">bedsheets</option>
       <option value="beans">beans</option>

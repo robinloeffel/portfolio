@@ -49,10 +49,7 @@
   }
 
   &-title {
-    font-size: variables.$font-size-h2;
-    font-weight: bold;
     justify-self: start;
-    line-height: variables.$line-height-tight;
 
     @include mixins.bp-md-up {
       .project:nth-child(odd) & {

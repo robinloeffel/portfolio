@@ -1,10 +1,8 @@
-const heroText = document.querySelector(".hero-text") as HTMLSpanElement;
+const animatedElement = document.querySelector(".hero-title") as HTMLHeadingElement;
 
-const animationIo = new IntersectionObserver(entries => {
-  for (const entry of entries) {
-    const span = entry.target as HTMLSpanElement;
-    span.classList.toggle("animation-paused", !entry.isIntersecting);
-  }
+const io = new IntersectionObserver(entries => {
+  const [ entry ] = entries;
+  entry.target.classList.toggle("animation-paused", !entry.isIntersecting);
 });
 
-animationIo.observe(heroText);
+io.observe(animatedElement);

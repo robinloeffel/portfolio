@@ -14,11 +14,12 @@
     min-width: 0;
   }
 
-  &-title {
+  &-text {
     font-size: variables.$font-size-h2;
+    font-weight: bold;
   }
 
-  &-text {
+  &-title {
     animation: hue-rotate 10s linear infinite alternate;
     background-clip: text;
     background-image:
@@ -29,12 +30,6 @@
         variables.$color-skyblue
       );
     color: transparent;
-    font-size: variables.$font-size-h1;
-    font-weight: bold;
-  }
-
-  &-links {
-    font-size: variables.$font-size-body;
   }
 
   @include mixins.bp-sm-up {

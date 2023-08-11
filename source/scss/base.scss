@@ -5,8 +5,26 @@ body {
   background-color: variables.$color-slate;
   color: variables.$color-cloud;
   font-family: variables.$font-family;
-  font-size: variables.$font-size-body;
+  font-size: variables.$font-size-base;
   line-height: variables.$line-height-loose;
+}
+
+h1,
+h2,
+h3 {
+  line-height: variables.$line-height-tight;
+}
+
+h1 {
+  font-size: variables.$font-size-h1;
+}
+
+h2 {
+  font-size: variables.$font-size-h2;
+}
+
+h3 {
+  font-size: variables.$font-size-h3;
 }
 
 a {
