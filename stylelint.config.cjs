@@ -3,6 +3,7 @@ module.exports = {
   extends: [
     "stylelint-config-standard-scss",
     "stylelint-config-idiomatic-order",
+    "stylelint-config-html/html",
     "stylelint-stylistic/config"
   ],
   rules: {
