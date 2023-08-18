@@ -1,4 +1,4 @@
-/** @type {import("eslint").Linter.BaseConfig} */
+/** @type {import("eslint").Linter.Config} */
 module.exports = {
   extends: "sweet",
   overrides: [{
