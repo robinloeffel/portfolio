@@ -1,6 +1,6 @@
-const spanToReplace = document.querySelector("[data-replace-with-link]") as HTMLSpanElement;
-const dialog = document.querySelector("dialog") as HTMLDialogElement;
-const select = dialog.querySelector("select") as HTMLSelectElement;
+const spanToReplace = document.querySelector("[data-replace-with-link]")!;
+const dialog = document.querySelector("dialog")!;
+const select = dialog.querySelector("select")!;
 
 const anchor = document.createElement("a");
 anchor.text = "E-Mail";

@@ -1,7 +1,6 @@
-const animatedElement = document.querySelector(".hero-title") as HTMLHeadingElement;
+const animatedElement = document.querySelector(".hero-title")!;
 
-const io = new IntersectionObserver(entries => {
-  const [ entry ] = entries;
+const io = new IntersectionObserver(([ entry ]) => {
   entry.target.classList.toggle("animation-paused", !entry.isIntersecting);
 });
 

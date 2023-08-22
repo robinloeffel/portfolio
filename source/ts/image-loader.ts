@@ -1,4 +1,4 @@
-const images = document.querySelectorAll("[data-src]") as NodeListOf<HTMLImageElement>;
+const images: NodeListOf<HTMLImageElement> = document.querySelectorAll("[data-src]");
 
 const fadeIn = (event: Event) => {
   const image = event.target as HTMLImageElement;
@@ -12,7 +12,7 @@ const imageIo = new IntersectionObserver(entries => {
     if (entry.isIntersecting) {
       imageIo.unobserve(image);
       image.addEventListener("load", fadeIn);
-      image.src = image.dataset.src || "";
+      image.src = image.dataset.src!;
     }
   }
 }, { threshold: 0.1 });

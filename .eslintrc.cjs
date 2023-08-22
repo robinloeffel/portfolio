@@ -1,6 +1,9 @@
 /** @type {import("eslint").Linter.Config} */
 module.exports = {
-  extends: "sweet",
+  extends: [
+    "sweet",
+    "sweet/configs/typescript-typed.cjs"
+  ],
   overrides: [{
     files: "stylelint.config.cjs",
     rules: {
