@@ -1,32 +1,14 @@
-#
-#   mod_rewrite mini-tutorial
-#
-#   RewriteCond <variable> <condition> <[flags]>
-#   RewriteRule <condition for variable> <redirect> <[flags]>
-#
-#   %2 is the second group of the regex match in the condition
-#
-#   https://httpd.apache.org/docs/current/mod/mod_rewrite.html#rewritecond
-#   https://httpd.apache.org/docs/current/mod/mod_rewrite.html#rewriterule
-#   https://httpd.apache.org/docs/current/expr.html#vars
-#   https://httpd.apache.org/docs/current/rewrite/intro.html#regex
-#
-
-# set security headers
-Header set Strict-Transport-Security "max-age=63072000; includeSubDomains; preload"
-Header set Content-Security-Policy "default-src https: 'self' 'unsafe-inline'"
-Header set X-Frame-Options "SAMEORIGIN"
-Header set X-Content-Type-Options "nosniff"
-Header set Referrer-Policy "no-referrer"
-Header set Cache-Control "max-age=31536000"
-
 # enable rewrites
 RewriteEngine On
 
-# http to https
-RewriteCond %{HTTPS} =off
-RewriteRule ^(.*)$ https://%2 [qsappend,last,redirect=301]
+# get apex domain from host header
+SetEnvIf Host ^(?:www\.)?(.*)$ APEX_DOMAIN=$1
 
-# www to non-www
-RewriteCond %{HTTP_HOST} ^(www\.)(.*)$ [nocase]
-RewriteRule ^(.*)$ https://%2 [qsappend,last,redirect=301]
+# redirect http to https and www to apex
+RewriteCond %{HTTPS} =off [ornext]
+RewriteCond %{HTTP_HOST} ^www\.(.*)$ [nocase]
+RewriteRule ^(.*)$ https://%{ENV:APEX_DOMAIN}%{REQUEST_URI} [last,redirect=301]
+
+# set security headers
+Header set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+Header set Cache-Control "max-age=31536000"
