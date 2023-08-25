@@ -1,8 +1,7 @@
-const images: NodeListOf<HTMLImageElement> = document.querySelectorAll("[data-src]");
+const images = document.querySelectorAll<HTMLImageElement>("[data-src]");
 
-const fadeIn = (event: Event) => {
-  const image = event.target as HTMLImageElement;
-  image.classList.add("project-image-visible");
+const fadeIn = ({ target: image }: Event) => {
+  (image as HTMLImageElement).classList.add("project-image-visible");
 };
 
 const imageIo = new IntersectionObserver(entries => {

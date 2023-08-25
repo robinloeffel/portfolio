@@ -1,4 +1,4 @@
-const spanToReplace = document.querySelector("[data-replace-with-link]")!;
+const spanToReplace = document.querySelector<HTMLSpanElement>("[data-replace-with-link]")!;
 const dialog = document.querySelector("dialog")!;
 const select = dialog.querySelector("select")!;
 
