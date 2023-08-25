@@ -14,7 +14,7 @@
     "del": "^7.0.0",
     "esbuild": "^0.19.2",
     "esbuild-plugin-eslint": "^0.3.6",
-    "esbuild-sass-plugin": "^2.12.0",
+    "esbuild-sass-plugin": "^2.13.0",
     "eslint": "^8.47.0",
     "eslint-config-sweet": "^12.0.0",
     "husky": "^8.0.3",
@@ -29,7 +29,7 @@
     "stylelint-config-idiomatic-order": "^9.0.0",
     "stylelint-config-standard-scss": "^10.0.0",
     "stylelint-stylistic": "^0.4.3",
-    "typescript": "^5.1.6"
+    "typescript": "^5.2.2"
   },
   "dependencies": {
     "@fontsource-variable/inter": "^5.0.8"
