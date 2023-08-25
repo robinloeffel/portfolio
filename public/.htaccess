@@ -9,6 +9,9 @@ RewriteCond %{HTTPS} =off [ornext]
 RewriteCond %{HTTP_HOST} ^www\.(.*)$ [nocase]
 RewriteRule ^(.*)$ https://%{ENV:APEX_DOMAIN}%{REQUEST_URI} [last,redirect=301]
 
-# set security headers
-Header set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+# set http headers
+Header set Strict-Transport-Security "max-age=63072000; includeSubDomains; preload"
+Header set Content-Security-Policy "default-src https: 'self'; frame-ancestors 'none'; object-src 'none'"
+Header set X-Content-Type-Options "nosniff"
+Header set Referrer-Policy "no-referrer"
 Header set Cache-Control "max-age=31536000"
