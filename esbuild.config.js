@@ -1,3 +1,5 @@
+import process from "node:process";
+
 import { deleteAsync as del } from "del";
 import open from "open";
 import esbuild from "esbuild";
@@ -24,12 +26,12 @@ const config = {
   plugins: [
     eslint(),
     sassPlugin({
-      async transform(source, directory) {
+      transform: async (source, directory) => {
         const processor = postcss([ env() ]);
-        const result = await processor.process(source, {
+        const { css } = await processor.process(source, {
           from: directory
         });
-        return result.css;
+        return css;
       }
     }),
     watch && browserSync({
