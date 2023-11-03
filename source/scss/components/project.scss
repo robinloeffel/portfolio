@@ -3,8 +3,8 @@
 
 .project {
   display: grid;
-  gap: variables.$space-24 0;
   grid-template-columns: 1fr min(80%, variables.$content-max-width) 1fr;
+  gap: variables.$space-24 0;
 
   > * {
     min-width: 0;
@@ -59,16 +59,16 @@
   }
 
   &-image {
+    grid-column: 1 / -1;
     width: 100%;
     height: 70vh;
-    grid-column: 1 / -1;
-    object-fit: cover;
     opacity: 0;
-    scale: 0.95;
-    transform-origin: bottom;
     transition:
       opacity 1s ease-in-out,
       scale 1s ease-in-out;
+    transform-origin: bottom;
+    scale: 0.95;
+    object-fit: cover;
 
     &-visible {
       opacity: 1;

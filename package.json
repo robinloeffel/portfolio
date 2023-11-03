@@ -3,41 +3,38 @@
   "name": "portfolio",
   "license": "MIT",
   "type": "module",
-  "engines": {
-    "node": "^18",
-    "yarn": "^1"
-  },
   "devDependencies": {
-    "@commitlint/cli": "^17.7.1",
-    "@commitlint/config-conventional": "^17.7.0",
-    "@commitlint/types": "^17.4.4",
+    "@commitlint/cli": "^18.2.0",
+    "@commitlint/config-conventional": "^18.1.0",
+    "@commitlint/types": "^18.1.0",
     "@rbnlffl/esbuild-plugin-browser-sync": "^0.0.1",
     "del": "^7.1.0",
-    "esbuild": "^0.19.3",
-    "esbuild-plugin-eslint": "^0.3.6",
-    "esbuild-sass-plugin": "^2.15.0",
-    "eslint": "^8.50.0",
+    "esbuild": "^0.19.5",
+    "esbuild-plugin-eslint": "^0.3.7",
+    "esbuild-sass-plugin": "^2.16.0",
+    "eslint": "^8.52.0",
     "eslint-config-sweet": "^12.0.0",
     "husky": "^8.0.3",
-    "lint-staged": "^14.0.1",
+    "lint-staged": "^15.0.2",
     "open": "^9.1.0",
-    "postcss": "^8.4.30",
+    "postcss": "^8.4.31",
     "postcss-html": "^1.5.0",
-    "postcss-preset-env": "^9.1.4",
-    "sass": "^1.68.0",
-    "stylelint": "^15.10.3",
+    "postcss-preset-env": "^9.3.0",
+    "sass": "^1.69.5",
+    "stylelint": "^15.11.0",
     "stylelint-config-html": "^1.1.0",
-    "stylelint-config-idiomatic-order": "^9.0.0",
-    "stylelint-config-standard-scss": "^11.0.0",
+    "stylelint-config-recess-order": "^4.3.0",
+    "stylelint-config-standard-scss": "^11.1.0",
     "stylelint-stylistic": "^0.4.3",
     "typescript": "^5.2.2"
   },
   "dependencies": {
-    "@fontsource-variable/inter": "^5.0.8"
+    "@fontsource-variable/inter": "^5.0.15"
   },
   "scripts": {
     "start": "node esbuild.config.js --watch",
     "build": "node esbuild.config.js",
-    "prepare": "husky install"
+    "prepare": "husky install && npx update-browserslist-db@latest",
+    "up": "npx npm-check-updates --interactive --install always"
   }
 }

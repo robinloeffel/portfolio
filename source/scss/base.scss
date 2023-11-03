@@ -2,11 +2,11 @@
 @use "mixins";
 
 body {
-  background-color: variables.$color-slate;
-  color: variables.$color-cloud;
   font-family: variables.$font-family;
   font-size: variables.$font-size-base;
   line-height: variables.$line-height-loose;
+  color: variables.$color-cloud;
+  background-color: variables.$color-slate;
 }
 
 h1,

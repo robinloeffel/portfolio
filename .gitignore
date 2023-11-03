@@ -3,6 +3,4 @@ public/robin*
 public/*.woff2
 
 .DS_Store
-.AppleDouble
-.LSOverride
 ._*

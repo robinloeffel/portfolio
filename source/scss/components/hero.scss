@@ -3,11 +3,11 @@
 
 .hero {
   display: grid;
-  height: 100vh;
   gap: variables.$space-32;
-  line-height: variables.$line-height-tight;
   place-content: center;
   place-items: center;
+  height: 100vh;
+  line-height: variables.$line-height-tight;
 
   > * {
     width: min(80%, variables.$content-max-width);
@@ -20,8 +20,7 @@
   }
 
   &-title {
-    animation: hue-rotate 10s linear infinite alternate;
-    background-clip: text;
+    color: transparent;
     background-image:
       linear-gradient(
         to right,
@@ -29,7 +28,8 @@
         variables.$color-goldenrod,
         variables.$color-skyblue
       );
-    color: transparent;
+    background-clip: text;
+    animation: hue-rotate 10s linear infinite alternate;
   }
 
   @include mixins.bp-sm-up {
