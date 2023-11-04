@@ -11,7 +11,7 @@ const imageIo = new IntersectionObserver(entries => {
     if (entry.isIntersecting) {
       imageIo.unobserve(image);
       image.addEventListener("load", fadeIn);
-      image.src = image.dataset.src!;
+      image.src = image.dataset.src ?? "";
     }
   }
 }, { threshold: 0.1 });
