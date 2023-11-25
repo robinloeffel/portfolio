@@ -1,13 +1,15 @@
 {
   "compilerOptions": {
-    "strict": true,
     "target": "esnext",
     "module": "esnext",
-    "lib": ["esnext", "dom", "dom.iterable"],
     "moduleResolution": "bundler",
-    "forceConsistentCasingInFileNames": true,
+    "lib": ["esnext", "dom", "dom.iterable"],
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "skipLibCheck": true,
     "verbatimModuleSyntax": true,
-    "isolatedModules": true
-  },
-  "include": ["source"]
+    "forceConsistentCasingInFileNames": true,
+    "moduleDetection": "force",
+    "noEmit": true
+  }
 }

@@ -26,7 +26,7 @@ const config = {
   plugins: [
     eslint(),
     sassPlugin({
-      transform: async (source, directory) => {
+      transform: async(source, directory) => {
         const processor = postcss([ env() ]);
         const { css } = await processor.process(source, {
           from: directory
