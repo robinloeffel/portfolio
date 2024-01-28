@@ -13,6 +13,7 @@
 		"@isnotdefined/stylelint-plugin": "^4.0.0",
 		"@primer/stylelint-config": "^12.9.1",
 		"@stylistic/stylelint-config": "^1.0.1",
+		"@vercel/analytics": "^1.1.2",
 		"eslint": "^8.56.0",
 		"eslint-config-sweet": "^18.0.0",
 		"husky": "^9.0.6",
