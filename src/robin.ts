@@ -1,4 +1,4 @@
-if (import.meta.env.PROD) {
+if (process.env.NODE_ENV === "production") {
 	const { inject } = await import("@vercel/analytics");
 	inject();
 }

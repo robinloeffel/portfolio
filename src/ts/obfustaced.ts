@@ -1,7 +1,7 @@
 const obfuscated = document.querySelectorAll<HTMLAnchorElement>("[data-obfuscated]");
 
 for (const element of obfuscated) {
-	const [ href = "", text = "" ] = element.dataset.obfuscated?.split(",") ?? [];
+	const [ href = "", text = "" ] = element.dataset.obfuscated!.split(",");
 
 	element.textContent = window.atob(text);
 
