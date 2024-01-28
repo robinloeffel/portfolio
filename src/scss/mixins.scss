@@ -1,0 +1,31 @@
+@use "variables";
+
+@mixin bp-sm-up {
+	@media (width >= #{variables.$bp-sm}) {
+		@content;
+	}
+}
+
+@mixin bp-md-up {
+	@media (width >= #{variables.$bp-md}) {
+		@content;
+	}
+}
+
+@mixin bp-lg-up {
+	@media (width >= #{variables.$bp-lg}) {
+		@content;
+	}
+}
+
+@mixin bp-xl-up {
+	@media (width >= #{variables.$bp-xl}) {
+		@content;
+	}
+}
+
+@mixin bp-xxl-up {
+	@media (width >= #{variables.$bp-xxl}) {
+		@content;
+	}
+}

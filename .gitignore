@@ -1,6 +1,5 @@
 node_modules
-public/robin*
-public/*.woff2
+dist
 
 .DS_Store
 ._*

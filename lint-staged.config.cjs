@@ -1,5 +1,5 @@
 /** @type {import("lint-staged").Config} */
 module.exports = {
-  "*.{ts,js,cjs}": "eslint --fix",
-  "*.scss": "stylelint --fix"
+	"*.{ts,js,cjs,json}": "eslint --fix",
+	"*.scss": "stylelint --fix"
 };

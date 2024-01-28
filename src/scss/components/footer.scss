@@ -1,0 +1,16 @@
+@use "../variables";
+@use "../mixins";
+
+footer {
+	width: min(80%, variables.$content-max-width);
+	margin: variables.$space-64 auto;
+	color: variables.$color-heather;
+
+	@include mixins.bp-md-up {
+		margin: variables.$space-72 auto;
+	}
+
+	@include mixins.bp-lg-up {
+		margin: variables.$space-80 auto;
+	}
+}
