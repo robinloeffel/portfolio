@@ -4,7 +4,8 @@ export default defineConfig({
 	root: "src",
 	build: {
 		outDir: "../dist",
-		emptyOutDir: true
+		emptyOutDir: true,
+		modulePreload: process.env.NODE_ENV === "development"
 	},
 	server: {
 		open: true

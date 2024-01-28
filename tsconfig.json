@@ -5,11 +5,16 @@
 		"moduleResolution": "bundler",
 		"lib": ["esnext", "dom", "dom.iterable"],
 		"strict": true,
+		"isolatedModules": true,
 		"noUncheckedIndexedAccess": true,
 		"skipLibCheck": true,
 		"verbatimModuleSyntax": true,
 		"forceConsistentCasingInFileNames": true,
 		"moduleDetection": "force",
-		"noEmit": true
+		"noEmit": true,
+		"types": [
+			"node_modules/@types",
+			"vite/client"
+		]
 	}
 }
