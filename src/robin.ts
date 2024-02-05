@@ -1,5 +1,13 @@
 if (process.env.NODE_ENV === "production") {
-	const { inject } = await import("@vercel/analytics");
+	const [
+		{ injectSpeedInsights },
+		{ inject }
+	] = await Promise.all([
+		import("@vercel/speed-insights"),
+		import("@vercel/analytics")
+	]);
+
+	injectSpeedInsights();
 	inject();
 }
 
