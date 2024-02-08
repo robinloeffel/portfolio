@@ -1,28 +1,27 @@
 @use "variables";
-@use "mixins";
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+	min-width: 0;
+	padding: 0;
+	margin: 0;
+}
 
 body {
-	font-family: variables.$font-family;
+	font-family: "Inter Variable", sans-serif;
 	font-size: variables.$font-size-base;
-	line-height: variables.$line-height-loose;
-	color: variables.$color-cloud;
-	background-color: variables.$color-slate;
+	line-height: variables.$line-height-base;
+	color: variables.$color-grey-dark;
 }
 
-h1,
-h2,
-h3 {
-	line-height: variables.$line-height-tight;
+a {
+	color: inherit;
 }
 
-h1 {
-	font-size: variables.$font-size-h1;
-}
-
-h2 {
-	font-size: variables.$font-size-h2;
-}
-
-h3 {
-	font-size: variables.$font-size-h3;
+img {
+	display: block;
+	max-width: 100%;
+	height: auto;
 }
