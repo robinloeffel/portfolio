@@ -14,7 +14,7 @@
 </header>
 
 <style lang="scss">
-	@use "../../scss/variables";
+	@use "$styles/variables";
 
 	.page-hero {
 		display: grid;
@@ -24,17 +24,17 @@
 	}
 
 	.title {
-		font-size: variables.$font-size-big;
+		font-size: variables.$font-size-h1;
 		font-weight: variables.$font-weight-extra-bold;
 		color: variables.$color-black;
 	}
 
 	.caption {
-		font-size: variables.$font-size-medium;
+		font-size: variables.$font-size-h2;
 	}
 
 	.link {
-		font-size: variables.$font-size-small;
+		font-size: variables.$font-size-h3;
 		color: variables.$color-grey-light;
 	}
 </style>

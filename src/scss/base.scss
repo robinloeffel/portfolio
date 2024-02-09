@@ -26,13 +26,15 @@
 	min-width: 0;
 	padding: 0;
 	margin: 0;
+	outline-offset: 10px;
 }
 
 body {
 	font-family: "Inter Variable", sans-serif;
-	font-size: variables.$font-size-base;
+	font-size: variables.$font-size-body;
 	line-height: variables.$line-height-base;
 	color: variables.$color-grey-dark;
+	background-color: #eee;
 }
 
 a {
