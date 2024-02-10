@@ -4,7 +4,7 @@
 </script>
 
 <PageTitle
-	caption='senior frontend engineer at <a href="https://deptagency.com">dept</a> and freelance web designer'
+	caption='senior frontend engineer at <a href="https://deptagency.com">dept</a>'
 />
 
 <main class="subgrid">

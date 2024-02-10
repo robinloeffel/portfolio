@@ -10,6 +10,7 @@
 	gap: variables.$space-padding variables.$space-gutter;
 	width: min(100%, 1440px);
 	padding: variables.$space-padding;
+	margin: 0 auto;
 }
 
 .subgrid {
