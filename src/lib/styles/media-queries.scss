@@ -1,0 +1,23 @@
+@mixin above-640 {
+	@media (width > 640px) {
+		@content;
+	}
+}
+
+@mixin above-768 {
+	@media (width > 768px) {
+		@content;
+	}
+}
+
+@mixin above-1024 {
+	@media (width > 1024px) {
+		@content;
+	}
+}
+
+@mixin above-1280 {
+	@media (width > 1280px) {
+		@content;
+	}
+}

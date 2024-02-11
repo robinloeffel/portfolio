@@ -10,21 +10,24 @@
 		"preview": "vite preview"
 	},
 	"devDependencies": {
-		"@fontsource-variable/inter": "^5.0.16",
 		"@sveltejs/adapter-vercel": "^5.1.0",
+		"@sveltejs/enhanced-img": "^0.1.8",
 		"@sveltejs/kit": "^2.5.0",
 		"@sveltejs/vite-plugin-svelte": "^3.0.2",
+		"browserslist": "^4.22.3",
+		"browserslist-to-esbuild": "^2.1.1",
 		"eslint": "^8.56.0",
 		"eslint-config-sweet": "^18.0.0",
 		"eslint-define-config": "^2.1.0",
 		"eslint-plugin-svelte": "^2.35.1",
+		"postcss-preset-env": "^9.3.0",
 		"sass": "^1.70.0",
 		"stylelint": "^16.2.1",
 		"stylelint-config-sweet": "^1.0.2",
 		"stylelint-define-config": "^1.1.0",
 		"svelte": "^4.2.10",
+		"svelte-define-config": "^1.0.0",
 		"typescript": "^5.3.3",
-		"unplugin-imagemin": "^0.5.18",
 		"vite": "^5.1.1"
 	}
 }

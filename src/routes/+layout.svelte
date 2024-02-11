@@ -1,6 +1,5 @@
 <script lang="ts">
-	import "$styles/base.scss";
-	import "@fontsource-variable/inter";
+	import "$lib/styles/base.scss";
 </script>
 
 <div class="grid">
