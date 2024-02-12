@@ -5,10 +5,11 @@
 <style lang="scss">
 	@use "$lib/styles/variables";
 
-	.title {
-		position: relative;
+	.header {
 		font-size: variables.$font-size-h1;
-		font-weight: variables.$font-weight-extra-bold;
+	}
+
+	.title {
 		color: transparent;
 		background-image:
 			linear-gradient(
@@ -18,7 +19,6 @@
 				variables.$color-malibu
 			);
 		background-clip: text;
-		isolation: isolate;
 		animation: hue-rotate 10s linear infinite alternate;
 	}
 
