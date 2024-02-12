@@ -1,14 +1,15 @@
-import browserslist from "browserslist-to-esbuild";
 import { defineConfig } from "vite";
+import browserslist from "browserslist-to-esbuild";
+import { sveltekit } from "@sveltejs/kit/vite";
 
 export default defineConfig({
-	root: "src",
 	build: {
-		outDir: "../dist",
-		emptyOutDir: true,
 		target: browserslist()
 	},
+	plugins: [
+		sveltekit()
+	],
 	server: {
-		open: true
+		open: process.env.NODE_ENV === "development"
 	}
 });

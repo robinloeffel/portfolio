@@ -1,0 +1,36 @@
+@use "variables";
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+	outline-offset: 10px;
+}
+
+body {
+	font-family: "Inter Variable", system-ui;
+	font-size: variables.$font-size-body;
+	line-height: variables.$line-height-base;
+	color: variables.$color-white;
+	background-color: variables.$color-black;
+}
+
+a {
+	color: inherit;
+}
+
+h1 {
+	font-weight: variables.$font-weight-extra-bold;
+	line-height: variables.$line-height-tight;
+}
+
+.app {
+	display: grid;
+	gap: 4rem;
+	place-content: center;
+	height: max(480px, 100dvh);
+	padding: 10dvw;
+	text-align: center;
+}
