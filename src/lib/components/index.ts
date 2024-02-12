@@ -1,2 +1,3 @@
-export { default as PageHero } from "./page-hero.svelte";
-export { default as Project } from "./project.svelte";
+export { default as Header } from "./header.svelte";
+export { default as Main } from "./main.svelte";
+export { default as Footer } from "./footer.svelte";

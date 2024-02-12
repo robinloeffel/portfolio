@@ -5,6 +5,9 @@ import { defineConfig } from "svelte-define-config";
 export default defineConfig({
 	preprocess: vitePreprocess(),
 	kit: {
-		adapter: adapter()
+		adapter: adapter(),
+		prerender: {
+			handleMissingId: "ignore"
+		}
 	}
 });
