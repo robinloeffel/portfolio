@@ -5,9 +5,6 @@
 	import { Header, Main, Footer } from "$lib/components";
 </script>
 
-<svelte:head>
-</svelte:head>
-
 <Header />
 <Main />
 <Footer />

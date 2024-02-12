@@ -1,5 +1,5 @@
 <header class="header">
-	<h1 class="title">robin löffel</h1>
+	<h1 class="title">Robin Löffel</h1>
 </header>
 
 <style lang="scss">

@@ -1,7 +1,7 @@
 <main class="main">
 	<p>
-		<span>senior frontend engineer at</span>
-		<a href="https://deptagency.com">dept</a>
+		<span>Senior Frontend Engineer at</span>
+		<a href="https://deptagency.com">DEPT</a>
 	</p>
 </main>
 

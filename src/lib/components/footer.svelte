@@ -6,9 +6,9 @@
 
 <footer class="footer">
 	<p>
-		<a class="link" href="#email" on:click|preventDefault={openEmail}>email</a>
-		<a class="link" href="https://linkedin.com/in/robinloeffel">linkedin</a>
-		<a class="link" href="https://github.com/robinloeffel">github</a>
+		<a class="link" href="#email" on:click|preventDefault={openEmail}>Email</a>
+		<a class="link" href="https://linkedin.com/in/robinloeffel">LinkedIn</a>
+		<a class="link" href="https://github.com/robinloeffel">GitHub</a>
 	</p>
 </footer>
 
