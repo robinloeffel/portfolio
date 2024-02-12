@@ -8,7 +8,7 @@
 		"dev": "vite dev",
 		"build": "vite build",
 		"preview": "vite preview",
-		"prepare": "svelte-kit sync"
+		"prebuild": "svelte-kit sync"
 	},
 	"devDependencies": {
 		"@fontsource-variable/inter": "^5.0.16",
