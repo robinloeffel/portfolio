@@ -1,7 +1,7 @@
 <main class="main">
 	<p>
 		<span>Senior Frontend Engineer at</span>
-		<a href="https://deptagency.com">DEPT</a>
+		<a data-umami-event="dept-link" href="https://deptagency.com">DEPT</a>
 	</p>
 </main>
 
