@@ -8,8 +8,5 @@ export default defineConfig({
 	},
 	plugins: [
 		sveltekit()
-	],
-	server: {
-		open: process.env.NODE_ENV === "development"
-	}
+	]
 });
