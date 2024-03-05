@@ -8,6 +8,10 @@ export default defineConfig({
 		adapter: adapter(),
 		prerender: {
 			handleMissingId: "ignore"
+		},
+		alias: {
+			$styles: "./src/lib/styles",
+			$components: "./src/lib/components"
 		}
 	}
 });

@@ -13,7 +13,7 @@
 </footer>
 
 <style lang="scss">
-	@use "$lib/styles/variables";
+	@use "$styles/variables";
 
 	.footer {
 		font-size: variables.$font-size-h3;

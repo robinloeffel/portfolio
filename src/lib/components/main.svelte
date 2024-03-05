@@ -6,7 +6,7 @@
 </main>
 
 <style lang="scss">
-	@use "$lib/styles/variables";
+	@use "$styles/variables";
 
 	.main {
 		font-size: variables.$font-size-h2;

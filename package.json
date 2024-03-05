@@ -4,31 +4,33 @@
 	"private": true,
 	"type": "module",
 	"scripts": {
-		"start": "vite dev",
-		"dev": "vite dev",
 		"build": "vite build",
+		"dev": "vite dev",
+		"prepare": "svelte-kit sync",
 		"preview": "vite preview",
-		"prebuild": "svelte-kit sync"
+		"start": "vite dev"
 	},
 	"devDependencies": {
-		"@fontsource-variable/inter": "^5.0.16",
+		"@fontsource-variable/inter": "^5.0.17",
 		"@sveltejs/adapter-vercel": "^5.1.0",
-		"@sveltejs/kit": "^2.5.1",
+		"@sveltejs/kit": "^2.5.2",
 		"@sveltejs/vite-plugin-svelte": "^3.0.2",
+		"@types/html-minifier-terser": "^7.0.2",
 		"browserslist": "^4.23.0",
 		"browserslist-to-esbuild": "^2.1.1",
-		"eslint": "^8.56.0",
-		"eslint-config-sweet": "^18.0.0",
+		"eslint": "^8.57.0",
+		"eslint-config-sweet": "^19.0.2",
 		"eslint-define-config": "^2.1.0",
 		"eslint-plugin-svelte": "^2.35.1",
+		"html-minifier-terser": "^7.2.0",
 		"postcss-preset-env": "^9.4.0",
 		"sass": "^1.71.1",
 		"stylelint": "^16.2.1",
 		"stylelint-config-sweet": "^1.0.2",
 		"stylelint-define-config": "^1.2.0",
-		"svelte": "^4.2.11",
+		"svelte": "^4.2.12",
 		"svelte-define-config": "^1.0.0",
 		"typescript": "^5.3.3",
-		"vite": "^5.1.4"
+		"vite": "^5.1.5"
 	}
 }

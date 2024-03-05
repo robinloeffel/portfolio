@@ -1,4 +1,8 @@
 @use "variables";
+@use "@fontsource-variable/inter/scss/mixins" as Inter;
+@include Inter.faces(
+	$directory: "@fontsource-variable/inter/files",
+);
 
 *,
 *::before,

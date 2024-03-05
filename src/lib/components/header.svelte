@@ -3,7 +3,7 @@
 </header>
 
 <style lang="scss">
-	@use "$lib/styles/variables";
+	@use "$styles/variables";
 
 	.header {
 		font-size: variables.$font-size-h1;
