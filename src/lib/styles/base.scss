@@ -15,11 +15,11 @@
 
 body {
 	font-family: "Inter Variable", system-ui;
+	font-size: variables.$font-size-base;
 	line-height: variables.$line-height-base;
 	color: variables.$color-white;
 	text-wrap: balance;
 	text-rendering: optimizelegibility;
-	text-decoration-skip-ink: all;
 	background-color: variables.$color-black;
 }
 
@@ -34,7 +34,7 @@ h1 {
 
 .app {
 	display: grid;
-	gap: 3rem;
+	gap: 2rem;
 	place-content: center;
 	height: max(480px, 100dvh);
 	padding: 10dvw;

@@ -11,11 +11,3 @@
 		<a data-umami-event="github-link" href="https://github.com/robinloeffel">GitHub</a>
 	</p>
 </footer>
-
-<style lang="scss">
-	@use "$styles/variables";
-
-	.footer {
-		font-size: variables.$font-size-h3;
-	}
-</style>
