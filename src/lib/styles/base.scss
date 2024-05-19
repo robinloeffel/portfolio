@@ -1,7 +1,8 @@
 @use "variables";
 @use "@fontsource-variable/inter/scss/mixins" as Inter;
 @include Inter.faces(
-	$directory: "@fontsource-variable/inter/files",
+	$subsets: "latin",
+	$directory: "@fontsource-variable/inter/files"
 );
 
 *,
@@ -15,7 +16,6 @@
 
 body {
 	font-family: "Inter Variable", system-ui;
-	font-size: variables.$font-size-base;
 	line-height: variables.$line-height-base;
 	color: variables.$color-white;
 	text-wrap: balance;
@@ -28,8 +28,17 @@ a {
 }
 
 h1 {
+	font-size: variables.$font-size-h1;
 	font-weight: variables.$font-weight-extra-bold;
 	line-height: variables.$line-height-tight;
+}
+
+main {
+	font-size: variables.$font-size-h2;
+}
+
+footer {
+	font-size: variables.$font-size-base;
 }
 
 .app {
@@ -37,6 +46,6 @@ h1 {
 	gap: 2rem;
 	place-content: center;
 	height: max(480px, 100dvh);
-	padding: 10dvw;
+	padding: 2rem;
 	text-align: center;
 }

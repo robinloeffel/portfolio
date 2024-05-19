@@ -1,13 +1,9 @@
-<header class="header">
+<header>
 	<h1 class="title">Robin Löffel</h1>
 </header>
 
 <style lang="scss">
 	@use "$styles/variables";
-
-	.header {
-		font-size: variables.$font-size-h1;
-	}
 
 	.title {
 		color: transparent;

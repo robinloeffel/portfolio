@@ -11,7 +11,8 @@ export default defineConfig({
 		},
 		alias: {
 			$styles: "./src/lib/styles",
-			$components: "./src/lib/components"
+			$components: "./src/lib/components",
+			$assets: "./src/lib/assets"
 		}
 	}
 });
