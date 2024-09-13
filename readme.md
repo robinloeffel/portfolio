@@ -1,1 +1,1 @@
-[![](screenshot.png)](https://robinloeffel.ch)
+![](https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExYWYyMjI4N254NDAwd2wwbnczZmVyaW5kcWRvNzY5MmVobDNxYmN0OCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/NEvPzZ8bd1V4Y/giphy.gif)

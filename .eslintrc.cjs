@@ -13,12 +13,17 @@ module.exports = defineConfig({
 		},
 		extends: "plugin:svelte/recommended",
 		rules: {
-			"init-declarations": "off",
-			"unicorn/no-null": "off",
-			"svelte/block-lang": [ "error", { script: "ts", style: "scss" }],
-			"svelte/indent": [ "error", { indent: "tab" }],
-			"svelte/mustache-spacing": "error",
-			"svelte/sort-attributes": "error"
+			"@stylistic/indent": "off",
+			"@typescript-eslint/init-declarations": "off",
+
+			"svelte/block-lang": [ "error", {
+				script: "ts",
+				style: "scss"
+			}],
+			"svelte/indent": [ "error", {
+				indent: "tab"
+			}],
+			"svelte/mustache-spacing": "error"
 		}
 	}]
 });
