@@ -1,0 +1,79 @@
+@import "@fontsource-variable/inter";
+
+:root {
+	/* colors */
+	--color-black: #111;
+	--color-white: #eee;
+	--color-coral: #fa8072;
+	--color-orange: #daa520;
+	--color-malibu: #87ceeb;
+
+	/* typo */
+	--font-size-h1: 4rem;
+	--font-size-h2: 1.5rem;
+	--font-size-base: 1.25rem;
+	--font-weight-extra-bold: 800;
+	--line-height-base: 1.6;
+	--line-height-tight: 1.2;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+	outline-offset: 8px;
+}
+
+body {
+	display: grid;
+	gap: 2rem;
+	place-content: center;
+	height: max(480px, 100dvh);
+	padding: 2rem;
+	font-family: "Inter Variable", system-ui;
+	line-height: var(--line-height-base);
+	color: var(--color-white);
+	text-align: center;
+	text-wrap: balance;
+	background-color: var(--color-black);
+	text-rendering: optimizelegibility;
+}
+
+a {
+	color: inherit;
+}
+
+h1 {
+	font-size: var(--font-size-h1);
+	font-weight: var(--font-weight-extra-bold);
+	line-height: var(--line-height-tight);
+}
+
+main {
+	font-size: var(--font-size-h2);
+}
+
+footer {
+	font-size: var(--font-size-base);
+}
+
+.title {
+	color: transparent;
+	background-image:
+		linear-gradient(
+			to right,
+			var(--color-coral),
+			var(--color-orange),
+			var(--color-malibu)
+		);
+	background-clip: text;
+	animation: hue-rotate 10s linear infinite alternate;
+}
+
+@keyframes hue-rotate {
+	to {
+		filter: hue-rotate(1turn);
+	}
+}
