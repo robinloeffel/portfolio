@@ -10,12 +10,12 @@
 	},
 	"dependencies": {
 		"@fontsource-variable/inter": "^5.1.0",
-		"eslint": "^9.16.0",
-		"eslint-config-sweet": "^22.0.0",
+		"eslint": "^9.17.0",
+		"eslint-config-sweet": "^22.1.2",
 		"robins-tsconfig": "^1.0.0",
-		"stylelint": "^16.11.0",
+		"stylelint": "^16.12.0",
 		"stylelint-config-sweet": "^3.0.0",
 		"typescript": "^5.7.2",
-		"vite": "^6.0.2"
+		"vite": "^6.0.5"
 	}
 }
