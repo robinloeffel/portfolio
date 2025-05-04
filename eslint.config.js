@@ -1,11 +1,13 @@
 import sweet from "eslint-config-sweet";
+import { config } from "typescript-eslint";
 
-/** @type {import("typescript-eslint").Config} */
-export default [
-  ...sweet,
+export default config(
+  sweet,
   {
     rules: {
-      "unicorn/prefer-dom-node-dataset": 0
+      "github/no-dynamic-script-tag": 0,
+      "unicorn/prefer-dom-node-dataset": 0,
+      "unicorn/prefer-global-this": 0
     }
   }
-];
+);

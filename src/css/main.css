@@ -27,11 +27,13 @@
 }
 
 body {
+  position: relative;
   display: grid;
   gap: 2rem;
   place-content: center;
   height: max(480px, 100dvh);
   padding: 2rem;
+  overflow: clip;
   font-family: "Inter Variable", system-ui;
   line-height: var(--line-height-base);
   color: var(--color-white);
@@ -39,6 +41,26 @@ body {
   text-wrap: balance;
   background-color: var(--color-black);
   text-rendering: optimizelegibility;
+
+  &::after {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    content: "";
+    background-image:
+      radial-gradient(circle, var(--color-coral) 100px, transparent 100px),
+      radial-gradient(circle, var(--color-orange) 100px, transparent 100px),
+      radial-gradient(circle, var(--color-malibu) 100px, transparent 100px);
+    background-repeat: no-repeat;
+    background-position:
+      50% 50%,
+      calc(50% - 50px) calc(50% - 50px),
+      calc(50% + 50px) calc(50% + 50px);
+    background-size: 200px 200px;
+    opacity: 0.25;
+    animation: background-rotate 30s linear infinite forwards;
+  }
 }
 
 a {
@@ -49,17 +71,6 @@ h1 {
   font-size: var(--font-size-h1);
   font-weight: var(--font-weight-extra-bold);
   line-height: var(--line-height-tight);
-}
-
-main {
-  font-size: var(--font-size-h2);
-}
-
-footer {
-  font-size: var(--font-size-base);
-}
-
-.title {
   color: transparent;
   background-image:
     linear-gradient(
@@ -72,8 +83,27 @@ footer {
   animation: hue-rotate 10s linear infinite alternate;
 }
 
+main {
+  font-size: var(--font-size-h2);
+}
+
+footer {
+  font-size: var(--font-size-base);
+}
+
 @keyframes hue-rotate {
   to {
     filter: hue-rotate(1turn);
+  }
+}
+
+@keyframes background-rotate {
+  from {
+    filter: blur(200px);
+  }
+
+  to {
+    filter: hue-rotate(-1turn) blur(200px);
+    rotate: 1turn;
   }
 }
