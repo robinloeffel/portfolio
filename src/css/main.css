@@ -99,11 +99,11 @@ footer {
 
 @keyframes background-rotate {
   from {
-    filter: blur(200px);
+    filter: blur(50px);
   }
 
   to {
-    filter: hue-rotate(-1turn) blur(200px);
+    filter: hue-rotate(1turn) blur(50px);
     rotate: 1turn;
   }
 }
