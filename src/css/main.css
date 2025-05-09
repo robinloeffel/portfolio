@@ -44,8 +44,10 @@ body {
 
   &::after {
     position: absolute;
-    inset: 0;
     z-index: -1;
+    place-self: center;
+    width: 250px;
+    height: 250px;
     pointer-events: none;
     content: "";
     background-image:
@@ -58,7 +60,7 @@ body {
       calc(50% - 50px) calc(50% - 50px),
       calc(50% + 50px) calc(50% + 50px);
     background-size: 200px 200px;
-    opacity: 0.25;
+    opacity: 0.4;
     animation: background-rotate 30s linear infinite forwards;
     will-change: filter, rotate;
   }
