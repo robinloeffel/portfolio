@@ -60,6 +60,7 @@ body {
     background-size: 200px 200px;
     opacity: 0.25;
     animation: background-rotate 30s linear infinite forwards;
+    will-change: filter, rotate;
   }
 }
 
@@ -81,6 +82,7 @@ h1 {
     );
   background-clip: text;
   animation: hue-rotate 10s linear infinite alternate;
+  will-change: filter;
 }
 
 main {
