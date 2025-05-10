@@ -1,4 +1,9 @@
-@import "@fontsource-variable/inter";
+@use "@fontsource-variable/inter/scss" as inter;
+@use "@fontsource-utils/scss" as fontsource;
+@include fontsource.faces(
+  $metadata: inter.$metadata,
+  $subsets: "latin"
+);
 
 :root {
   /* colors */
