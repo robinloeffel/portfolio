@@ -19,7 +19,7 @@
   --font-size-base: 1.25rem;
   --font-weight-extra-bold: 800;
   --line-height-base: 1.6;
-  --line-height-tight: 1.2;
+  --line-height-tight: 1.1;
 }
 
 *,
@@ -36,9 +36,9 @@ body {
   display: grid;
   gap: 2rem;
   place-content: center;
+  place-items: center;
   height: max(480px, 100dvh);
   padding: 2rem;
-  overflow: clip;
   font-family: "Inter Variable", system-ui;
   line-height: var(--line-height-base);
   color: var(--color-white);
@@ -49,25 +49,19 @@ body {
 
   &::after {
     position: absolute;
-    z-index: -1;
-    place-self: center;
     width: 250px;
     height: 250px;
-    pointer-events: none;
     content: "";
     background-image:
-      radial-gradient(circle, var(--color-coral) 100px, transparent 100px),
-      radial-gradient(circle, var(--color-orange) 100px, transparent 100px),
-      radial-gradient(circle, var(--color-malibu) 100px, transparent 100px);
+      radial-gradient(var(--color-coral) 50%, transparent 50%),
+      radial-gradient(var(--color-orange) 50%, transparent 50%),
+      radial-gradient(var(--color-malibu) 50%, transparent 50%);
     background-repeat: no-repeat;
-    background-position:
-      50% 50%,
-      calc(50% - 50px) calc(50% - 50px),
-      calc(50% + 50px) calc(50% + 50px);
-    background-size: 200px 200px;
-    opacity: 0.4;
+    background-position: 0 0, 50% 50%, 100% 100%;
+    background-size: 75% 75%;
+    opacity: 0.5;
     animation: background-rotate 30s linear infinite forwards;
-    will-change: filter, rotate;
+    contain: strict;
   }
 }
 
@@ -89,7 +83,7 @@ h1 {
     );
   background-clip: text;
   animation: hue-rotate 10s linear infinite alternate;
-  will-change: filter;
+  contain: content;
 }
 
 main {
@@ -108,7 +102,8 @@ footer {
 
 @keyframes background-rotate {
   from {
-    filter: blur(50px);
+    filter: hue-rotate(0turn) blur(50px);
+    rotate: 0turn;
   }
 
   to {
