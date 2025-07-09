@@ -11,14 +11,14 @@
   "dependencies": {
     "@fontsource-utils/scss": "^0.2.1",
     "@fontsource-variable/inter": "^5.2.6",
-    "eslint": "^9.29.0",
-    "eslint-config-sweet": "^26.0.0",
+    "eslint": "^9.30.1",
+    "eslint-config-sweet": "^27.0.0",
     "robins-tsconfig": "^2.0.0",
     "sass": "^1.89.2",
-    "stylelint": "^16.21.0",
-    "stylelint-config-sweet": "^5.1.0",
+    "stylelint": "^16.21.1",
+    "stylelint-config-sweet": "^6.1.0",
     "typescript": "^5.8.3",
-    "vite": "^6.3.5"
+    "vite": "^7.0.3"
   },
   "engines": {
     "node": "^22"

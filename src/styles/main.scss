@@ -52,6 +52,7 @@ body {
     z-index: -1;
     width: 250px;
     height: 250px;
+    contain: strict;
     content: "";
     background-image:
       radial-gradient(var(--color-coral) 50%, transparent 50%),
@@ -62,7 +63,6 @@ body {
     background-size: 75% 75%;
     opacity: 0.5;
     animation: background-rotate 30s linear infinite forwards;
-    contain: strict;
   }
 }
 
@@ -71,6 +71,7 @@ a {
 }
 
 h1 {
+  contain: content;
   font-size: var(--font-size-h1);
   font-weight: var(--font-weight-extra-bold);
   line-height: var(--line-height-tight);
@@ -84,7 +85,6 @@ h1 {
     );
   background-clip: text;
   animation: hue-rotate 10s linear infinite alternate;
-  contain: content;
 }
 
 main {
