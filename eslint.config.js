@@ -1,11 +1,11 @@
 import sweet from "eslint-config-sweet";
+import { defineConfig } from "eslint/config";
 
-/** @type {typeof sweet} */
-export default [
-  ...sweet,
+export default defineConfig(
+  sweet,
   {
     rules: {
       "unicorn/prefer-global-this": 0
     }
   }
-];
+);
