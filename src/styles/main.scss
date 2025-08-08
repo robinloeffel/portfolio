@@ -68,6 +68,10 @@ body {
 
 a {
   color: inherit;
+
+  &[aria-label]::after {
+    content: attr(aria-label);
+  }
 }
 
 h1 {
