@@ -12,7 +12,7 @@
     "eslint": "^9.38.0",
     "eslint-config-sweet": "^29.0.0",
     "robins-tsconfig": "^2.0.0",
-    "sass": "^1.93.2",
+    "sass": "^1.93.3",
     "stylelint": "^16.25.0",
     "stylelint-config-sweet": "^7.0.0",
     "typescript": "^5.9.3",
