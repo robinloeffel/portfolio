@@ -1,0 +1,5 @@
+# https://contentsignals.org
+
+User-Agent: *
+Content-Signal: search=yes, ai-train=no, ai-input=no
+Allow: /

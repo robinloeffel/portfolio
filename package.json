@@ -9,13 +9,13 @@
     "start": "vite dev --host"
   },
   "dependencies": {
-    "eslint": "^9.38.0",
+    "eslint": "^9.39.1",
     "eslint-config-sweet": "^29.0.0",
     "robins-tsconfig": "^2.0.0",
     "sass": "^1.93.3",
     "stylelint": "^16.25.0",
     "stylelint-config-sweet": "^7.0.0",
     "typescript": "^5.9.3",
-    "vite": "^7.1.12"
+    "vite": "^7.2.2"
   }
 }
