@@ -1,11 +1,5 @@
 @forward "font";
 
-@property --rotation {
-  syntax: "<angle>";
-  inherits: false;
-  initial-value: 0deg;
-}
-
 :root {
   /* colors */
   --color-black: #111;
@@ -63,18 +57,14 @@ body {
     background-position: 0 0, 50% 50%, 100% 100%;
     background-size: 75% 75%;
     opacity: 0.5;
-    filter: blur(50px) hue-rotate(var(--rotation));
-    rotate: var(--rotation);
-    animation: rotate 30s linear infinite forwards;
+    filter: blur(50px);
+    animation: body-rotate 30s linear infinite forwards;
+    will-change: rotate, filter;
   }
 }
 
 a {
   color: inherit;
-
-  &[aria-label]::after {
-    content: attr(aria-label);
-  }
 }
 
 h1 {
@@ -91,8 +81,8 @@ h1 {
       var(--color-malibu)
     );
   background-clip: text;
-  filter: hue-rotate(var(--rotation));
-  animation: rotate 10s linear infinite alternate;
+  animation: heading-rotate 10s linear infinite alternate;
+  will-change: filter;
 }
 
 main {
@@ -103,8 +93,15 @@ footer {
   font-size: var(--font-size-base);
 }
 
-@keyframes rotate {
+@keyframes heading-rotate {
   to {
-    --rotation: 360deg;
+    filter: hue-rotate(360deg);
+  }
+}
+
+@keyframes body-rotate {
+  to {
+    filter: blur(50px) hue-rotate(360deg);
+    rotate: 360deg;
   }
 }
