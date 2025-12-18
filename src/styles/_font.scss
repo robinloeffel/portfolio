@@ -1,6 +1,0 @@
-@use "@fontsource-utils/scss" as fontsource;
-@use "@fontsource-variable/inter/scss" as inter;
-@include fontsource.faces(
-  $metadata: inter.$metadata,
-  $subsets: "latin"
-)
